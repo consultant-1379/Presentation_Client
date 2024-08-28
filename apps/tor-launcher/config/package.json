@@ -1,0 +1,7 @@
+{
+    "name": "tor-launcher",
+    "version": "@VERSION@",
+    "dependencies": {
+        "titan": "0.0.6"
+    }
+}

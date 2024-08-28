@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="AnrFunction" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Contains parameters and constraints for Automatic Neighbor Relations (ANR) functions, such as adding or removing neighbor cells.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="AnrFunctionId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellAddRankLimitEutran" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Threshold value for reported rank for a cell to be automatically added as neighbor.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellAddRsrpOffsetEutran" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Threshold offset value for reported power for a cell to be automatically added as neighbor.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-300" max="300"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-10"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellAddRsrpThresholdEutran" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Threshold value for reported power for a cell to be automatically added as neighbor.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1440" max="0"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1440"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellAddRsrqOffsetEutran" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Threshold offset value for reported quality for a cell to be automatically added as neighbor.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-300" max="300"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-10"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellAddRsrqThresholdEutran" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Threshold value for reported quality for a cell to be automatically added as neighbor.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1920" max="0"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1920"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="hoAllowedEutranPolicy" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Starting value of the attribute isHoAllowed when a EUtranCellRelation is created by Automated Neighbor Relations (ANR).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="removeNcellTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The length of time that neighbor cells without any neighbor relations remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor cell MO is removed within 1 minute. Ericsson strongly recommend that value 0 shall not be used, due to the fact that when setting this value to 0, this might lead to that X2 connections are removed together with all external cells and are setup once again every minute this causes one a network level a huge pressure one the nodes.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="removeNenbTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The length of time that neighbor RBSs without any neighbor cells remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor RBS MO is removed within 1 minute.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="7"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="removeNrelTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The length of time that neighbor relations without any communication to the neighbor cell remain in the RBS. 1000 means no automatic removal is performed. If set to 0, the neighbor relation MO is removed within 1 minute. Ericsson strongly recommend that value 0 shall not be used, due to the fact that when setting this value to 0, then new CGI measurements is performed, for any relation not used for handover already after 1 minute of not being used. 
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="x2SetupPolicy" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates if X2 is set up when an ExternalEnbFunction not in the x2BlackList is created by Automated Neighbor Relations (ANR).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="anrUesEUtraIntraFMax" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The maximum target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports. The actual number of UEs with these thresholds may deviate from the target.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="20"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="anrUesEUtraIntraFMin" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The minimum target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports. The actual number of UEs with these thresholds may deviate from the target.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="anrUesEUtraIntraFDecr" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The decrease in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report is received with only known neighbor cells.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="10"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="anrUesEUtraIntraFIncrHo" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The increase in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report for handover is received with unknown neighbor cells.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="anrUesEUtraIntraFIncrAnr" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The increase in the target number of UEs in each cell that are assigned Automated Neighbor Relations (ANR)-specific thresholds for E-UTRAN intra-frequency neighbor cell reports, every time a neighbor cell report for ANR is received with unknown neighbor cells.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="20"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary3" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary4" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary5" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-2000000000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary6" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-2000000000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="zzzTemporary7" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Temporary attributes are intended for temporary solutions, and their usage may vary depending on the installed software. It is strongly recommended to only set the attributes that correspond to a desired functionality and leave all other temporary attributes set to default value. Information in the descriptions about what attributes are in use may be overridden by the information in CPI Info documents. Note that a later release may use another attribute to control the functionality previously provided by a temporary attribute, or may remove the functionality altogether. In these cases, the change is documented in the NIR.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-2000000000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="prioTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the weight of &quot;time since last use&quot; when determining the relation priority. The priority is used when deciding which relation to remove, when too many relations have been added. The priority is also used when determining which UTRAN cell to perform mobility measurements for.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="prioHoSuccRate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the weight of &quot;handover success rate&quot; when determining the relation priority. The priority is used when deciding which relation to remove, when too many relations have been added. The priority is also used when determining which UTRAN cell to perform mobility measurements for.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="prioHoRate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the weight of &quot;handover rate&quot; when determining the relation priority. The priority is used when deciding which relation to remove, when too many relations have been added. The priority is also used when determining which UTRAN cell to perform mobility measurements for.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxNoPciReportsInact" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines a maximal value of reports that any UE has to provide the ANR function with based on periodical PCI measurements, that is used to measure on Utran and Geran neighbors. 
+				Special Value: 0 means infinity.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxTimeEventBasedPciConf" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines a maximal time that any UE has to assist ANR function with event based measurements, that is sued to measure on Eutran neighbors.
+				Special Value: 0 means infinity.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1440"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxNoPciReportsEvent" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines a maximal value of reports that any UE has to provide the ANR function with on event based measurements, that is sued to measure on Eutran neighbors.
+				Special Value: 0 means infinity.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="15"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

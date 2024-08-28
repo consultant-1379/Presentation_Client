@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="EthernetLink" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Ethernet Link
+			
+			This MO represents the Internet Protocol over Ethernet link. There is a maximum of just one EthernetLink MO on the node.
+			
+			Up to 5 unique IPv4 addresses can be assigned to this MO. The addresses are stored in a list in the attribute ipv4Addresses. The first entry of the address list is a candidate to be used as a node OAM IP address, which is configured in the Ip MO.
+			
+			The EthernetLink MO cannot be deleted, if its first IP address is used as a node OAM IP address. Refer to the attribute nodeInterfaceName in the Ip MO for details.
+			
+			The PM counters in the EthernetLink MO have a wrap-around time of approximately two hours.
+			
+			Disturbances: Changing attributes of this MO can cause interruption of the OAM communication if the network management tool is connected via the Ethernet link. If there are any doubts regarding the results of the attribute changes, it is strongly recommended to activate the robust rollback function, by setting the attribute configCountdownActivated on the ConfigurationVersion MO first.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="EthernetLinkId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="interfaceName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The interface name.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="ipAddress" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the first IPv4 address of the Ethernet link. This attribute together with the attributes broadcastAddress and subnetMask is also represented by the first element of the attribute ipv4Addresses.
+				
+				The input format for an IPv4 address is four fields of digits, separated by a dot. Each field consists of one to three digits. The address must not be a broadcast or multicast address.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="subnetMask" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>States the subnet mask for the first IPv4 address of the Ethernet link.
+				
+				This attribute together with the attributes ipAddress and broadcastAddress, is also represented by the first element of the attribute ipv4Addresses.
+				
+				This attribute and the attribute ipv4Addresses must not be set in the same transaction.
+				
+				The input format for an IPv4 address is four fields of digits, separated by a dot. Each field consists of one to three digits.
+				
+				The subnet mask must be contiguous.
+				
+				Example:
+				255.255.255.X
+				
+				Contiguous subnet masks:
+				11111111.11111111.11111111.11111110 (X = 254)
+				11111111.11111111.11111111.11111100 (X = 252)
+				
+				Non-contiguous subnet mask:
+				11111111.11111111.11111111.11111010 (X = 250)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="broadcastAddress" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the first IPv4 broadcast address for the Ethernet link.
+				
+				This attribute, together with the attributes ipAddress and subnetMask, is also represented by the first element of the attribute ipv4Addresses.
+				
+				This attribute and the attribute ipv4Addresses must not be set in the same transaction.
+				
+				The input format for an IPv4 address is four fields of digits, separated by a dot. Each field consists of one to three digits.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mtuSize" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Maximum transmission Unit for the Ethernet link.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="576" max="9000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1500"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="metric" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the metric of the Ethernet link. The metric value is calculated as 10^8 divided by the link bit speed.
+				
+				For example:
+				Metric for 10 Mbps Ethernet = 10^8/10^7 = 10
+				Metric for 100 Mbps or faster Ethernet = 10^8/10^8 = 1
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="32767"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				
+				This attribute is dependent of the operational states of the underlying MAUs that represent the Ethernet transceiver function. If there is at least one operational MAU, the operationalState of EthernetLink is set to ENABLED.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="macAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The MAC address is persistently stored in the flash PROM on the MP where the IP stack resides. It is stored there when the board is manufactured.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of MO instances that reserve this MO instance.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status.
+				
+				It contains details about operationalState.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfInUcastPkts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of input unicast packets delivered to higher layer.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfInNUcastPkts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of input broadcast or multicast packets delivered to higher layer.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfOutUcastPkts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets that higher-level protocols requested to be transmitted to a subnetwork-unicast address.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfInErrors" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of input packets discarded due to any error.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfInDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of input packets discarded due to resource limitations.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfOutNUcastPkts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of transmitted outgoing broadcast or multicast packets.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIfOutDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of outbound packets discarded due to resource limitations.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="activeMau" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to the active Medium Access Unit (MAU).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/MediumAccessUnit/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availableMaus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of references to all available Medium Access Units (MAUs).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/MediumAccessUnit/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ipv4Addresses" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies a list of all IPv4 addresses for the EthernetLink MO.
+				The first entry of this list can be used as OAM node IP address. See Ip MO for configuration of OAM node IP address.
+				The first entry of this list is also represented by the IPv4 address attributes: broadcastAddress, ipAddress and subnetMask.
+				The ipAddress in the first element of this attribute cannot be set to 0.0.0.0 or an empty string.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="5"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/Ipv4AddressInfo/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ipv6Addresses" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies a list of all IPv6 addresses for the EthernetLink MO.
+				The first entry of this list can be used as OAM node IP address. See Ip MO for configuration of OAM node IP address.
+				
+				IPv6 addresses can be used for test purposes only.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="5"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/Ipv6AddressInfo/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,71 @@
+<project name="Deploy" basedir="." default="build">
+    <property file="params.properties"/>
+
+    <condition property="build.npm" value="npm.cmd">
+        <os family="windows"/>
+    </condition>
+    <condition property="build.npm" value="npm">
+        <os family="unix"/>
+    </condition>
+
+    <target name="build">
+        <delete dir="temp"/>
+        <mkdir dir="temp"/>
+        <mkdir dir="temp/append"/>
+        <copy file="package.json" todir="temp"/>
+        <exec executable="${build.npm}" dir="temp" failonerror="true">
+            <arg value="--registry"/>
+            <arg value="http://150.132.76.214:5900/registry/_design/app/_rewrite/"/>
+            <arg value="install"/>
+            <arg value="--force"/>
+        </exec>
+        <delete dir="web"/>
+        <copy todir="web">
+            <fileset dir="temp/node_modules" excludes="**/node_modules/,**/jscore-prod/"/>
+        </copy>
+        <copy todir="web/node_modules/jscore-prod">
+            <fileset dir="temp/node_modules/jscore-prod" />
+        </copy>
+        <copy todir="web">
+            <fileset file="temp/node_modules/torContainer/index.html" />
+        </copy>
+        <copy todir="web">
+            <fileset dir="temp/node_modules/torContainer/resources" />
+        </copy>
+
+        <copy todir="temp/append">
+            <fileset dir="temp/node_modules" includes="*/app.json" excludes="**/torContainer/"/>
+        </copy>
+        <concat destfile="web/apps.json">
+            <header>{"apps": [</header>
+            <footer>]}</footer>
+            <fileset dir="temp/append" includes="*/app.json"/>
+        </concat>
+        <replaceregexp file="web/apps.json" match="(?&lt;=\})[\s]*(?=\{)" flags="g" replace="," byline="false"/>
+
+        <delete file="web.tar"/>
+        <exec executable="tar" failonerror="true" os="Linux">
+            <arg value="-zcvf"/>
+            <arg value="web.tar"/>
+            <arg value="web"/>
+        </exec>
+        <exec executable="ssh" failonerror="true" os="Linux">
+            <arg value="-i"/>
+            <arg value="/root/.ssh/id_web"/>
+            <arg value="${REMOTE_HOST}"/>
+            <arg value="rm"/>
+            <arg value="-rf"/>
+            <arg value="${REMOTE_PATH}"/>
+        </exec>
+        <exec executable="scp" failonerror="true" os="Linux">
+            <arg value="-i"/>
+            <arg value="/root/.ssh/id_web"/>
+            <arg value="-r"/>
+            <arg value="/proj/pct/www/Presentation_Client/deploy/web"/>
+            <arg value="${REMOTE_HOST}:${REMOTE_PATH}"/>
+        </exec>
+
+    </target>
+
+</project>
+

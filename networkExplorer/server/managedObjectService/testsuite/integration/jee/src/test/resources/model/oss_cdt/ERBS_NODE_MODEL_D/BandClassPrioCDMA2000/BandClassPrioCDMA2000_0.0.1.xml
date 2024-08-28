@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="BandClassPrioCDMA2000" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>BandClassPrioCDMA2000</ns1:desc>
+    <ns2:attribute ns1:name="cellReselectionPriority" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CellReselectionPriority concerns the absolute priority of the concerned carrier frequency, as used by the cell reselection procedure. Corresponds with parameter &quot;priority&quot; in TS 36.304.
+				Value 0 means: lowest priority. The UE behaviour for the case the field is absent, if applicable, is specified in TS 36.304. Note: The CellReselectionPriority within a hrpdBandClass must be the same.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="connectedModeMobilityPrio" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes CDMA2000 bandclasses among all bandclasses related to the cell for UEs in connected mode (0 means the lowest priority. -1 means the frequency is excluded.)
+				When value is configured to -1000, the parameter is ignored and the value of connectedModeMobilityPrio in MO: Cdma2000FreqRelation is applied.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="-1" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="freqCdma" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Identifies the carrier frequency within a CDMA2000 Band. When value is configured to -1000, the parameter is ignored.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="0" max="2047"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="hrpdBandClass" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Identifies the HRPD Frequency Band in which the HRPD Carrier can be found.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/HrpdBandClass/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="BAND_CLASS_0"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Synchronization" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Synchronization
+			
+			This MO administers synchronization references for network synchronization and displays the system clock state of the node.
+			
+			This MO is created automatically and cannot be deleted.
+			
+			The RDN of this MO is Synchronization=1.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="SynchronizationId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				
+				It is set automatically when the MO instance is created.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="degradationIsFault" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Determines whether a transmission link degradation (for example, high bit-error rate) is interpreted as a synchronization reference fault or not. This attribute is applicable only for traffic carrying synchronization references.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/FaultCriteria/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEGR_NOT_FAULT"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="syncReference" ns1:lifeCycle="NORMAL">
+        <ns1:desc>List of resources for synchronization references. Possible references are: E1PhysPathTerm, E3PhysPathTerm, J1PhysPathTerm, T1PhysPathTerm, T3PhysPathTerm, Os155SpiTtp, TuSyncRef, IpSyncRef, GpsSyncRef, PacketFrequencySyncRef, PacketTimeSyncRef, HptsiSyncRef and GigaBitEthernet. The IpSyncRef is not supported in TUB1 nodes.
+				
+				A synchronization reference is added by using the action addSyncRefResource.
+				
+				If one value in this attribute is NULL, the respective values in the attributes syncRefActivity, syncRefPriority and syncStatus are not relevant.
+				
+				The length of this list is 8.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="syncRefPriority" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Synchronization reference priority.
+				
+				1 represents the highest and 8 the lowest priority. Every synchronization reference must have a unique priority value. Value 0 means not applicable, that is, no synchronization reference with this priority is defined.
+				
+				This attribute is mandatory when adding a synchronization reference (using the action addSyncRefResource).
+				A priority value can be changed with the action changeSyncRefPriority, provided that the priority is not already assigned to some other synchronization reference.
+				
+				The length of this list is 8.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="0" max="8"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="syncRefActivity" ns1:lifeCycle="NORMAL">
+        <ns1:desc>List of attributes for synchronization references, where each attribute specifies whether the respective synchronization reference is active. Zero or one reference is active.
+				
+				The length of this list is 8.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/RefActivity/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="syncRefStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>List of status attributes for synchronization references.
+				
+				The length of this list is 8.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/RefState/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHDelayVarBest1Pct" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This counter shows the Highest Delay Variation (see ITU-T Y.1540 for definition of the delay variation) of the best 1% synchronization frames (with the lowest delay) experienced by the active IP synchronization reference during the PM interval.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHDelayVarBest10Pct" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This counter shows the Highest Delay Variation (see ITU-T Y.1540 for definition of the delay variation) of the best 10% synchronization frames (with the lowest delay) experienced by the active IP synchronization reference during the PM interval.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHDelayVarBest50Pct" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This counter shows the Highest Delay Variation (see ITU-T Y.1540 for definition of the delay variation) of the best 50% synchronization frames (with the lowest delay) experienced by the active IP synchronization reference during the PM interval.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="nodeSystemClock" ns1:lifeCycle="NORMAL">
+        <ns1:desc>State of the system clock on the node.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ClockState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="currentPmRegister" ns1:lifeCycle="OBSOLETE">
+        <ns1:desc>Returns the current values of all PM counters.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmMaxDelayVariation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This counter shows the Maximum Delay Variation (see ITU-T Y.1540 for definition of the delay variation) experienced by the active IP synchronization reference during the PM interval.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="fixedPosition" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if the node has a fixed position.
+				
+				If set to true, the node is operating in survey mode, until it has acquired its position. After that, the node changes to position-hold mode.
+				
+				If set to false, the node is prevented from entering the position-hold mode and the GPS performance enhancements functions that require fixed position, must be disabled.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ptpFreqFeatureState" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the ptp frequency feature state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActivationVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEACTIVATED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpFreqLicenseState" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the ptp frequency license state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StateVals/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="sfnInitializationTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the time when SFN is initialized to zero.
+				
+				The time is TAI given as a string with the following format: &lt;YYYY-MM-DD&gt;T&lt;hh:mm:ss&gt;</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="1980-01-06T00:00:19"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ptpTimeFeatureState" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the ptp time feature state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActivationVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEACTIVATED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpTimeLicenseState" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the ptp time license state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StateVals/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="featureStateSyncEth" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the synchronous ethernet feature state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActivationVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEACTIVATED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="licenseStateSyncEth" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the synchronous ethernet license state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StateVals/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="featureStatePtpFreq" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the ptp frequency feature state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActivationVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEACTIVATED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="featureStatePtpTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the ptp time feature state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActivationVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DEACTIVATED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="licenseStatePtpFreq" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the ptp frequency license state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StateVals/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="licenseStatePtpTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the ptp time license state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StateVals/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,12 @@
+{
+  "name": "jscore",
+  "version": "0.0.1-SNAPSHOT",
+  "_id": "jscore@0.0.1-SNAPSHOT",
+  "readme": "ERROR: No README.md file found!",
+  "description": "ERROR: No README.md file found!",
+  "dist": {
+    "shasum": "031e9deeafab56afc66774e79f82ead05c2f63c2"
+  },
+  "_from": "jscore@",
+  "_resolved": "http://150.132.76.214:5900/registry/_design/app/_rewrite/jscore/-/jscore-0.0.1-SNAPSHOT.tgz"
+}

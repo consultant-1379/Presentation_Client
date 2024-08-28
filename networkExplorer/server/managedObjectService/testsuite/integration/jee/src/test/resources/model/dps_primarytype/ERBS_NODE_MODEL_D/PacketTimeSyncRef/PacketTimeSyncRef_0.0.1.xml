@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="PacketTimeSyncRef" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Packet Time Synchronization Reference
+			
+			Administers Time/Phase synchronization.
+			 
+			Only support multicast and E2E.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="transportLayerRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an instance of GigaBitEthernet MO.
+				
+				The attribute administrativeState must be set to LOCKED before modifying this attribute.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="asymmetryCompensation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Set in steps of 1 ns.
+				The +/- sign is relative to the downlink.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-100000" max="100000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="administrativeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The administrative state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AdmState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="LOCKED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status.
+				
+				It contains details about operationalState.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="PacketTimeSyncRefId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ptpDomain" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the PTP domain.
+				
+				Has to be a unique number among the configured packetTimeSyncRef and packetFrequencySyncRef objects.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpGrandMasterIdentity" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The grand master port that sends synchronization messages.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpQualityLevel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The master clock quality level.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpOwnPortIdentity" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The own port identity.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/PtpPortIdentity/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="ptpParentPortIdentity" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The parent port that sends synchronization messages.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/PtpPortIdentity/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="pBit" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The pBit value used for transmitted frames, if value 0 is used then an untagged frame is used. If any other value than 0 is used the a priority tagged frame is used (VlanID=0).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of MO instances that reserve this MO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="packetSyncStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Packet synchronization status.
+				 
+				The value is a bitmap, displayed as a decimal value. If there are several faults, the value is the sum of the individual values for each fault, as specified below:
+				 
+				0  NO_FAULT: The reference can be selected as a synchronization reference.
+				 
+				1  NO_ANNOUNCE: No Announce messages have been received from the PTP server within the past 8 seconds.
+				 
+				2  CLOCK_CLASS: The clockClass of the grandMaster clock, reported by the PTP server in Announce messages, is not less than or equal to 7 (PacketTimeSyncRef) or 14 (PacketFrequencySyncRef).
+				 
+				4  CLOCK_ACCURACY: The clockAccuracy of the grandMaster clock, reported by the PTP server in Announce messages, is not less than or equal to hexadecimal 22 (that is, 34 in decimal).
+				 
+				8  NO_SYNC: No Sync messages have been received from the PTP server within the past 8 seconds.
+				 
+				16  ERRATIC_SYNC: Sync messages are arriving irregularly but are not totally missing. This could indicate packet loss in the network.
+				 
+				32  LOW_SYNC_RATE: The PTP server states that the intended interval between Sync messages is too long to meet the needs of the ordinary clock slave. 
+				 
+				64  NO_DELAY_RESP: There has been no Delay_Resp from the PTP server for the last 8 Delay_Req messages sent to it. For the first Delay_Req, this indication is set after only 2 missed responses (with initial request interval 8 seconds).
+				 
+				128 LOW_DELAY_REQ_RATE: The PTP server in its Delay_Resp messages states a minimum allowed interval between Delay_Req messages that is too long to meet the needs of ordinary clock slave.
+				 
+				256 UC_NEG_NO_REPLY: There has been no reply to some (or all) of the messages sent to the PTP server requesting unicast transmission of message types: Sync, Announce and Delay_Resp.
+				 
+				512 UC_NEG_NO_AGREE: In unicast negotiation with the PTP server, the server will either not comply with the message intervals requested for unicast transmission of message types: Sync, Announce and Delay_Resp, or it will not provide a duration of at least 60 seconds for these requests.
+				 
+				1024 UC_NEG_MC_NOK: In the phase of unicast negotiations, the clockClass is not less than or equal to 7 (PacketTimeSyncRef) or 14 (PacketFrequencySyncRef) and/or clockAccuracy is not less than or equal to hexadecimal 22 of the grandMaster clock reported in the first Announce message.
+				 
+				2048 UC_NEG_CANCELED: The PTP server has canceled previously granted unicast transmission of one or more of the message types: Sync, Announce and Delay_resp.
+				 
+				
+				Example:  17 means ERRATIC_SYNC + NO_ANNOUNCE (16+1)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

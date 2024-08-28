@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="RetSubUnit" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents the device, either a single RET or a subunit of the multi RET providing for remote electrical tilting of the antenna unit where it is mounted.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="RetSubUnitId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="electricalAntennaTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The electrically-controlled tilt of the maximum of the antenna's main beam with respect to the direction orthogonal to the antenna element axis (see 3GPP TS 25.466). It is a signed value. Positive value indicates downtilt, and negative value indicates uptilt.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="minTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Minimum electrical tilt supported by the RET subunit. The electrical tilt is defined as the inclination of the maximum of the antenna main beam with respect to the direction orthogonal to the antenna element axis. It is a signed value. Positive value indicates downtilt, and negative value indicates uptilt.
+				
+				This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Maximum electrical tilt supported by the Remote Electrical Tilt (RET) subunit. The electrical tilt is defined as the inclination of the maximum of the antenna main beam with respect to the direction orthogonal to the antenna element axis. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. 
+				
+				This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaSerialNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Unique hardware identifier of the antenna where the Remote Electrical Tilt (RET) subunit operates. This parameter is part of IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="17"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaModelNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Vendor-specific antenna model identifier. This parameter is part of IUANT protocol specification (see 3GPP 25.466) and has no operational impact.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="15"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaBearing" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Antenna bearing on the antenna subunit where the RetSubunit is installed. Antenna bearing is expressed as bearing value x 10.
+				This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="0" max="3599"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaGain" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Antenna gain for each of four operating bands, starting with the lowest value. The gain value corresponding to each band is transmitted within one octet. This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1000" max="-1000"/>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the AntennaSubunit MO that has the tilt controlled by this RetSubunit.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="subunitNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Subunit identifier carried on L7 messages in which subunits are pointed with the help of application level identifiers.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status. It contains details about operationalState.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaOperatingBand" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Operating band used by the antenna subunit connected to this RetSubunit. This attribute is part of the IUANT protocol specification  and has no operational impact. (For details on coding, see table B.2 of Annex B on 3GPP TS 25.466)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="calibrationStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute indicates the status of ongoing calibration operation. In case no calibration has been performed since last DU restart it shows state UNKNOWN.
+				
+				NOTE: The calibrationStatus is not used to verify or confirm if RET is calibrated or not. The RET is calibrated unless an alarm indicates otherwise.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/TcpStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantBaseStationId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Base station ID. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="32"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantSectorId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>RBS internal sector ID. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="32"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantAntennaOperatingGain" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Antenna gain for each of four operating bands, starting with the lowest value. This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="4"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="-1000" max="-1000"/>
+                    <ns1:minMaxRange min="0" max="255"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:collectionValue">
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+        </ns1:default>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantInstallationDate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Installation date. This parameter is part of the IUANT protocol specification (see 3GPP 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="6"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="iuantInstallersId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>ID of the responsible installer. This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="5"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

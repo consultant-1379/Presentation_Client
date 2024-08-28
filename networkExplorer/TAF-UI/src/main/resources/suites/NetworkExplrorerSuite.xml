@@ -1,0 +1,20 @@
+<suite name="Network Explorer Test Suite (suites/NetworkExplrorerSuite.xml)">
+
+  <!-- Normally listeners should be defined in listeners.xml,
+      but for debugging with TestNg plugin you will need to uncomment them here!-->
+
+  <listeners>
+    <listener class-name="se.ericsson.jcat.fw.ng.listeners.JcatTestListener" />
+    <listener class-name="com.ericsson.cifwk.taf.TorNgSuiteListener" />
+    <listener class-name="com.ericsson.cifwk.taf.execution.TestNGAnnotationTransformer" />
+    <listener class-name="com.ericsson.cifwk.taf.execution.TORTestCaseListener" />
+  </listeners>
+
+
+
+  <test name="TORF-2277">
+          <classes>
+                  <class name="com.ericsson.nms.pres.rest.networkExplorer.test.cases.NetworkExplorerRestTest" />
+          </classes>
+  </test>
+</suite>

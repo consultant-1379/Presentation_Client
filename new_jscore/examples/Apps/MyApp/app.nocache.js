@@ -1,0 +1,1 @@
+define({"entryPoint":"MyApp/120f9fa34849eae2b622b3f393aff5df","paths":{"jscore":"jscore-0.0.1-SNAPSHOT","app":"MyApp"}});

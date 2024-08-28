@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Program" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents the executable software on the target hardware.
+			
+			Instances of this MO are created automatically during system upgrade. It is also possible to create instances manually, but this is not recommended.
+			
+			Some Programs are not possible to restart or can take part in an RPU. Refer to the LoadModule MO for more information.
+			
+			The attributes, heapSize, poolSize, restartCounterLimit and restartTimer, are irrelevant if the parent of the Program MO is the Fan MO or the PfmUnit MO.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="ProgramId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				
+				It is set automatically during system upgrade.
+				
+				If the Program MO is manually created, then set the value for this attribute.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="loadModule" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies which load module the Program is instantiated from.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/LoadModule/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="startState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if the program is permitted to enter the operational state enabled or not after a PIU restart.
+				
+				The default state is DISABLED, to avoid that an operating program and a new version of the same program have its startState enabled at the same time.
+				
+				It is used on all types of node restarts and restart of PlugInUnit with the RestartCause = PIU_RESTART_UPGRADE.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/StartState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="DISABLED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="heapSize" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the program heap size.
+				
+				The value in the referenced LoadModule is fetched by Program and used if no value is submitted at the creation of the Program MO.
+				
+				The referenced load module has a default size defined at compile time. This value is used if no other value is submitted at the creation of LoadModule or the Program MO.
+				
+				The value of this attribute is overwritten during Software Upgrade.
+				
+				The setting of this attribute have no effect until the Program is restarted.
+				
+				The attribute heapSize is only relevant if the parent of the Program MO is Spm or PlugInUnit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="poolSize" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the program pool size. It is possible to set this value at the creation of the Program MO. It is only valid for MP programs.
+				
+				The value in the referenced LoadModule is fetched by Program and used if no value is submitted at the creation of the Program MO.
+				
+				The referenced load module has a default size defined at compile time. This value is used if no other value is submitted at the creation of LoadModule or the Program MO.
+				
+				The value of this attribute is overwritten during Software Upgrade.
+				
+				The setting of this attribute have no effect until the Program is restarted.
+				
+				The attribute heapSize is only relevant if the parent of the Program MO is Spm or PlugInUnit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="restartTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the time that a program has to execute without faults, until the restart counter is reset. The time value is in seconds.
+				
+				restartTimer= -1
+				Forever, implies that the restart counter is only reset when the PIU is restarted.
+				
+				This attribute is only relevant if the parent of the Program MO is PlugInUnit.
+				
+				If the Program MO of the &quot;jvm_lm&quot; is created, then restart timer is set to at least 900 seconds. Any value less than that will be set to 900 seconds.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minValue value="-1"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="60"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="restartCounterLimit" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the number of times that a program can restart, without escalation to a PIU restart.
+				
+				The possible values are:
+				- restartCounterLimit = -1
+				Unlimited, do not restart PIU, regardless of the number of times the specific program restarts.
+				
+				- restartCounterLimit = 3
+				Three restarts, hot, warm, and PIU restart.
+				
+				The program escalates to a PIU restart when the number of restarts reaches the value set for this attribute.
+				Example: the value is set to 5, escalation to PIU restart occurs at the fifth restart.
+				
+				This attribute is only relevant if the parent of the Program MO is PlugInUnit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minValue value="-1"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="programInstances" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A list of program instances.
+				
+				The default value of this attribute is an empty list.
+				
+				This attribute is only relevant if the parent of this MO is the PlugInUnit MO.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/ProgramInstance/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

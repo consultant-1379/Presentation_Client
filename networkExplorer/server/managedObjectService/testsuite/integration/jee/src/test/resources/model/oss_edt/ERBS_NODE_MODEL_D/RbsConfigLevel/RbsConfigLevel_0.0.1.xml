@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="RbsConfigLevel" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>RbsConfigLevel</ns1:desc>
+    <ns2:member value="0" ns1:name="UNDEFINED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The RBS has not been configured.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="BASIC_CV" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The RBS has basic configuration version.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="SITE_BASIC" ns1:lifeCycle="NORMAL">
+        <ns1:desc>O&amp;M access MOs are configured.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="SITE_EQUIPMENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All Equipment MOs are configured.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="SITE_CONFIG_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Site Configuration is completed. The RBS is ready for integration by OSS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="6" ns1:name="OSS_ACTIVATING_CONFIGURATION" ns1:lifeCycle="NORMAL">
+        <ns1:desc>OSS continues with configuration.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="7" ns1:name="OSS_CONFIGURATION_SUCCESSFUL" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Node successfully configured by OSS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="8" ns1:name="OSS_CONFIGURATION_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Node configuration by OSS failed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="9" ns1:name="S1_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The S1 interface is configured.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="10" ns1:name="INTEGRATION_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The RBS is integrated in OSS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="11" ns1:name="NPC_CONFIGURATION" ns1:lifeCycle="NORMAL">
+        <ns1:desc>NPC config data is configured.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="12" ns1:name="NPC_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>NPC test configuration is complete.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="13" ns1:name="CERTIFICATE_ENROLLMENT_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+				
+				Installation of security credentials is completed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="14" ns1:name="SECURITY_LEVEL_3_ACTIVE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+				
+				The RBS is running in security level 3.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="15" ns1:name="GIGABIT_LINK_DETECTED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>GIGABIT_LINK_DETECTED</ns1:desc>
+    </ns2:member>
+    <ns2:member value="16" ns1:name="SECURITY_PREPARATION_COMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Installation of security configuration is completed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="17" ns1:name="SECURITY_ACTIVE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The RBS is running at requested security level.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="18" ns1:name="INITIAL_IPSEC_FOR_OAM_ACTIVE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The initial IPsec for OAM has been activated.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="19" ns1:name="FEATURES_ACTIVATED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All features that have a valid license installed are activated.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="20" ns1:name="ACTIVATING_FEATURES" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All features that have a valid license installed are going to be activated</ns1:desc>
+    </ns2:member>
+    <ns2:member value="21" ns1:name="ACTIVATING_FEATURES_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Not all features that have a valid license installed has been activated correctly</ns1:desc>
+    </ns2:member>
+    <ns2:member value="22" ns1:name="CELLS_UNLOCKED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All cells in the node are unlocked</ns1:desc>
+    </ns2:member>
+    <ns2:member value="23" ns1:name="UNLOCKING_CELLS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All cells in the node are going to be unlocked</ns1:desc>
+    </ns2:member>
+    <ns2:member value="24" ns1:name="UNLOCKING_CELLS_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Not all cells in the node have been possible to unlock</ns1:desc>
+    </ns2:member>
+    <ns2:member value="25" ns1:name="READY_FOR_SERVICE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The node is ready to carry traffic.  Integration is complete and all cells and sectors in the node have the operationalState set to ENABLED.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="26" ns1:name="S1_NOT_NEEDED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The S1 interface is not needed and will not be configured.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

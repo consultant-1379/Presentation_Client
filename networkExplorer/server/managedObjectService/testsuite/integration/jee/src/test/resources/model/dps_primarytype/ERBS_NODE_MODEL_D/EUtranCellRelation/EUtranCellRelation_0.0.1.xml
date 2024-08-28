@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="EUtranCellRelation" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This managed object represents the handover relationship between two neighboring EUTRAN cells.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepSuccLteIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful intra LTE intra frequency handover preparations.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepAttLteIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of attempts to start intra LTE intra frequency handover preparation.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeSuccLteIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful intra LTE intra frequency handovers.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeAttLteIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of intra LTE intra frequency handover execution attempts.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="EUtranCellRelationId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the Relative Distinguished Name (RDN).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellIndividualOffsetEUtran" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Offset value for the neighbor cell. Used when UE is in connected mode. This attribute is modified by SON function HoOscCtrlRel.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="-24"/>
+                <ns1:minMaxRange min="-22" max="-22"/>
+                <ns1:minMaxRange min="-20" max="-20"/>
+                <ns1:minMaxRange min="-18" max="-18"/>
+                <ns1:minMaxRange min="-16" max="-16"/>
+                <ns1:minMaxRange min="-14" max="-14"/>
+                <ns1:minMaxRange min="-12" max="-12"/>
+                <ns1:minMaxRange min="-10" max="-10"/>
+                <ns1:minMaxRange min="-8" max="-8"/>
+                <ns1:minMaxRange min="-6" max="-6"/>
+                <ns1:minMaxRange min="-5" max="-5"/>
+                <ns1:minMaxRange min="-4" max="-4"/>
+                <ns1:minMaxRange min="-3" max="-3"/>
+                <ns1:minMaxRange min="-2" max="-2"/>
+                <ns1:minMaxRange min="-1" max="-1"/>
+                <ns1:minMaxRange min="0" max="0"/>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="3" max="3"/>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="6" max="6"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="12" max="12"/>
+                <ns1:minMaxRange min="14" max="14"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="18" max="18"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="22" max="22"/>
+                <ns1:minMaxRange min="24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="neighborCellRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an instance of EUtranCellFDD, ExternalEUtranCellFDD, EUtranCellTDD or ExternalEUtranCellTDD managed object.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="isHoAllowed" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if handover between the cells in this relation is allowed.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="qOffsetCellEUtran" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Offset value applied to a specific cell in idle mode mobility state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="-24"/>
+                <ns1:minMaxRange min="-22" max="-22"/>
+                <ns1:minMaxRange min="-20" max="-20"/>
+                <ns1:minMaxRange min="-18" max="-18"/>
+                <ns1:minMaxRange min="-16" max="-16"/>
+                <ns1:minMaxRange min="-14" max="-14"/>
+                <ns1:minMaxRange min="-12" max="-12"/>
+                <ns1:minMaxRange min="-10" max="-10"/>
+                <ns1:minMaxRange min="-8" max="-8"/>
+                <ns1:minMaxRange min="-6" max="-6"/>
+                <ns1:minMaxRange min="-5" max="-5"/>
+                <ns1:minMaxRange min="-4" max="-4"/>
+                <ns1:minMaxRange min="-3" max="-3"/>
+                <ns1:minMaxRange min="-2" max="-2"/>
+                <ns1:minMaxRange min="-1" max="-1"/>
+                <ns1:minMaxRange min="0" max="0"/>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="3" max="3"/>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="6" max="6"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="12" max="12"/>
+                <ns1:minMaxRange min="14" max="14"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="18" max="18"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="22" max="22"/>
+                <ns1:minMaxRange min="24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="anrCreated" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates if the MO was created by the Automated Neighbor Relations (ANR) function.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="isRemoveAllowed" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if the Automated Neighbor Relations (ANR) function is allowed to remove this object. It does not restrict operator removal of the object. Objects created by ANR have this parameter set to true initially.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="timeOfAnrCreation" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The date and time when the MO was created by the Automated Neighbor Relations (ANR) function.
+				Format:  YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="timeOfAnrModification" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The date and time when the MO was last modified by the Automated Neighbor Relations (ANR) function.
+				Format:  YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ctrlMode" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates permission to change attributes on the object and to delete the object.
+				
+				When set to Manual, the operator can change and delete, and the Automated Neighbor Relations (ANR) function cannot make changes.
+				
+				When set to Auto, the ANR function can change and delete, and the operator cannot, except to change the settings of this parameter.
+				
+				When the object is created by the ANR function, the value is set to Auto. The value may be changed only by the operator. The setting of this parameter controls the object itself, but not related objects.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CtrlMode/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="MANUAL"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="supportedMobilityRelationType" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Type of the mobility relation.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SupportedMobilityRelationType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="HANDOVER_AND_CELL_RESELECTION"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="includeInSystemInformation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if the referred cell is included in System Information.
+				
+				When the attribute is set to false, the cell is not included in either freqNeighList or blackCellList in SIB4 or SIB5.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="coverageIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether the coverage area of the cell indicated by the relation has approximately the same coverage area (overlap) as this cell, or whether it fully covers this cell, or if it is fully contained in this cell.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SupportedCoverage/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="NONE"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeAttLteInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of outgoing intra LTE inter frequency handover execution attempts.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeSuccLteInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful outgoing intra LTE inter frequency handovers.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepAttLteInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of attempts to start outgoing intra LTE inter frequency handover preparation.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepSuccLteInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful outgoing intra LTE inter frequency handover preparations.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="createdBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CreatedByEutran/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="timeOfCreation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the time and date when the MO was created . 
+				Format: YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="lastModification" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LastModificationEutran/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="timeOfLastModification" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the time and date when the MO was last modified. 
+				Format: YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoOscIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counter pmHoOscIntraF counts every intra-frequency HO that is considered to be an oscillating HO. pmHoOscIntraF is incremented when handover preparation is attempted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoOscInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counter pmHoOscInterF counts every inter-frequency HO that is considered to be an oscillating HO. pmHoOscInterF is incremented when handover preparation is attempted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepTNotAllowedLteIntraF" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Attribute: pmHoPrepTNotAllowedLteIntraFDescription</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepTNotAllowedLteInterF" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Attribute: pmHoPrepTNotAllowedLteInterFDescription</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="imLoadBalancingActive" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Idle Mode Load balancing function is activated by setting this parameter to true. Idle mode load balancing function is deactivated by setting this parameter to false. Idle mode load balancing can only be sucessfully activated by the cell with the higher cell reselection priority (HPC), but either cell can disable the load balancing (HPC and LPC).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoTooEarlyHoIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of too early HO on an intra frequency relation. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoTooEarlyHoInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of too early HO on an inter frequency relation. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoTooLateHoIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of too late HO on an intra frequency relation. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoTooLateHoInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of too late HO on an inter frequency relation. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoWrongCellIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of HO to the wrong cell on an intra frequency relation, when this neighbor cell is the attempted target cell.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoWrongCellInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of HO to the wrong cell on an inter frequency relation, when this neighbor cell is the attempted target cell.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoWrongCellReestIntraF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of HO to the wrong cell on an intra frequency relation, when this neighbor cell is where the UE reestablished connection after the failed HO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoWrongCellReestInterF" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Counts every detected event of HO to the wrong cell on an inter frequency relation, when this neighbor cell is where the UE reestablished connection after the failed HO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary36" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="loadBalancing" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if Inter-frequency Load Balancing is ALLOWED or NOT_ALLOWED from the current cell and towards the cell indicated by the cell relation.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LoadBalancingVals/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="NOT_ALLOWED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmLbQualifiedUe" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Records the number of UEs qualified for load balancing action towards the related cell. Those values are accumulated each ROP. Used to calculate the LB measurement success rate for the related cell.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeAttLteInterFLb" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of outgoing intra LTE inter frequency handover execution attempts due to load balancing.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeSuccLteInterFLb" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful outgoing intra LTE inter frequency handovers that was performed for load balancing reasons.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepAttLteInterFLb" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of attempts to start outgoing intra LTE inter frequency handover preparation due to load balancing.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoPrepSuccLteInterFLb" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful outgoing intra LTE inter frequency handover preparations that was performed for load balancing reasons.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="sCellCandidate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Secondary component carrier (SCell) candidate status
+				
+				The value indicates whether the cell indicated by parameter cellrelation may be used as secondary component carrier (SCell) for UE using this cell as their primary component carrier (PCell).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SCellCandidate/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="AUTO"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeAttLteIntraFTuneOut" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of intra LTE intra frequency handover execution attempts made by Tune-out UEs</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmHoExeSuccLteIntraFTuneOut" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of successful outgoing intra LTE intra frequency handovers made by Tune-out UEs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary72" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary73" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary74" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary75" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary76" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary77" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary78" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary79" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

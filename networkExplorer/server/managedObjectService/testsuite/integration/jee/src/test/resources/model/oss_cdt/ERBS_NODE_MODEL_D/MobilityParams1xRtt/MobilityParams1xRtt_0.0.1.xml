@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="MobilityParams1xRtt" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>MobilityParams1xRtt</ns1:desc>
+    <ns2:attribute ns1:name="protocolRev" ns1:lifeCycle="NORMAL">
+        <ns1:desc>P_REV in 3GPP2 C.S0097
+				The protocol revision level of the BTS (e.g. 5=IS95B, 6=IS2000 Release 0, 7=IS2000 Release A)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="minProtocolRev" ns1:lifeCycle="NORMAL">
+        <ns1:desc>MIN_P_REV in 3GPP2 C.S0097
+				(e.g. 1 for 1900 MHz,  3 for 800 MHz)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="authenticationEnabled" ns1:lifeCycle="NORMAL">
+        <ns1:desc>AUTH in 3GPP2 C.S0097.
+				This parameter indicates whether the authentication is enabled.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="maxNumAltServiceOption" ns1:lifeCycle="NORMAL">
+        <ns1:desc>MAX_NUM_ALT_SO in 3GPP2 C.S0097.
+				Use 0 for PREV 7 operation (to support 10-digit emergency call numbers).   Set the value to 1 Per CAB 128 only if not using PREV 7 BTS. Value 0 is also a flag to IVSN to query if mobile capability is not stored in VLR, even for P_REV &gt; 5 mobiles (Ensure a QueryOpt for IVSN is selected in MTX Table NOISBSC).  EnableORCM set TRUE will address CAB-128 concern and effectively negates reason for CAB-128</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="preferredMsidType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>PREF_MSID_TYPE in 3GPP2 C.S0097.
+				The preferred identity used by mobile</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CdmaMsIdType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="IMSI_ESN_OR_TMSI"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="mcc" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Part of country code 
+				MCC of USA = 310 
+				MCC of Canada = 302
+				MCC of Australia = 505</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1023"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="imsiBit11and12" ns1:lifeCycle="NORMAL">
+        <ns1:desc>IMSI_11_12 in 3GPP2 C.S0097.
+				The 11th and 12th digits of the IMSI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="127"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="imsiTSupported" ns1:lifeCycle="NORMAL">
+        <ns1:desc>BTS IMSI-T supported indicator
+				Set to True to enable IMSI-T support.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="fchFchInitSetupRc3" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FPC_FCH_INIT_SETUP_RC3 in 3GPP2 C.S0097.
+				7dB, matches ECAM range/granularity of 8 bits/0.125dB.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="56"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="fchFchInitSetupRc4" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FPC_FCH_INIT_SETUP_RC4 in 3GPP2 C.S0097.
+				7dB, matches ECAM range/granularity of 8 bits/0.125dB.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="fchFchInitSetupRc5" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FPC_FCH_INIT_SETUP_RC5 in 3GPP2 C.S0097.
+				7dB, matches ECAM range/granularity of 8 bits/0.125dB.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="56"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="fchFchInitSetupRc11" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FPC_FCH_INIT_SETUP_RC11 in 3GPP2 C.S0097.
+				8dB, matches ECAM range/granularity of 8 bits/0.125dB.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="fchFchInitSetupRc12" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FPC_FCH_INIT_SETUP_RC12 in 3GPP2 C.S0097.
+				8dB, matches ECAM range/granularity of 8 bits/0.125dB.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="pilotIncluded" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>PILOT_INC in C.S0097
+				This parameter indicates whether the pilot list is included.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="localTimeOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>LTM_OFF in 3GPP2 C.S0097.
+				This parameter indicates the offset of local time in units of 0.5hr from system time (GPS).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="23"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="dayLightSaving" ns1:lifeCycle="NORMAL">
+        <ns1:desc>DAYLT in 3GPP2 C.S0097.
+				This parameter indicates whether Daylight savings is on or off.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="gcsnaL2AckTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Length of time the mobile station or IWS waits after it sends GCSNA1xCircuitService message, in units of 80ms</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="gcsnaSequenceContextTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>GCSNASequenceContextTimer value
+				The value of GCSNASequenceContextTimer is greater than the value of GCSNAL2AckTimer. This field is in units of 100 ms.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="5"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="pilotIncrement" ns1:lifeCycle="NORMAL">
+        <ns1:desc>PILOT_INC in 3GPP2 C.S0097
+				This parameter indicates the Pilot PN sequence offset index increment. The interval between pilots for base stations in a system.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="15"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

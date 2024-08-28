@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ericsson.nms</groupId>
+        <artifactId>integration</artifactId>
+        <version>13.2.0.244</version>
+    </parent>
+
+    <groupId>com.ericsson.nms.pres</groupId>
+    <artifactId>jscoreapidocs</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+		<node.executable>/proj/gitadm100/tools/node/0.8.18/bin/node</node.executable>
+        <npm.executable>/proj/gitadm100/tools/node/0.8.18/bin/npm</npm.executable>
+        <project.documentation.url>https://arm1s11-eiffel004.eiffel.gic.ericsson.se:8443/nexus/content/sites/tor/jscoreapidocs</project.documentation.url>
+    </properties>
+
+    <build>
+        <plugins>
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>yuidocs</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${node.executable}</executable>
+                            <arguments>
+                                <argument>../node_modules/yuidocjs/lib/cli.js</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+				  <execution>
+					<id>copy-resources</id>
+					<!-- here the phase you need -->
+					<phase>pre-site</phase>
+					<goals>
+					  <goal>copy-resources</goal>
+					</goals>
+					<configuration>
+					  <outputDirectory>src/site/resources</outputDirectory>
+					  <resources>          
+						<resource>
+						  <directory>../src/</directory>
+						  <includes>
+						    <include>jscore-0.1.js</include>
+						  </includes>
+						</resource>
+					  </resources>              
+					</configuration>            
+				  </execution>
+				</executions>
+			</plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <site>
+            <id>site</id>
+            <url>dav:${project.documentation.url}/${project.version}/</url>
+        </site>
+    </distributionManagement>
+
+</project>

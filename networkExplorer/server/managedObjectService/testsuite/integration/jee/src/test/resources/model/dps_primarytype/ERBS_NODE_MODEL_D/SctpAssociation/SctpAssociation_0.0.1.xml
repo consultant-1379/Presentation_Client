@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="SctpAssociation" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents an SCTP association, defined by a combination of local and remote SCTP endpoints.
+			
+			SCTP associations are unique in the scope of a node.
+			
+			The SctpAssociation MO is created automatically when the SCTP association is established and if there is no matching SctpAssociation MO.
+			
+			If the SCTP association is disabled for a longer period of time than is specified by the attribute sctpAssocDeleteTimeout in the Sctp MO, the SctpAssociation MO is deleted automatically.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="clientRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to corresponding client’s MO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="creationTimeStamp" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The timestamp when the SctpAssociation MO instance was created.
+				
+				Format example:
+				&quot;Date: 2012-02-20, Time: 20:52:11&quot;</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="lastCommLostOrigin" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The originator of the last transition from the ENABLED to the DISABLED operational state.
+				
+				Specifies whether local or remote node has caused the last closure of the association.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CommLostOrigin/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="lastCommLostReason" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The reason for the last transition from the ENABLED to the DISABLED operational state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CommLostReason/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="lastCommLostTimeStamp" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The timestamp of the last transition from the ENABLED to the DISABLED operational state.
+				
+				Format example:
+				&quot;Date: 2012-02-20, Time: 10:52:11&quot;
+				Initial value: &quot;No value&quot;</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localIpAddress1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The first IP address of the local endpoint.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localIpAddress2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The second IP address of the local endpoint.
+				
+				The value &quot;&quot; means that the local endpoint of the association is single-homed.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localPortNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The port number of the local endpoint of the association.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localPrimaryIpAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The local IP address of the active primary path. The active primary path is the path which is used for outgoing traffic.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				
+				The operational state is ENABLED if the association is established, and DISABLED if the association is closed.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="remoteIpAddress1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The first IP address of the remote endpoint.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="remoteIpAddress2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The second IP address of the remote endpoint.
+				
+				The value &quot;&quot; means that the remote endpoint of the association is single-homed.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="remotePortNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The port number of the remote endpoint of the association.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="remotePrimaryIpAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The remote IP address of the active primary path. The active primary path is the path which is used for outgoing traffic.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="SctpAssociationId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="sctpProfileRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an SctpProfile instance.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/SctpProfile/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInControlChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received control chunks.
+				
+				The counter does not include abnormal or discarded chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInDataChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received DATA chunks.
+				
+				The counter does NOT include abnormal or discarded chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInPacks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received packets for this association, including duplicates and those received in error.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutControlChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted control chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutDataChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted DATA chunks (excluding retransmissions).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutPacks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted packets.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutUserMsgDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of outgoing user data messages, which were discarded even though no problems were encountered to prevent their transmission. User messages are discarded due to lack of space in the transmission buffer.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmRtxChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of retransmitted DATA chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmTimeUnavail" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of seconds the association has been unavailable to the SCTP user.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInControlChunkAbnormal" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received control chunks which were chosen to be discarded due to errors in the chunk format or in the chunk content.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInControlChunkDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received control chunks which were discarded even though no errors were detected. Chunks can be discarded for the following reasons:
+				- unsupported chunk type.
+				- wrong association state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInDataChunkAbnormal" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received DATA chunks with errors in the chunk format or in the chunk contents preventing them from being delivered to the SCTP user.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInDataChunkDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received DATA chunks that were discarded due to lack of space in the receive buffer.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmInOctets" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of octets in received packets for this association, including duplicates and those received in error.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutDataChunkDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of outgoing DATA chunks for this association for which no problems were encountered to prevent their transmission but were discarded. DATA chunks are discarded due to ungraceful closing of the association.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmOutOctets" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of octets in transmitted packets.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmTimeCongested" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of seconds that the local transmission buffer for the association is congested.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmCongestions" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that the local transmission buffer for the association is congested.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmPeerZeroWindows" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that the association has started the zero window probing procedure.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmShutdowns" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that the association has become unavailable to the SCTP user due to graceful shutdown by the local or the remote side.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmAborteds" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that the association has become unavailable to the SCTP user due to ungraceful termination by the local or the remote side, using the chunk ABORT.Ungraceful termination during association establishment does not increment this counter.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmUnavailRetrans" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that the association has become unavailable to the SCTP user because all paths forming part of this association became inactive for one of the following reasons:
+				
+				- Retransmission limit was reached
+				- an ICMP message is received and is treated as if the retransmission limit was reached</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmTimePeerZeroWindow" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of seconds that the remote peer has claimed to have zero window for its receive buffer.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

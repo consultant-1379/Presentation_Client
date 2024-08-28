@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JSCore 2 Example</title>
+		<script type="text/javascript" src="../src/jscore.js"></script>
+	</head>
+	<body>
+		<div id="myAppContainer">
+		</div>
+	</body>
+	<script type="text/javascript">
+		require.config({
+			paths: {
+				widgets: 'widgets',
+				regions: 'regions'
+			}
+		});
+	
+		require([
+			"ToDo/ToDo",
+		], function(ToDo) {	
+			var appElement = document.getElementById("myAppContainer");
+			var toDoApp = new ToDo();
+			toDoApp.start(appElement);
+		});
+	</script>
+</html>

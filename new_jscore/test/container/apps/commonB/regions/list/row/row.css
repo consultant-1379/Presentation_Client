@@ -1,0 +1,9 @@
+#list > div {
+    padding:7px 2px;
+}
+
+#list > div > a {
+    color: #0066B3;
+    text-decoration: none;
+    float:right;
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Security" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Security
+			
+			This MO administers all data for O&amp;M Security, except the URL for the Single Login Server (SLS). The MO also contains all actions for O&amp;M Security.
+			
+			This MO is created automatically and cannot be deleted.
+			
+			The RDN of this MO is Security=1.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="requestedSecurityLevel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows the security level requested. The requested security level may differ from the operational security level in some situations.
+				
+				The value of this attribute is set using the actions, setSecurityLevel3 or adaptSecurityLevel, or by using the command, secmode.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SecurityLevel/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalSecurityLevel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows the current security level in the node. The operational security level may differ from the requested security level in some situations.
+				
+				The value of this attribute is set using the actions, setSecurityLevel3 or adaptSecurityLevel, or by using the command, secmode.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SecurityLevel/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="telnetAndFTPServersActive" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies whether Telnet and FTP servers are activated. The value of this attribute is controlled using the command, secmode. In Security Level 3, these servers are inactivated.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="debugPortsActive" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute specifies whether the debug server and the UDP link handler are activated. If they are activated, these services open the TCP and UDP ports.
+				
+				The state of this attribute is controlled using the command, secmode. In Security Level 3, these services are inactive.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="fileTransferClientMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute specifies whether the node uses FTP or SFTP when retrieving files from external file servers. The state of this attribute is controlled using the command, secmode, and can be set on all security levels.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/FileXferClient/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="authorizationCacheTimeOut" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Timeout for authorization data obtained from the AA server. All locally cached authorization data are cleared and then requested again from the AA server.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="15" max="480"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="60"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localAuthenticationFileVersion" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the version of the file used for local user authentication.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="aAServerIPAddressList" ns1:lifeCycle="NORMAL">
+        <ns1:desc>List of Authentication and Authorization Server IP addresses
+				
+				The list can contain up to 10 IP addresses. The IP address used by the node is selected randomly from the list.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="SecurityId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				
+				It is set automatically when the MO instance is created.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="localAADatabaseInstallationFailure" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States whether the action, installLocalAADatabase has failed to complete within the specified duration.
+				
+				This attribute must be set to false using the action, cancelInstallLocalAADatabase, before installLocalAADatabase can be executed again. The attribute can also be set to false directly.
+				
+				When the node is on Security Level 3 and an installation failure occurs, an alarm is issued.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="trustedCertificateInstallationFailure" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States whether one or more of the following is true:
+				- the action, installTrustedCertificate has failed to complete within the specified duration
+				- a downloaded certificate is corrupted
+				- a downloaded certificate does not match the information provided in the structure, CertInfo.
+				
+				This attribute must be set to false using the action, cancelInstallTrustedCertificates before installTrustedCertificate can be executed again. The attribute can also be set to false directly.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="installedTrustedCertificates" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A list containing information about each installed trusted certificate. This attribute is updated when a new trusted certificate is installed or removed (uninstalled).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/CertInfo/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="targetMonitorPortActive" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies whether the target monitor is activated. If activated, it opens a TCP port for output of trace data. The value of this attribute is controlled using the command, secmode, and it can be set on all security levels.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="localAuthorizationFileVersion" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the version of the file used for local user authorization.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="corbaSecurityActive" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute specifies whether Corba security is activated or not. The state of this attribute is controlled using the command, secmode.
+				
+				Corba security is disabled in Security Level 1 and enabled in Security Levels 2 and 3.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="certEnrollState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Certification Enrollment State
+				
+				This attribute shows the current state of the certificate enrollment.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CertEnrollState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="certEnrollErrorMsg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Certification Enrollment Error Message
+				
+				If the enrollment enters the error state, this attribute contains a string that states the cause of the error. Otherwise, the value of this attribute is not defined.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="nodeCertificate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows information about the currently active node certificate to be inspected.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/NodeCertInfo/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="certExpirWarnTime" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Certification Expiry Warning Time
+				
+				This attribute specifies how far in advance an event is issued when the node certificate is about to expire.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="2" max="365"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="90"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="installedUserDefProfilesInfo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates information about the installed user defined profiles file.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/InstalledUserDefProfilesInfo/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="activeUserDefProfilesInfo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates information about the activated user defined profiles.
+				
+				
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/ActiveUserDefProfilesInfo/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="EmergencyStatus" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This enumeration specifies the different stages of the emergency state.</ns1:desc>
+    <ns2:member value="0" ns1:name="NEVER_USED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>EmergencyStatus has not been activated since installation of the LKF.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="ACTIVE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>EmergencyStatus goes from NEVER_USED to ACTIVE, the first time the node is emergency-unlocked. The licenses are open for the emergency state as described in the documentation about licensing. The maximum time in this state is 7 days. After expiry, EmergencyStatus goes to USE_DEGRADED. EmergencyStatus goes from ACTIVE to ACTIVE_AGAIN at second emergency unlock activation of the node. EmergencyStatus goes from ACTIVE to NEVER_USED when the LKF is installed with emergency unlock reset.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="USE_DEGRADED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>EmergencyStatus goes to USE_DEGRADED from ACTIVE. 
+				All features and capacities are license-controlled in accordance with the installed LKF. 
+				
+				EmergencyStatus remains in USE_DEGRADED until:
+				an emergency unlock of the node and EmergencyStatus goes to ACTIVE_AGAIN or,
+				an LKF is installed with an entry, emergency unlock reset. Then EmergencyStatus goes to NEVER_USED.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="ACTIVE_AGAIN" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The EmergencyStatus goes from USE_DEGRADED or from ACTIVE to ACTIVE_AGAIN at emergency unlock of  the node. The licenses are open for the emergency state as described in the documentation about licensing. The maximum time in this state is 14 days (14 days minus number of days in state ACTIVE). After expiry the EmergencyStatus goes from ACTIVE_AGAIN to USE_DISABLED. The EmergencyStatus goes from ACTIVE_AGAIN to NEVER_USED at installation of an emergency unlock reset LKF.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="USE_DISABLED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The EmergencyStatus goes to USE_DISABLED from ACTIVE_AGAIN. 
+				All features and capacities are license-controlled in accordance with the installed LKF. 
+				The node remains in USE_DISABLED until an LKF with the entry, emergency unlock reset, is installed. Then it goes to NEVER_USED.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

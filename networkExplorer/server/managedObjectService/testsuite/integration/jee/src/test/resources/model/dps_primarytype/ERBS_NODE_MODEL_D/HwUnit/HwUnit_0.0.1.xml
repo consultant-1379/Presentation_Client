@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="HwUnit" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents one Support System HW Unit, e.g. SCU, SAU, PSU.
+			
+			Dependencies: Can only exist in the node when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="piuType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the corresponding PiuType MO. Indirectly used to control the auto-configuration of HwUnit-contained MOs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/PiuType/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="productData" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The product data for the hardware unit. Matches the product data on the hardware unit label.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/ProductData/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="HwUnitId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="unitType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Mirrors the attribute PiuType::productData(productName).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="administrativeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The administrative state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AdminState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="UNLOCKED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status containing details about operationalState.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the operational state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="greenLed" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates the operational status of the HW Unit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LedStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="redLed" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates the fault status of the HW unit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LedStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="position" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The absolute position of the hardware unit in a shelf. Positions start from left or ground with the first position numbered 1. A board can occupy more than one position, depending on its width. When a board occupies more than one position, its position number is the left-most position it occupies. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="30"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="positionInformation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The position of a hardware unit can be:
+				
+				- In a shelf 
+				- Not in a shelf but inside or outside the cabinet
+				- At a remote site
+				
+				If the hardware is contained in a shelf, the attribute position is used. Otherwise this attribute can be used, for example, to provide the address of a remote site, or to indicate that the hardware unit is installed in connection to a specific shelf.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="positionRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the cabinet or shelf in which the hardware unit is placed or belongs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational status of the hardware unit as shown by the optical operational indicator on the unit.
+				
+				Valid values:
+				• NOT_APPLICABLE = This indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = No power.
+				• STEADY_ON = Operational.
+				• SLOW_BLINK = Dependent resource missing.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="faultIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The fault status of the hardware unit as shown by the optical fault indicator on the unit.
+				
+				Valid values:
+				• NOT_APPLICABLE = This indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = No HW fault.
+				• STEADY_ON = HW Fault.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="batteryFaultIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The current fault indicator status of the battery shown by the optical battery fault indicator on the corresponding Battery Fuse Unit (BFU).
+				
+				Possible values:
+				• NOT_APPLICABLE = The indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently unavailable.
+				• OFF = The battery is connected and no fault exists in the unit.
+				• STEADY_ON = The battery is potentially faulty and must be examined.
+				• SLOW_BLINK = The battery is manually disconnected or the circuit breaker has tripped and the battery is disconnected from the system voltage.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="powerDistrFaultIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The current fault indicator status of power distribution. The indicator is lit if any of the e-fuses have been tripped. The indicator is physically located on the corresponding Power Distribution Unit (PDU).
+				
+				Valid values:
+				• NOT_APPLICABLE = This indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = No power distribution fault.
+				• SLOW_BLINK = Power distribution fault.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

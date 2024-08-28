@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="AdminProductData" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Administrative Product Data</ns1:desc>
+    <ns2:attribute ns1:name="productNumber" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The product number of the product or document.
+				
+				Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999
+				
+				For UpgradePackage, this is the document number of the upgrade package.
+				
+				Maximum length for a product number is 36 when referring to a document.
+				
+				The product number is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="1" max="24"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="productRevision" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The revision state of the product.
+				
+				Examples: R1, r1a, R1A02, P7B
+				
+				The product revision is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="1" max="7"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="productName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The name of the product.
+				
+				The product name is mandatory for the MOs: ConfigurationVersion, UpgradePackage, LoadModule, PiuType, Subrack and SubrackProdType.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="1" max="12"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="productInfo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Information about the product.
+				
+				If AdminProductData is used by LoadModule the range is 0.. (unlimited).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="13"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="productionDate" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The production date is represented in two ways:
+				
+				- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day, a total of eight characters.
+				Example: 19991231
+				
+				- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week, a total of five characters.
+				Example: 99W52
+				
+				The production date is mandatory for the MOs: ConfigurationVersion, UpgradePackage and LoadModule.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="8"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

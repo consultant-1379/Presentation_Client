@@ -1,0 +1,15 @@
+{
+    "name": "JSCORE",
+    "description": "",
+    "version": "0.0.1",
+    "url": "",
+	"helpers": ["yuidoc_helpers.js"],
+	"themedir" : "ericsson_yui_theme",
+    "options": {
+		"paths": [
+		  "../src/core",
+		  "../src/ext"
+		],
+        "outdir": "src/site/resources/api/"
+    }
+}

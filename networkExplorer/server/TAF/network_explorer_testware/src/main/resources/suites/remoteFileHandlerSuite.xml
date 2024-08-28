@@ -1,0 +1,10 @@
+<suite name="RemoteFileHandlerSuite"  >
+
+
+        <!-- This is a comment in the suite.xml file -->
+        <test name="RemoteFileHandlerSuite">
+                <classes>
+                        <class name="com.ericsson.nms.pres.testWare.test.cases.RemoteFileHandler" />
+                </classes>
+        </test>
+</suite>

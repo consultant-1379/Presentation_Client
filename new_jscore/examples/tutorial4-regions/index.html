@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do App</title>
+    <script type="text/javascript" src="node_modules/jscore/require/require.js"></script>
+    <script type="text/javascript">
+        /*
+        require.config({
+         baseUrl: 'src',
+         paths: {
+         "jscore2": '../node_modules/jscore/0.0.3'
+         },
+         "map": {
+         '*': {
+         "jscore/core": "jscore2/core",
+         "jscore/ext/locationController": "jscore/ext/locationController"
+         },
+         'app2/ToDoApp': {
+         "jscore/core": "jscore/core"
+         }
+         }
+         });
+         require.Config = require.s.contexts._.config;
+         */
+        localRequire={};
+        localRequire['version1'] = require.config({
+            context: "version1",
+            baseUrl: 'src',
+            paths: {
+                "jscore": '../node_modules/jscore/0.0.3',
+                "text": '../node_modules/jscore/require/require'
+            }
+        });
+
+        localRequire['version2'] = require.config({
+            context: "version2",
+            baseUrl: 'src',
+            paths: {
+                "jscore": '../node_modules/jscore/0.0.1',
+                "text": '../node_modules/jscore/require/require'
+
+            }
+
+        });
+
+        localRequire['version1'](['require',
+            'SwitchApp'
+        ], function (require, SwitchApp) {
+            var appContainer = document.getElementById("appContainer");
+            var theApp = new SwitchApp();
+            theApp.start(appContainer);
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+<ul><a href="#app1">App1</a> | <a href="#app2">App2</a></ul>
+<div id="appContainer"></div>
+</body>
+
+</html>

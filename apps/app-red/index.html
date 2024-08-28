@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEV: Red Application</title>
+    <meta charset="utf-8">
+    <script src="node_modules/titan/titan-dev.js"></script>
+    <script>
+        require({
+            baseUrl:'src',
+            resources:'resources'
+        }, ['domReady!', 'app-red/Application'], function (doc, Application) {
+            var app = new Application({
+                container:'#Container'
+            });
+            app.start();
+        });
+    </script>
+</head>
+<body>
+<div id="Container"></div>
+</body>
+</html>

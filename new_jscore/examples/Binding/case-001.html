@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case 1</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cases.css"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/require.js"></script>
+    <script src="lib/console.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+    <label for="Text1">Text1: <input id="Text1" type="text" size="32"/></label>
+    <label for="Text2">Text2: <input id="Text2" type="text" size="32"/></label>
+
+    <div>
+        <label for="Source">Setters <input type="text" id="Source" value="Hello"/></label>
+        <button type="button" id="SetModel">Model</button>
+        <button type="button" id="SetModelSilent">Model (silent)</button>
+        <button type="button" id="SetText1">Text1</button>
+        <button type="button" id="SetText1Silent">Text1 (silent)</button>
+    </div>
+    <div>
+        Getters
+        <button type="button" id="GetModel">Model</button>
+        <button type="button" id="GetText1">Text1</button>
+        <button type="button" id="GetText2">Text2</button>
+    </div>
+    <div>
+        Console:
+        <pre id="Console"></pre>
+    </div>
+</form>
+<script>
+    console.init('Console');
+
+    var model = new Backbone.Model({
+        text: "Lorem ipsum"
+    });
+    var widget1, widget2;
+
+    require({baseUrl: 'src'}, [
+        'TextBox',
+        'BindingBuilder'
+    ], function (TextBox, BindingBuilder) {
+        widget1 = new TextBox({el: '#Text1'});
+        widget2 = new TextBox({el: '#Text2'});
+
+        var binding = BindingBuilder.forModel(model);
+        binding.bind(widget1).to('text');
+        binding.bind(widget2).to('text');
+    });
+
+    function getText() {
+        return $('#Source').val();
+    }
+
+    _.each({
+        GetModel: function () {
+            console.log('Model = ' + model.get('text'));
+        },
+        GetText1: function () {
+            console.log(widget1.el.id + ' = ' + widget1.getValue());
+        },
+        GetText2: function () {
+            console.log(widget2.el.id + ' = ' + widget2.getValue());
+        },
+        SetModel: function () {
+            model.set('text', getText());
+        },
+        SetModelSilent: function () {
+            model.set('text', getText(), {
+                silent: true
+            });
+        },
+        SetText1: function () {
+            widget1.setValue(getText());
+        },
+        SetText1Silent: function () {
+            widget1.setValue(getText(), false);
+        }
+    }, function (value, key) {
+        $('#' + key).click(value);
+    });
+
+</script>
+</body>
+</html>

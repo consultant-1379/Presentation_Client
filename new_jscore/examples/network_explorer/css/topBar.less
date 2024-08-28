@@ -1,0 +1,96 @@
+@import "../../../css/common/mixins";
+
+#TopMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+#Container {
+    position: absolute;
+    top: 47px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.TorMegamenu-topBar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+    border-top: 6px solid #0066b3;
+
+    .applyVerticalGradient(#FFFFFF, #F0F0F0, '', '');
+    .applyBoxShadow(~"0 2px 2px #D2D2D2");
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        font-size: 0;
+        top: -6px;
+        left: 0;
+
+        background: #0066b3;
+        background: -o-linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+        background: -moz-linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+        background: -webkit-linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+        background: -ms-linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0.1, #A2C517), color-stop(0.3, #009046), color-stop(0.5, #0082B6), color-stop(0.7, #151F77), color-stop(1, #DB0050));
+        background: linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+    }
+
+    &-logo {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: url('../resources/container/econ01.svg') no-repeat center center transparent;
+        width: 50px;
+        background-size: 20px 20px;
+    }
+
+    &-topMenuName {
+        display: inline-block;
+        padding: 0 5px 0 45px;
+        margin: 0;
+        font-size: 1.4em;
+        line-height: 40px;
+        color: #58585A;
+    }
+
+    &-topMenu {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50px;
+        list-style: none;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-topMenu li {
+        display: inline-block;
+    }
+
+    &-topMenu a {
+        padding: 0 5px 0 15px;
+        margin: 0;
+        font-size: 1.2em;
+        line-height: 40px;
+        color: #58585a;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    &-topMenu a:hover {
+        color: #0066B3;
+    }
+}

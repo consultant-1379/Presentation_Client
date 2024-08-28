@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Paging" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Contains the configuration parameters for the Paging function in the RBS and applies to all the cells.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="PagingId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxNoOfPagingRecords" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum allowed number of paging records included in one Radio Resource Control (RRC) paging message. It is the allowed maximum number of UE that can be paged per paging occasion.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="defaultPagingCycle" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The paging cycle (also referred to as T) used by the RBS and broadcast in system information type 2. If the UE-specific Discontinuous Reception (DRX) cycle is provided in S1AP paging and has a smaller value than defaultPagingCycle, the UE-specific DRX cycle overrides defaultPagingCycle.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="128"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nB" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Used to calculate the number and position of Paging Occasions (PO) and Paging Frames (PF).
+				
+				The numerical value of nB depends on the value of the defaultPagingCycle (T) and can be set to one of the following values:
+				
+				4T, 2T, T, 1/2T,1/4T, 1/8T, 1/16T, 1/32T
+				
+				When nB is set to T, 2T or 4T, it determines the number of POs per PF, and the PO position in PF.
+				
+				When nB is set to a value smaller than T, it affects the System Frame Number of the PF, the position of PO in the PF, and also distribution of UE into groups with the same PF.
+				
+				When nB is set to a  smaller value, the groups are fewer but larger, or more but smaller.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/NBValue/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="T"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="pagingDiscardTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The length of time a received paging is retained or queued in the RBS before it is discarded. The timer should be set to the same (or smaller) value as the paging resend timer in MME (T3413). This setting  prevents the RBS from retaining or sending an old paging after the re-sent copy is received from the MME.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="15"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="noOfDefPagCyclPrim" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of consecutive &quot;DefaultPagingCycles&quot; in which paging for Earthquake and Tsunami Warning System (ETWS) Primary Notification shall be transmitted in the RBS.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="8"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

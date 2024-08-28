@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="CfiMode" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>CfiMode</ns1:desc>
+    <ns2:member value="0" ns1:name="CFI_STATIC_BY_BW" ns1:lifeCycle="NORMAL">
+        <ns1:desc>For FDD:
+				Control region uses only CFI=1 for 15 and 20 MHz system bandwidth, and uses only CFI=2 otherwise.
+				For TDD:
+				Control region uses only CFI=1 for 10 MHz and greater system bandwidth, and uses only CFI=2 otherwise.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="CFI_STATIC_1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Control region uses only CFI=1.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="CFI_STATIC_2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Control region uses only CFI=2.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="CFI_STATIC_3" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Control region uses only CFI=3.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="CFI_AUTO_MAXIMUM_2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Control region dynamically adapts CFI up to the value of 2, depending on the actual load in each subframe.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="CFI_AUTO_MAXIMUM_3" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Control region dynamically adapts CFI up to the value of 3, depending on the actual load in each subframe.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

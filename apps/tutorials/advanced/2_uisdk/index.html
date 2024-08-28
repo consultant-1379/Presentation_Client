@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Advanced App</title>
+
+    <script type="text/javascript" src="node_modules/jscore/jscore.js"></script>
+    <script type="text/javascript">
+        require({
+                    baseUrl:'src'
+                },
+                ['domReady!', 'Events/Application'],
+                function (doc, Application) {
+                    var app = new Application({
+                        container:'#myContainer'
+                    });
+                    app.start();
+                });
+    </script>
+</head>
+<body>
+<div id="myContainer"></div>
+</body>
+</html>

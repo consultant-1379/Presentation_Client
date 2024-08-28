@@ -1,0 +1,7 @@
+{
+    "name": "tor-container",
+    "version": "0.0.2",
+    "dependencies": {
+        "titan": "0.0.8"
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEV: Event Bus Application</title>
+    <meta charset="utf-8">
+    <script src="node_modules/titan/titan-dev.js"></script>
+    <script>
+        require({
+            baseUrl:'src',
+            resources:'resources'
+        }, ['domReady!', 'app-eventbus/Application'], function (doc, Application) {
+            var app = new Application({
+                container:'#Container'
+            });
+            app.start();
+        });
+    </script>
+</head>
+<body>
+<div id="Container"></div>
+</body>
+</html>

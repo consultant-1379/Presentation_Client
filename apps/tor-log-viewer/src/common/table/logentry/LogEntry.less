@@ -1,0 +1,36 @@
+.torLogViewer-LogEntry {
+
+    border-top: 1px solid #E8E8E8;
+
+    &:nth-child(odd) {
+        background: #F6F6F6;
+    }
+
+    &-logEntryRow {
+
+        cursor: pointer;
+
+        &:hover {
+            background: #E8E8E8;
+        }
+    }
+
+    &-tableRowExpandArrow {
+        width: 24px;
+        background: url('@{current-url}/arrow_down_black.svg') center center no-repeat;
+    }
+
+    &-logItem {
+        padding: 6px 8px;
+    }
+
+    &-logEntryDetailsRow {
+        display: none;
+
+        &_expanded_true {
+            display: table-row;
+        }
+
+    }
+
+}

@@ -1,0 +1,12 @@
+<tbody data-namespace="torLogViewer" data-name="LogEntry">
+    <tr data-name="logEntryRow">
+        <td data-name="tableRowExpandArrow"></td>
+        {{#each options.columns}}
+            <td class="torLogViewer-LogEntry-logItem">{{columnHelper ../model get=this}}</td>
+        {{/each}}
+    </tr>
+    <tr data-name="logEntryDetailsRow">
+        <td></td>
+        <td data-name="logEntryDetailsPanel" colspan="{{options.columns.length}}"></td>
+    </tr>
+</tbody>

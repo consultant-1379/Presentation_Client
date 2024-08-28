@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ext.mvp.Collection - JSCORE</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html">JSCORE: ext.mvp.Collection</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+			<img src="..&#x2F;assets/images/logo.png"/>
+        </div>
+		
+    </div>
+	
+    <div class="yui3-g">
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules <span style="float:right;">0.0.1</span></h2>
+    </div>
+    <div class="bd">
+        <ul>
+            <li><a href='../modules/core.html'>core</a><ul><li><a href='../classes/core.App.html'>App</a></li><li><a href='../classes/core.AppContext.html'>AppContext</a></li><li><a href='../classes/core.Element.html'>Element</a></li><li><a href='../classes/core.EventBus.html'>EventBus</a></li><li><a href='../classes/core.Region.html'>Region</a></li><li><a href='../classes/core.View.html'>View</a></li><li><a href='../classes/core.Widget.html'>Widget</a></li></ul></li><li><a href='../modules/ext.html'>ext</a><ul><li><a href='../classes/ext.css.html'>css</a></li><li><a href='../classes/ext.dom.html'>dom</a></li><li><a href='../classes/ext.dom.Element.html'>dom.Element</a></li><li><a href='../classes/ext.mediator.EventBus.html'>mediator.EventBus</a></li><li><a href='../classes/ext.mvp.Collection.html'>mvp.Collection</a></li><li><a href='../classes/ext.mvp.Model.html'>mvp.Model</a></li><li><a href='../classes/ext.mvp.View.html'>mvp.View</a></li></ul></li><li><a href='../modules/interfaces.html'>interfaces</a><ul><li><a href='../classes/interfaces.App.html'>App</a></li><li><a href='../classes/interfaces.AppContext.html'>AppContext</a></li><li><a href='../classes/interfaces.UIComponent.html'>UIComponent</a></li></ul></li>
+        </ul>
+    </div>
+</div>
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class ext.mvp.Collection</h4>
+
+
+
+<!--<span class="foundat">Class defined in: <a href="../..&#x2F;files&#x2F;.._jscore_ext_mvp_main.js.html#l220"><code>..\jscore\ext\mvp\main.js:220</code></a></span>-->
+<div class="intro"><p>Used for managing multiple Model instances</p></div>
+
+
+
+<div id="classdocs">
+    <ul>
+        
+        <li><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+    <div>
+        
+            <div id="methods">
+            
+                <a name="methods_addModel"></a>
+<div class="method item">
+     <strong class="name"><code>addModel</code></strong>( <code>models, options </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Adds a model, or an array of models to the collection.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>models</code> <strong>&lt;Model/Array&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>options</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_each"></a>
+<div class="method item">
+     <strong class="name"><code>each</code></strong>( <code>fn </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Iterates over the collection, passing model instances into the callback.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>fn</code> <strong>&lt;Function&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_extend"></a>
+<div class="method item">
+    Collection <strong class="name"><code>extend</code></strong>( <code>definition </code> ) 
+    <br>
+    <span class="foundat">
+    <p>To create a Collection child class call extend providing the class definition.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>definition</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;Collection&gt; collection</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_getModel"></a>
+<div class="method item">
+    Model <strong class="name"><code>getModel</code></strong>( <code>cid </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Fetches a model with the same cid from the collection.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>cid</code> <strong>&lt;String&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;Model&gt; model</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_init"></a>
+<div class="method item">
+     <strong class="name"><code>init</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Constructor</p>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_off"></a>
+<div class="method item">
+     <strong class="name"><code>off</code></strong>( <code>eventName, callback, context </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Unsubscribe collection event or events</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>eventName</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>callback</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>context</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_on"></a>
+<div class="method item">
+     <strong class="name"><code>on</code></strong>( <code>eventName, callBack, context </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Subscribe to collection events.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>eventName</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>callBack</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>context</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_removeModels"></a>
+<div class="method item">
+     <strong class="name"><code>removeModels</code></strong>( <code>models, options </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Removes a model, or an array of models from the collection.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>models</code> <strong>&lt;Model/Array&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>options</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_setModels"></a>
+<div class="method item">
+     <strong class="name"><code>setModels</code></strong>( <code>models, options </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Sets the collection to only contain the specified models</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>models</code> <strong>&lt;Model/Array&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>options</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+            </div>
+        
+        
+        
+        
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

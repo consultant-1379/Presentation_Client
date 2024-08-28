@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Sctp" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Stream Control Transmission Protocol (SCTP)
+			
+			This MO represents an SCTP host. SCTP transports signalling messages between SCTP users over IP networks.
+			
+			Most of the attributes are specified in the IETF RFC 4960.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="SctpId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status.
+				
+				It contains details about operationalState.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="numberOfAssociations" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of associations that can be handled by this SCTP MO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of MO instances that reserve this MO instance.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ipAccessHostGpbId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an instance of an IpAccessHostGpb MO.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/IpAccessHostGpb/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="minimumRto" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The minimum value for RTO.
+				
+				The value of this attribute has the following relationship to the values of other attributes:
+				tSack + expected Round Trip Time &lt; minimumRto &lt; maximumRto
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="500"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="10"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maximumRto" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum value for the RTO.
+				
+				The value of this attribute must be greater than the value of minimumRto.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="12000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="40"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="initialRto" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The initial value that the Retransmission Timeout (RTO) takes prior to the first measurement of the Round-Trip Time (RTT).
+				
+				The value of this attribute has the following relationship to the values of other attributes:
+				minimumRto &lt;= initialRto &lt;= maximumRto
+				
+				A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="12000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="20"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="rtoAlphaIndex" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute rtoAlphaIndex (Retransmission Timeout Alpha Index) computes the value of the Smoothed Round-Trip Time (SRTT) for a specific destination address. It weights the RTT values.
+				
+				The value of this attribute is used to create a value of RTO.Alpha between 0 and 1. A value close to 1 gives a higher importance to the last RTT measurement. The range of possible values and the actual value given to the RTO.Alpha parameter are the following:
+				
+				rtoAlphaIndex = 1 -&gt; RTO.Alpha = 1/2
+				rtoAlphaIndex = 2 -&gt; RTO.Alpha = 1/4
+				rtoAlphaIndex = 3 -&gt; RTO.Alpha = 1/8
+				rtoAlphaIndex = 4 -&gt; RTO.Alpha = 1/16
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="4"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="rtoBetaIndex" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute rtoBetaIndex (Retransmission Timeout Beta Index) computes the value of RTTVar (Round Trip Time Variation) of a destination address.
+				
+				The value of this attribute is used to create a value of RTO.Beta between 0 and 1. A value close to 1 gives a higher importance to the last observed variation. The range of possible values and the actual value given to the RTO.Beta parameter are the following:
+				
+				rtoBetaIndex = 1 -&gt; RTO.Beta = 1/2
+				rtoBetaIndex = 2 -&gt; RTO.Beta = 1/4
+				rtoBetaIndex = 3 -&gt; RTO.Beta = 1/8
+				rtoBetaIndex = 4 -&gt; RTO.Beta = 1/16
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="4"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="2"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="validCookieLife" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute sets the lifespan of the State Cookie sent in the INIT_ACK chunk. It limits the amount of time between sending the INIT_ACK and the reception of a COOKIE_ECHO chunk when establishing an association.
+				
+				It is recommended that the value of this attribute has the following relationship to the values of other attributes:
+				validCookieLife &gt;= maximumRto * maxInitialRtrAtt.
+				
+				A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="180"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="60"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="allowedIncrementCookieLife" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute defines the allowed increment of the validCookieLife parameter (in local node) when an increase of the parameter is requested from remote node.
+				
+				A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="180"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="keyChangePeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines how often the secret key used for computing the Message Authentication Code (MAC) on the State Cookie is changed.
+				
+				A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="180"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="associationMaxRtx" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of consecutive retransmissions to a remote peer (on all the remote transport addresses of the peer).
+				If the number of retransmissions becomes greater than this value, the remote peer is considered to be unreachable and the association is closed down. 
+				
+				Set the value of this attribute within the following limits:
+				
+				- If the selection algorithm is set to SCTP_PATHS: pathMaxRtx &lt;= associationMaxRtx &lt;= number of remote transport addresses * pathMaxRtx,
+				- If the selection algorithm is set to IP_PATHS: pathMaxRtx &lt;= associationMaxRtx &lt;= number of IP paths * pathMaxRtx.
+				
+				The value might need to be increased to avoid frequently lost associations in an unstable network.
+				
+				A new value of this attribute applies to both existing and new associations that do not use any SctpProfile MO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="20"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="8"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="pathMaxRtx" ns1:lifeCycle="NORMAL">
+        <ns1:desc>If the path selection algorithm is SCTP_PATHS, this attribute specifies the maximum number of consecutive retransmissions to a remote transport address. For other path selection algorithms, this attribute specifies the maximum number of consecutive retransmissions over an IP path.
+				
+				If the number of retransmissions becomes greater than this value, the remote transport address or the IP path is considered to be &quot;inactive&quot; and no data is sent to it. If all the remote transport addresses or all IP paths become &quot;inactive&quot;, the association will be closed down.
+				
+				The value of this attribute has the following relationships to the values of other attributes: 
+				 - one attempt &lt;= pathMaxRtx &lt;= associationMaxRtx
+				 - pathMaxRtx &gt;= potentiallyFailedMaxRtx
+				
+				Adapt the value to the network quality. A low value reduces the time for fault detection, but it is recommended only for stable networks.
+				
+				The value might need to be increased to avoid frequently lost associations in an unstable network.
+				
+				If multi-homed SCTP is used and when tests for insertion and removal of the Ethernet cable are performed, wait 60 seconds between inserting the first cable and removing the second cable. That is: remove cable, insert cable, wait 60 seconds, remove second cable, insert second cable.
+				
+				A new value of this attribute applies to both existing and new associations that do not use any SctpProfile MO.
+				
+				The recommended value for pathMaxRtx is as follows:
+				-  If the selection algorithm is set to SCTP_PATHS, set the value to associationMaxRtx / number of remote transport addresses.
+				-  If the selection algorithm is set to IP_PATHS, set the value to associationMaxRtx / number of IP paths.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="20"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxInitialRtrAtt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of retransmissions allowed for both INIT and COOKIE_ECHO chunks. If the number of retransmissions exceeds this value, SCTP aborts the initialization of the association and reports the error to the SCTP user.
+				
+				A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="8"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxShutDownRtrAtt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of retransmissions during the shutdown phase of an association.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="20"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="5"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="heartbeatInterval" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The amount of time added to the RTO of a specific address when setting up the period of time between sending heartbeats. Small values can lead to an earlier detection of unreachable addresses than higher values. However, sending the heartbeat too often can lead to a performance penalty.
+				
+				A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="1800"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="heartbeatStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Enables and disables heartbeats for associations.
+				
+				true - enable heartbeats.
+				false - disable heartbeats.
+				
+				A new value of this attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxIncomingStream" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The allowed maximum number of incoming streams for an association.
+				
+				A change to this attribute does not affect the existing associations. To apply a new value, the endpoint must be re-created.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16384"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="17"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxOutgoingStream" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The allowed maximum number of outgoing streams for an association.
+				
+				A change to this attribute does not affect the existing associations. To apply a new value, the endpoint must be re-created.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16384"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="17"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxUserDataSize" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of bytes of an IP datagram that can be transferred in a single unit over a specific path in an IP network. If an IP datagram exceeds the Path Maximum Transfer Unit (PMTU), it is either fragmented or dropped.
+				 
+				For Sctp that uses IPv6 addresses, the minimum value of this attribute is 1240.
+				 
+				This value does not include the IP header, 20 bytes for IPv4 or 40 bytes for IPv6.
+				 
+				For Sctp that uses IPv4 addresses, the recommended value of this attribute is 1480. 
+				For Sctp that uses IPv6 addresses, the recommended value of this attribute is 1460.
+				 
+				If IPsec is used, the value of this attribute must be less than the recommended value to make room for the overhead specified by IPsec protocol to prevent message fragmentation on IP level.
+				 
+				To avoid fragmentation of the SCTP data by the local IPv4 stack, SCTP aligns the actual used maxUserDataSize with the mtu attribute of the used IpInterface / FastEthernet MO(s).
+				SCTP calculates the actual used maxUserDataSize value in the following way: max { min {maxUserDataSize, mtu - ipHeaderSize}, 508 }, where ipHeaderSize is 20 octets.
+				For a multi-homed SCTP endpoint, the minimum value of the mtu attribute from both IpInterface / FastEthernet MOs is used in calculation.
+				If the value of the mtu attribute of the used FastEthernet MO is less than 532 octets, then fragmentation of the SCTP data by the local IPv4 stack can not be avoided. 
+				 
+				To avoid fragmentation of the SCTP data by the local IPv6 stack, the value of this attribute shall have the following relationship to the values of the mtu attribute of the Ipv6Interface MO:
+				maxUserDataSize &lt;= mtu - ipHeaderSize, where ipHeaderSize is 40 octets
+				 
+				A new value of this attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="508" max="1480"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1480"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mBuffer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute sets the size of the buffer used for storing user data pending to be sent or retransmitted in an association. That is, the attribute sets the maximum amount of user data that SCTP buffers before discarding user messages.
+				
+				The value may need to be increased to ensure stable data flow at high load.
+				It must be greater than the value of nThreshold
+				
+				A new value of this attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="2048"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="256"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nThreshold" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Sets the value of the threshold used to ask the SCTP user to stop the delivery of a data on an association. A congestion indication will be sent to the user when the SCTP send buffer usage is above nTreshold.
+				
+				The value of this attribute has the following relationship to the value of mBuffer:
+				- nThreshold must be less than mBuffer,
+				- nThreshold = 3/4 * mBuffer, is the normal value.
+				
+				The value may need to be increased to ensure stable dataflow at high load.
+				
+				A new value of this attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="2048"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="192"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="tSack" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The time delay for sending the Selective Acknowledgement (SACK), that is, the time from reception of the DATA chunk to sending of the SACK chunk.
+				
+				A new value of the attribute does not change the current measurement
+				interval. It applies only to subsequent intervals.
+				
+				A new value of the attribute applies to both existing and new
+				associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="50"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxDataSizeIp" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>The maximum number of bytes that SCTP can fetch every time it reads from the IP socket.
+				
+				This value includes the IP header, 20 bytes.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1500" max="65535"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1500"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="initialAdRecWin" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The initial value of the advertised receiver window credit.
+				
+				If the value of this attribute is increased, it applies to both existing and new associations. If the value is decreased, it does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1500" max="1048576"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="32768"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="intervalOobPkts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of seconds after which the counter for out-of-the-blue packets is reset.
+				
+				A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="6500"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="3600"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="intervalLostUser" ns1:lifeCycle="OBSOLETE">
+        <ns1:desc>Attribute: intervalLostUserDescription</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="3600"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxBurst" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packages that are sent during the fast retransmit phase when a SACK is processed.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16384"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nPercentage" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute is set as a percentage of the attribute nThreshold. A congestion-ceased indication is sent to the SCTP user when the usage of the SCTP send buffer drops below nPercentage.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="85"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="bundlingActivated" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Enables and disables the use of bundling.
+				
+				A new value of this attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/BundlingActivated/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="ENABLED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="bundlingTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the maximum SCTP bundling delay.
+				
+				Value=0 means that SCTP bundles only what is available and sends directly (no delay).
+				
+				A new value of the attribute does not change the current measurement interval. It applies only to subsequent intervals.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="10"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpCurrEstab" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of SCTP associations for which the current state is either ESTABLISHED, SHUTDOWN-PENDING, or SHUTDOWN-RECEIVED.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpActiveEstab" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that SCTP associations have made a direct transition to the ESTABLISHED state from the COOKIE-ECHOED state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpPassiveEstab" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that SCTP associations have made a direct transition from the CLOSED state to the ESTABLISHED state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpAborted" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that SCTP associations have made a direct transition to the CLOSED state from any state, using the chunk ABORT.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpShutdowns" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times that SCTP associations have made a direct transition to the CLOSED state from either the SHUTDOWN-SENT state or the SHUTDOWN-ACK-SENT state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatAssocOutOfBlue" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of out-of-the-blue packets that are received by the host.
+				
+				These are SCTP packets that are correctly formed (with a correct checksum), but where the receiver is not able to identify the association to which this packet belongs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatSentChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted DATA chunks (excluding retransmissions).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatRecChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received DATA chunks.
+				
+				The counter does NOT include abnormal or discarded chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatOutOfOrderSendChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of unordered chunks transmitted to the peers.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatOutOfOrderRecChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of unordered chunks received from the peers.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatChecksumErrorCounter" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of SCTP packets received from the peers, with an invalid checksum.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatRetransChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of DATA chunks retransmitted to the peers.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatSentControlChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted control chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatReceivedControlChunks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received control chunks.
+				
+				The counter does not include abnormal or discarded chunks.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatFragmentedUserMsg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of fragmented user messages, incremented when the first data chunk of fragmented message is sent.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatReassembledUserMsg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of reassembled user messages, incremented when the first data chunk of a fragmented message is received.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatSentPackages" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of transmitted packets.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatReceivedPackages" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received packets, including duplicates and those received in error.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatCommStop" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times SCTP has sent a congestion indication to the user.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatCommResume" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of times SCTP has sent a congestion ceased indication to the user.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatSentChunksDropped" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of outgoing user messages originating from the application for this SCTP for which no problems were encountered to prevent their transmission but were discarded. User messages are discarded due to lack of M-buffer.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpStatRecChunksDropped" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Number of received chunks dropped for the following reasons: 
+				- Invalid association state
+				- Duplicated data
+				- Invalid stream identity in the DATA_CHUNK
+				- Invalid verification tag in the packet
+				- Stale SACK_CHUNK received
+				- Lack of receiving buffer
+				- ULP buffer overflow.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="rpuId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an instance of ReliableProgramUniter MO.
+				
+				There is a one to one relation between Sctp MO and ReliableProgramUniter MO instances.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ReliableProgramUniter/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ipAccessSctpRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to an instance of an IpAccessSctp MO.  </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/IpAccessSctp/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpInErrors" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of received SCTP datagrams for which an SCTP association could not be determined.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmSctpInNoPorts" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of received SCTP datagrams for which an SCTP association and endpoint could not be determined (for example if there was no user application at the destination port).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="heartbeatMaxBurst" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of heartbeats, which can be sent at the same time during the path probing procedure. If the value is set to 0, path probing is not used.
+				
+				A new value of the attribute does not apply to associations that are already established.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="4"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="heartbeatPathProbingInterval" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The interval between consecutive heartbeats during the path probing.
+				
+				The value of this attribute has the following relationship to the values of other attributes:
+				maximumRto &lt;= heartbeatPathProbingInterval &lt;= heartbeatInterval.
+				 
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="180000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="500"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="pathSelection" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The type of path selection algorithm.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/PathSelectionType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="IP_PATHS"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="sctpAssocDeleteTimeout" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of hours an SctpAssociation MO is allowed to stay in the operational state DISABLED before it is automatically deleted.
+				
+				If the association is re-established later, a new SctpAssociation MO is created.
+				
+				A new value of the attribute applies to both existing and new associations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="168"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="168"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="switchbackMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The type of switchback behavior.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SwitchbackModeType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="NO_SWITCHBACK"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="potentiallyFailedMaxRtx" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute specifies the maximum number of consecutive retransmissions over the IP path that is used for data transmission, before this path is considered likely to fail.
+				
+				If the number of retransmissions becomes greater than this value, the path used for data transmission is changed.
+				
+				The value of this attribute has the following relationship to the value of pathMaxRtx: potentiallyFailedMaxRtx &lt;= pathMaxRtx.
+				
+				Applicable for the IP_PATHS selection scheme only.
+				
+				A new value of the attribute applies to both existing and new associations that do not use any SctpProfile MO.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="20"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="switchbackMinThreshold" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The minimum and initial values for the number of consecutive successful heartbeats that must be sent over the preferred primary path before switchback can be performed. 
+				
+				The value of this attribute has the following relationship to the value of switchbackMaxThreshold: switchbackMinThreshold &lt;= switchbackMaxThreshold.
+				
+				A new value of the attribute applies to both existing and new associations.
+				
+				The attribute is used for the EXPONENTIAL_BACKOFF switchback mode only.
+				
+				If this value is greater than 1, it can take longer to switch back to the preferred primary path.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="65535"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="switchbackMaxThreshold" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum value of the number of consecutive successful heartbeats that must be sent over the preferred primary path before switchback can be performed.
+				
+				The value of this attribute has the following relationship to the value of switchbackMinThreshold: switchbackMaxThreshold &gt;= switchbackMinThreshold.
+				
+				A new value of the attribute applies to both existing and new associations.
+				
+				The attribute is used for the EXPONENTIAL_BACKOFF switchback mode only.
+				
+				If this value is greater than 1, it can take longer to switch back to the preferred primary path.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="65535"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="65535"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

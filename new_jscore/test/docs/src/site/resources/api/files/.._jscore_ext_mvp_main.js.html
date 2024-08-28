@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>..\jscore\ext\mvp\main.js - JSCORE</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html">JSCORE: ..\jscore\ext\mvp\main.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+			<img src="..&#x2F;assets/images/logo.png"/>
+        </div>
+		
+    </div>
+	
+    <div class="yui3-g">
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules <span style="float:right;">0.0.1</span></h2>
+    </div>
+    <div class="bd">
+        <ul>
+            <li><a href='../modules/core.html'>core</a><ul><li><a href='../classes/core.App.html'>App</a></li><li><a href='../classes/core.AppContext.html'>AppContext</a></li><li><a href='../classes/core.Element.html'>Element</a></li><li><a href='../classes/core.EventBus.html'>EventBus</a></li><li><a href='../classes/core.Region.html'>Region</a></li><li><a href='../classes/core.View.html'>View</a></li><li><a href='../classes/core.Widget.html'>Widget</a></li></ul></li><li><a href='../modules/ext.html'>ext</a><ul><li><a href='../classes/ext.css.html'>css</a></li><li><a href='../classes/ext.dom.html'>dom</a></li><li><a href='../classes/ext.dom.Element.html'>dom.Element</a></li><li><a href='../classes/ext.mediator.EventBus.html'>mediator.EventBus</a></li><li><a href='../classes/ext.mvp.Collection.html'>mvp.Collection</a></li><li><a href='../classes/ext.mvp.Model.html'>mvp.Model</a></li><li><a href='../classes/ext.mvp.View.html'>mvp.View</a></li></ul></li><li><a href='../modules/interfaces.html'>interfaces</a><ul><li><a href='../classes/interfaces.App.html'>App</a></li><li><a href='../classes/interfaces.AppContext.html'>AppContext</a></li><li><a href='../classes/interfaces.UIComponent.html'>UIComponent</a></li></ul></li>
+        </ul>
+    </div>
+</div>
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>..\jscore\ext\mvp\main.js</h4>
+
+<pre class="code prettyprint linenums">
+define([
+    &#x27;jscore&#x2F;core&#x27;,
+    &#x27;jscore&#x2F;ext&#x2F;utils&#x2F;base&#x2F;underscore&#x27;,
+    &#x27;.&#x2F;base&#x2F;backbone-1.0.0&#x27;
+], function (core, _, Backbone) {
+
+    var extend = core.extend;
+
+    &#x2F;**
+     * CreateModel
+     * @param attributes
+     * @param options
+     * @returns {Backbone.Model}
+     * @constructor
+     *&#x2F;
+    function CreateModel(attributes, options) {
+        return new Backbone.Model(attributes, options);
+    }
+
+    &#x2F;**
+     * CreateCollection
+     * @param models
+     * @param options
+     * @returns {Backbone.Collection}
+     * @constructor
+     *&#x2F;
+    function CreateCollection(models, options) {
+        return new Backbone.Collection(models, options);
+    }
+
+
+    var delegateEventSplitter = &#x2F;^(\S+)\s*(.*|~*)$&#x2F;;
+    &#x2F;&#x2F; var match = key.match(delegateEventSplitter);
+
+
+    &#x2F;**
+     * The View is responsible for manipulating the DOM to display the correct visuals. It extends core.View.
+	 *
+	 * @class ext.mvp.View
+     * @extends core.View
+     *&#x2F;
+    var View = core.View.extend({
+		&#x2F;**
+         * Key value contains the event type with the selector for the DOM element. Value contains the method to call on the presenter object (Widget, Region, App)
+         *
+         * @property events
+         * @type {Object}
+         *&#x2F;
+        events: {},
+        _afterRender: function () {
+            this.cid = _.uniqueId(&#x27;view&#x27;);
+            this.delegateEvents();
+        },
+        delegateEvents: function (events) {
+            if (!(events || (events = _.result(this, &#x27;events&#x27;)))) return this;
+           &#x2F;&#x2F; this.undelegateEvents();
+            var parent = this.getParent();
+            for (var key in events) {
+
+                var method = events[key];
+
+                if (!_.isFunction(method)) method = parent[events[key]];
+                if (!method) continue;
+
+                var match = key.match(delegateEventSplitter),
+                    eventName = match[1],
+                    selector = match[2];
+                method = _.bind(method, parent);
+                eventName += &#x27;.delegateEvents&#x27; + this.cid;
+                if (selector === &#x27;&#x27;) {
+                    this.element.on(eventName, method);
+                }
+                else {
+                    var el = this.element.find(selector)
+                    el.on(eventName, method);
+                }
+            }
+            return this;
+        }
+    &#x2F;*    undelegateEvents: function () {
+            this.element.off(&#x27;.delegateEvents&#x27; + this.cid);
+            return this;
+        }*&#x2F;
+    });
+
+    &#x2F;**
+     * The Model is the client side data store. It may store data originated in the client or no the server and facilitates pushing data changes to the server.
+     * 
+	 * @class ext.mvp.Model
+     *&#x2F;
+    function Model(attributes, options) {
+
+        this._model = CreateModel.apply(this, arguments);
+        this._model._model = this;
+        this.cid= this._model.cid;
+        this._model.url = this.url;
+        this.init();
+    }
+
+    Model.prototype = {
+		&#x2F;**
+         * Client Identity. A page wide unique identifier for the model root.
+         *
+         * @property cid
+         * @type {String}
+         *&#x2F;
+		 &#x2F;**
+         * url of resource, represented by Model
+         *
+         * @property url
+         * @type {String}
+         *&#x2F;
+        url: &#x27;&#x27;,
+        &#x2F;**
+         * Constructor
+		 *
+		 * @method init
+         *&#x2F;
+        init: function () {
+        },
+        &#x2F;**
+		 * Gets the value of the model at the path specified.
+		 *
+         * @method getAttribute
+         * @param attribute {String}
+		 * @returns value {*}
+         *&#x2F;
+        getAttribute: function (attribute) {
+            var model = this._model;
+
+            var response = this._model.get.apply(model, arguments);
+
+            return response;
+        },
+		&#x2F;**
+		 * Add property (one or many) to the model
+		 *
+         * @method setAttributes
+         * @param attributes {Object}
+         *&#x2F;
+        setAttributes: function (attributes, options) {
+            var model = this._model;
+
+            model.set.apply(model, arguments);
+
+        },
+        &#x2F;**
+		 * Remove property from the model
+		 *
+         * @method removeAttribute
+         * @param attribute {String}
+         *&#x2F;
+        removeAttribute: function (attribute, options) {
+
+            var model = this._model;
+            model.unset.apply(model, arguments);
+
+        },
+        &#x2F;**
+		 * Updates the model with the current server side resource state. 
+		 *
+         * @method fetch
+         *&#x2F;
+        fetch: function (options) {
+
+            var model = this._model;
+            model.fetch.apply(model, arguments);
+
+        },
+        &#x2F;**
+		 * Pushes the model contents to the server side resource. 
+		 *
+         * @method save
+		 * @param attributes {Object}
+		 * @param options {Object}
+         *&#x2F;
+        save: function (attributes, options) {
+
+            var model = this._model;
+            model.save.apply(model, arguments);
+
+        },
+        &#x2F;**
+		 * Subscribe to model events. Supported methods change, add, destroy, error, change:[attribute], remove.
+		 *
+         * @method on
+         * @param eventName
+         * @param callBack
+         * @param context
+         *&#x2F;
+        on: function (eventName, callBack, context) {
+
+            var model = this._model;
+            model.on.apply(model, arguments);
+
+        },
+        &#x2F;**
+		 * Unsubscribe model event or events
+		 *
+         * @method off
+         * @param eventName
+         * @param callback
+         * @param context
+         *&#x2F;
+        off: function (eventName, callback, context) {
+            var model = this._model;
+            model.off.apply(model, arguments);
+        }
+    }
+
+	&#x2F;**
+     * To create a Model child class call extend providing the class definition.
+     *
+     * @method extend
+     * @param definition {Object}
+     * @return model {Model}
+     *&#x2F;
+    Model.extend = extend;
+
+    &#x2F;**
+	 * Used for managing multiple Model instances
+	 *
+     * @class ext.mvp.Collection
+     *&#x2F;
+    function Collection(models, options) {
+        if (_.isArray(models)) {
+            models.forEach(function (model, index) {
+                var inmodel;
+                if (model instanceof Model === false) {
+                    inmodel = new this.Model(model);
+                }
+                else {
+                    inmodel = model;
+                }
+                models[index] = inmodel._model;
+
+            });
+        }
+
+        this._collection = CreateCollection(models, options);
+        this.init();
+    }
+
+
+    Collection.prototype = {
+        &#x2F;**
+		 * Constructor
+		 *
+         * @method init
+         *&#x2F;
+        init: function () {
+        },
+        Model: Model,
+		
+		&#x2F;**
+		 * Fetches a model with the same cid from the collection.
+		 *
+         * @method getModel
+		 * @param cid {String}
+		 * @returns model {Model}
+         *&#x2F;
+        getModel: function (id) {
+            var collection = this._collection;
+            var model = collection.get.apply(collection, arguments);
+
+			if (model) {
+				return model._model;
+			}
+        },
+		
+		&#x2F;**
+		 * Sets the collection to only contain the specified models
+		 *
+         * @method setModels
+		 * @param models {Model&#x2F;Array}
+		 * @param options {Object}
+         *&#x2F;
+        setModels: function (models, options) {
+            var collection = this._collection;
+
+            if (!_.isArray(models)) {
+                models = models ? [models] : [];
+            }
+
+            models.forEach(function (model, index) {
+                models[index] = model._model;
+
+            });
+            collection.set(models, options);
+
+        },
+		
+		&#x2F;**
+		 * Adds a model, or an array of models to the collection.
+		 *
+         * @method addModel
+		 * @param models {Model&#x2F;Array}
+		 * @param options {Object}
+         *&#x2F;
+        addModel: function (models, options) {
+            var collection = this._collection;
+            if (!_.isArray(models)) {
+                models = models ? [models] : [];
+            }
+
+            models.forEach(function (model) {
+                collection.add(model._model, options);
+
+            })
+
+        },
+		
+		&#x2F;**
+		 * Removes a model, or an array of models from the collection.
+		 *
+         * @method removeModels
+		 * @param models {Model&#x2F;Array}
+		 * @param options {Object}
+         *&#x2F;
+        removeModels: function (models, options) {
+            var collection = this._collection;
+            if (!_.isArray(models)) {
+                models = models ? [models] : [];
+            }
+
+            models.forEach(function (model) {
+                collection.remove(model._model, options);
+
+            })
+
+        },
+		
+		&#x2F;**
+		 * Iterates over the collection, passing model instances into the callback.
+		 *
+         * @method each
+		 * @param fn {Function}
+         *&#x2F;
+        each: function (fn) {
+            var collection = this._collection;
+
+            _.each(collection.models, function (model) {
+                fn.call(model._model, model._model);
+            });
+
+        },
+		
+		&#x2F;**
+		 * Subscribe to collection events.
+		 *
+         * @method on
+         * @param eventName
+         * @param callBack
+         * @param context
+         *&#x2F;
+        on: function (eventName, callBack, context) {
+
+            var collection = this._collection;
+            collection.on.apply(model, arguments);
+
+        },
+       &#x2F;**
+		 * Unsubscribe collection event or events
+		 *
+         * @method off
+         * @param eventName
+         * @param callback
+         * @param context
+         *&#x2F;
+        off: function (eventName, callback, context) {
+            var collection = this._collection;
+            collection.off.apply(collection, arguments);
+        }
+
+
+    }
+
+	&#x2F;**
+     * To create a Collection child class call extend providing the class definition.
+     *
+     * @method extend
+     * @param definition {Object}
+     * @return collection {Collection}
+     *&#x2F;
+    Collection.extend = extend;
+
+    return {
+        View: View,
+        Model: Model,
+        Collection: Collection
+    };
+});
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="MeasReportConfigParams" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>MeasReportConfigParams</ns1:desc>
+    <ns2:attribute ns1:name="a1ThresholdRsrpPrimOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA1Prim.a1ThresholdRsrpPrim. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Prim.a1ThresholdRsrpPrim+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrpPrimOffset
+				
+				If Mobility Control at Poor Coverage feature is enabled, &quot;a1a2SearchThresholdRsrp&quot; replaces &quot;a1ThresholdRsrpPrim&quot; and &quot;ReportConfigSearch&quot; replaces &quot;ReportConfigA1Prim&quot; in the above description.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a1ThresholdRsrpSecOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA1Sec.a1ThresholdRsrpSec. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Sec.a1ThresholdRsrpSec+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrpSecOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a1ThresholdRsrqPrimOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA1Prim.a1ThresholdRsrqPrim. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Prim.a1ThresholdRsrqPrim+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrqPrimOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a1ThresholdRsrqSecOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a1ThresholdRsrqSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA1Sec.a1ThresholdRsrqSec. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA1Sec.a1ThresholdRsrqSec+QciProfilePredefined.measReportConfigParams.a1ThresholdRsrqSecOffset
+				
+				If Mobility Control at Poor Coverage feature is enabled, &quot;a1a2SearchThresholdRsrq&quot; replaces &quot;a1ThresholdRsrqSec&quot; and&quot;ReportConfigSearch&quot; replaces &quot;ReportConfigA1Sec&quot; in the above description.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a2ThresholdRsrpPrimOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA2Prim.a2ThresholdRsrpPrim. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Prim.a2ThresholdRsrpPrim+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrpPrimOffset
+				
+				If Mobility Control at Poor Coverage feature is enabled, &quot;a1a2SearchThresholdRsrp&quot; replaces &quot;a2ThresholdRsrpPrim&quot; and&quot;ReportConfigSearch&quot; replaces &quot;ReportConfigA2Prim&quot; in the above description.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a2ThresholdRsrpSecOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrpPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA2Sec.a2ThresholdRsrpSec. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Sec.a2ThresholdRsrpSec+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrpSecOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a2ThresholdRsrqPrimOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsrqPrim. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA2Prim.a2ThresholdRsrqPrim. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Prim.a2ThresholdRsrqPrim+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrqPrimOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a2ThresholdRsrqSecOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a2ThresholdRsqSec. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA2Sec.a2ThresholdRsrqSec. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA2Sec.a2ThresholdRsrqSec+QciProfilePredefined.measReportConfigParams.a2ThresholdRsrqSecOffset
+				
+				If Mobility Control at Poor Coverage feature is enabled, &quot;a1a2SearchThresholdRsrq&quot; replaces &quot;a2ThresholdRsrqSec&quot; and&quot;ReportConfigSearch&quot; replaces &quot;ReportConfigA2Sec&quot; in the above description.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a5Threshold1RsrpOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA5.a5Threshold1Rsrp. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.a5Threshold1RsrpOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a5Threshold1RsrqOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA5.a5Threshold1Rsrq. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.a5Threshold1RsrqOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a5Threshold2RsrpOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold2Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA5.a5Threshold2Rsrp. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold2Rsrp+QciProfilePredefined.measReportConfigParams.a5Threshold2RsrpOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="a5Threshold2RsrqOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold a5Threshold2Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigA5.a5Threshold2Rsrq. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigA5.a5Threshold2Rsrq+QciProfilePredefined.measReportConfigParams.a5Threshold2RsrqOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrpCdma2000Offset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Cdma2000.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Cdma2000.b2Threshold1Rsrp. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpCdma2000Offset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrqCdma2000Offset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Cdma2000.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Cdma2000.b2Threshold1Rsrq. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqCdma2000Offset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold2Cdma2000Offset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2Cdma2000. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely b2Threshold2Cdma2000. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Cdma2000.b2Threshold2Cdma2000+QciProfilePredefined.measReportConfigParams.b2Threshold2Cdma2000Offset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-50" max="50"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="5"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrpGeranOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Geran.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Geran.b2Threshold1Rsrp. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpGeranOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrqGeranOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Geran.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Geran.b2Threshold1Rsrq. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqGeranOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold2GeranOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2Geran. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely b2Threshold2Geran. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Geran.b2Threshold2Geran+QciProfilePredefined.measReportConfigParams.b2Threshold2GeranOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrpUtraOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Utra.b2Threshold1Rsrp. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Utra.b2Threshold1Rsrp. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold1Rsrp+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrpUtraOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold1RsrqUtraOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold ReportConfigB2Utra.b2Threshold1Rsrq. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely ReportConfigB2Utra.b2Threshold1Rsrq. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold1Rsrq+QciProfilePredefined.measReportConfigParams.b2Threshold1RsrqUtraOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold2EcNoUtraOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2EcNoUtra. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely b2Threshold2EcNoUtra. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold2EcNoUtra+QciProfilePredefined.measReportConfigParams.b2Threshold2EcNoUtraOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-50" max="50"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="5"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="b2Threshold2RscpUtraOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>QCI dependent offset for the absolute threshold b2Threshold2RscpUtra. If the value of the offset is 0, then the threshold corresponding to this QCI profile will be the same as the &quot;base&quot; value in the MO class, namely b2Threshold2RscpUtra. 
+				The rule is that the threshold for a certain QCI profile is computed as ReportConfigB2Utra.b2Threshold2RscpUtra+QciProfilePredefined.measReportConfigParams.b2Threshold2RscpUtraOffset</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

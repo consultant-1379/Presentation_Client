@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="AuxPlugInUnit" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO models an auxiliary plug-in unit.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="administrativeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The administrative state.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AdminState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="UNLOCKED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="productData" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The product ID of the installed AuxPlugInUnit/HW Unit. If the corresponding hardware unit is not installed yet, the struct contains empty strings.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/ProductData/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="greenLed" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates the operational status of the Auxiliary Plug-in Unit.
+				
+				The following values are possible for this attribute:
+				
+				NOT_AVAILABLE = The LED state is not readable at the moment
+				STEADY_LIGHT = Power present
+				SLOW_BLINK = Missing resource
+				FAST_BLINK = Load or test in progress
+				FLICKERING = Busy
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LedStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="redLed" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates the fault status of the Auxiliary Plug-in Unit.
+				
+				The following values are possible for this attribute:
+				
+				NOT_AVAILABLE = The LED state is not available at the moment
+				OUT = No fault
+				STEADY_LIGHT = PIU fault
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LedStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="yellowLed" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Indicates the information status of the Auxiliary Plug-in Unit.
+				
+				The following values are possible for this attribute:
+				
+				NOT_AVAILABLE = The LED state is not available at the moment
+				OUT = PIU unlocked
+				STEADY_LIGHT = PIU locked
+				SLOW_BLINK = Shutting-down in progress
+				FLICKERING = Busy
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LedStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="AuxPlugInUnitId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the operational state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status of the device.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="piuType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the corresponding PiuType MO. Used by the auto-configuration and system upgrade functions to create corresponding device group and XpProgram MOs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/PiuType/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of MO instances that reserves this MO instance.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="unitType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Mirrors the attribute PiuType.productData(productName).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="12"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="positionRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the cabinet or shelf in which the AuxPlugInUnit is placed or to which it belongs.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="position" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The absolute position of the AuxPlugInUnit in a shelf. Position numbering starts from left or ground with the first position numbered 1. A board can occupy more than one position, depending on its width. When a board occupies more than one position, its position number is the left-most position it occupies.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="30"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="positionInformation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The position of a AuxPlugInUnit. It can be:
+				
+				- On a shelf
+				- Not on a shelf but inside or outside the cabinet
+				- At a remote site
+				
+				If the hardware is contained on a shelf, the attribute position is used. Otherwise this attribute can be used, for example, to provide the address of a remote site, or to indicate that the unit is installed in connection to a specific shelf.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="faultIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The fault status of the auxiliary plug-in unit as shown by the optical indicator on the unit.
+				
+				Valid values:
+				
+				• NOT_APPLICABLE = This indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = No hardware fault.
+				• STEADY_ON = Hardware fault.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational status of the auxiliary plug-in unit as shown by the optical indicator on the unit. Valid values:
+				
+				• NOT_APPLICABLE = This indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = No power.
+				• STEADY_ON = Operational, the unit can perform its intended purpose.
+				• SLOW_BLINK = Dependent resource missing, the unit is non-operational.
+				• DOUBLE_FLASH_AND_STEADY_ON = Loading software, the unit is operational during software loading.
+				• DOUBLE_FLASH_AND_OFF = Loading software, the unit is non-operational during software loading.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="maintenanceIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maintenance status of the auxiliary plug-in unit as shown by the optical maintenance indicator on the unit. Valid values:
+				
+				• NOT_APPLICABLE = The indicator is not supported.
+				• NOT_AVAILABLE = The indicator state is currently not available.
+				• OFF = Non-maintenance mode (board unlocked)
+				• STEADY_ON = Full maintenance mode (board locked)
+				• SLOW_BLINK = Removing ongoing traffic in unit
+				• FAST_BLINK = Alarms suppressed in unit</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/IndicatorStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

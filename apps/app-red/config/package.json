@@ -1,0 +1,7 @@
+{
+    "name": "app-red",
+    "version": "@VERSION@",
+    "dependencies": {
+        "titan": "0.1.1"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Blue Application",
+    "namespace": "app-blue",
+    "script": "Application",
+    "defaultPlace":"home",
+    "places":["home","second/:id"]
+}

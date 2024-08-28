@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Ip" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Internet Protocol (IP)
+			
+			This MO represents the IP protocol layer with IP forwarding functionality.
+			
+			The PM counters in the Ip MO have a wrap-around time of approximately 2 hours.
+			
+			The PM counters on the IP MO do not increment for IPv6 traffic. The counters reflect the aggregated OAM IPv4.
+			
+			Disturbances: Changing some of the attributes on this MO may cause a disturbance or loss of OAM connectivity. If there are any doubts regarding the results of the attribute changes, it is strongly recommended to activate the robust rollback function, by setting the attribute configCountdownActivated on the ConfigurationVersion MO first.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="dnsServerAddresses" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A list of IP addresses to Domain Name Servers.
+				
+				IPv4 and IPv6 addresses are supported.
+				
+				The input format for an IPv4 address is four fields of digits, separated by a dot. Each field consists of one to three digits.
+				The input format for an IPv6 address is as defined in specification RFC4291, chapter 2.2, bullet 1 and 2.
+				Example:
+				192.168.33.27
+				2001:db8:0::1
+				
+				A maximum of 3 DNS server addresses is supported.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="IpId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="workingMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if the IP stack in the node works as a combined host/router (ROUTER_MODE) or only as a host (HOST_MODE).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/WorkingMode/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="retransInterval" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The retransmission interval.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="noOfRetrans" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of retransmissions.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="5"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="isRecursiveSearch" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies how the DNS client wants the DNS server do the search for the IP address in the network .
+				
+				true - recursive search
+				false - non-recursive search
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="isSubDomainName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies whether to use subsets of the fully qualified domain name to reach the simple domain name.
+				
+				true - use subsets of domain name
+				false - do not use subsets of domain name
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="isDefDomainName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies whether the default domain name is present.
+				
+				true - present
+				false - not present
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="defDomainName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains default domain name.
+				If isDefDomainName is set to true, the domain name found in this attribute is used by the DNS resolver and there is no need to submit the complete domain name.
+				If the domain name is for example 'ws5741.uab.ericsson.se', then the default domain name would be '.uab.ericsson.se'.
+				If isDefDomainName is set to true, there is no need for using '.uab.ericsson.se'. If set to false, then the complete domain name has to be used.
+				
+				A valid domain name consists of one or more labels separated by dots (&quot;.&quot;).
+				Valid characters for a label shall be limited to letters 'a' - 'z', 'A' - 'Z', digits '0' - '9', the character '-' (&quot;dash&quot;).
+				Character case shall be preserved. Total length of a label shall not exceed 255 characters.
+				
+				The first and last character in the domain name has to be within the following alphabet: letters 'a' - 'z', 'A' - 'Z' and digits '0' - '9'.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="255"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				
+				This attribute is set to ENABLED if at least one link is operational.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="numberOfLinks" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the number of links that are configured for the Ip MO.The links are the MOs: EthernetLink, IpAtmLink, IpHostLink and IpAccessHostEt.The value of numberOfLinks also includes the loopback interface that is not related to any MO, but is visible in the listRoutes action in MO IpRoutingTable, for example. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status.
+				
+				It contains details about operationalState.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains an Ospf MO instance that reserves this MO instance.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="useHostFile" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if the host file is used. The hostFile is used by the resolver and chosen as a source of information before querying a DNS server.
+				
+				true - use the host file
+				false - do not use the host file
+				
+				This is an example of the host file:
+				127.0.0.1  localhost
+				192.102.73.6  somehost
+				2001:db8::1  somehost
+				
+				The file name is hosts and the path is /c/configuration.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="dscp" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The DiffServ CodePoint.
+				
+				The code point values are used by DiffServ enabled hosts and router to identify different service levels.
+				When set, the DSCPs are mapped to Per Hop Behaviours (PHB) by forwarding devices along the path between the source and destination. PHBs dictates how each packet is handled, that is, what type of service that is applied to the packet when it is forwarded.
+				
+				Only traffic originated from the node is tagged with the dscp value. The CPP based router does not implement functionality for handling different service levels when routing IP traffic.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="63"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="icmpRedirect" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if ICMP redirects is sent out or not.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="udpChecksumState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Enables or disables generation of UDP checksum.
+				0 = disabled
+				1 = enabled
+				
+				The UDP checksum is used to verify that the UDP header has not been damaged during transmission.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="connectionAttemptTimer" ns1:lifeCycle="OBSOLETE">
+        <ns1:desc>The time that elapses before a connection (TCP) attempt times out.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="32767"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="75"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxRetransmissionAttempts" ns1:lifeCycle="OBSOLETE">
+        <ns1:desc>The maximum number of retransmission attempts before a TCP connection is dropped.
+				The default value is 12 attempts, which is around 15 minutes.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minValue value="-1"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="12"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpInReceives" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Total number of datagrams received.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfHdrErrors" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams discarded due to format error.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpAddrErrors" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams discarded due to error in the address.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpForwDatagrams" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams forwarded.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpInDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams discarded due to resource limitations.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpOutDiscards" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams discarded due to lack of resources.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpReasmReqds" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of fragments received that need reassembly.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmNoOfIpReasmOKs" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of datagrams successfully reassembled.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nodeInterfaceName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The interface name of the link object that determines the OAM IPv4 address for the node.
+				This attribute cannot be set to an empty string.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="le0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="nodeIpAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The OAM IPv4 address for the node.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ipAccessHostEtRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies an IpAccessHostEt MO to be used as an alternative OAM access.
+				
+				The purpose of the alternative OAM access is to have a limited access to the node through the outer IP host, if IPsec protection is used for the OAM traffic and the contact through IPsec is lost. If IPsec protection is used for OAM traffic the IpHostLink MO for the node access is connected to a VpnInterface MO.
+				The alternative OAM access can be used for SSH communication (TCP port 22).
+				The alternative OAM access is handled as any other type of link. That is, it is included in the attribute numberOfLinks, and in the operationalState and the availabilityStatus.
+				The alternative OAM access is also visible as a route in the IpRoutingTable MO.
+				
+				Only applicable for IPv4.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nodeIpv6InterfaceName" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The interface name of the link object that determines the OAM IPv6 address for the node.
+				The OAM IPv6 address for the node is removed if this attribute is set to an empty string.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="nodeIpv6Address" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The OAM IPv6 address for the node.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

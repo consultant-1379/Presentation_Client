@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DEV: Login Screen</title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="resources/tor-login/common.css">
+    <script type="text/javascript" src="node_modules/titan/js/titan.js"></script>
+    <script type="text/javascript">
+        require({
+            baseUrl:'src',
+            resources:'resources'
+        }, ['domReady!', 'tor-login/Application'], function (doc, Application) {
+            var app = new Application({
+                container:'#Container'
+            });
+            app.start();
+        });
+    </script>
+</head>
+<body>
+<div id="Container"></div>
+</body>
+</html>

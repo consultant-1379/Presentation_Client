@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="Information" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Information about results from upgrade actions.</ns1:desc>
+    <ns2:member value="0" ns1:name="EXECUTED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The invoked action has been successfully executed without warnings. One of three possible main results of executed action. The other two are:
+				EXECUTED_WITH_WARNINGS and EXECUTION_FAILED.
+				
+				Valid values for type of invoked action:
+				INSTALL
+				CANCEL_INSTALL
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="UNSPECIFIED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An error or warning that is not specified is detected. See additionalInfo in the structure ActionResultData for further details.
+				
+				Valid values for type of invoked action:
+				INSTALL
+				CANCEL_INSTALL
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="LM_CHECKSUM_VER_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A load module checksum verification has failed.
+				
+				Value valid for type of invoked action:
+				INSTALL
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="NOT_ENOUGH_AVAIL_DISK_SPACE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>There is not enough disk space for the required number of new CVs to be created automatically during an upgrade.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="MAX_NO_CV_WILL_BE_EXCEEDED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of allowed CVs will be exceeded if the required number of new CVs is created automatically during an upgrade.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="UPGRADE_FROM_CURRENT_UP_NOT_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The Upgrade Window element in the UCF does not specify the current Upgrade Package as a valid upgrade-from version.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="6" ns1:name="NON_SUPPORTED_PIU" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A plug-in-unit that is not supported is detected, that is, the plug-in-unit in the node is not defined in the UCF. 
+				
+				This fault does not prevent an upgrade execution.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="7" ns1:name="FAULTY_PIU" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A faulty plug-in-unit has been detected. 
+				This fault does not prevent an upgrade execution.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="8" ns1:name="CREATION_OF_CV_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The auto-creation of an install CV failed.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="9" ns1:name="ACTION_NOT_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The requested action is not allowed as another action is already in progress for another UpgradePackage MO.
+				
+				Valid values for type of invoked action:
+				INSTALL
+				CANCEL_INSTALL
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="10" ns1:name="INST_MANUALLY_CANCELLED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An ongoing installation has been cancelled (aborted) due to request from client.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="11" ns1:name="FTP_SERVER_NOT_ACCESSIBLE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The FTP server to be used for downloads of load modules is not accessible.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="12" ns1:name="INSUF_DISK_FOR_LMS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The required disk space for load modules to be installed is insufficient.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="13" ns1:name="FTP_SERVER_IP_ADDR_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Error detected in the IP address of the FTP server.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="14" ns1:name="DELTA_INSTALL_MERGE_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The install of the delta UCF failed, that is, the analysis of the delta UCF with the current active UP's UCF failed.
+				
+				Valid value for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="15" ns1:name="SELECTIVE_INSTALL_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Error detected during the selection phase of an install.
+				
+				Value valid for type of invoked action:
+				INSTALL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="16" ns1:name="EXECUTION_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The execution of invoked action failed. One of three possible main results of executed action. The other two are:
+				EXECUTED and EXECUTED_WITH_WARNINGS.
+				
+				Valid values for type of invoked action:
+				INSTALL
+				CANCEL_INSTALL
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="17" ns1:name="EXECUTED_WITH_WARNINGS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The action has been successfully executed but with warnings.One of three possible main results of executed action. The other two are:
+				EXECUTED and EXECUTION_FAILED.
+				
+				Valid values for type of invoked action:
+				INSTALL
+				CANCEL_INSTALL
+				VERIFY_UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="18" ns1:name="LM_FILES_NOT_INST" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All load module files required for a supported plug-in-unit (according to the UCF) are not installed.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="19" ns1:name="NOT_SUPPORTED_SUBRACK_TYPE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A subrack that is not supported is detected, that is, the subrack in the node is not defined in the UCF. This will prevent an upgrade from being executed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="20" ns1:name="SLOT_OF_PIU_NOT_CONNECTED_TO_SWA" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A Slot related to a plug-in-unit is not connected to an SwAllocation.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="21" ns1:name="LM_TYPE_NOT_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>ManagedObject(s) will be connected (via an SwAllocation) to Repertoire(s) referencing load modules of not allowed types. Both configured data and data in the UCF has been used to predict the SwAllocation connections during upgrade.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="22" ns1:name="PIUTYPE_NOT_UNIQUE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Several SwAllocations connected to the same Slot define the same PiuType.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="23" ns1:name="PIUTYPE_LOADLIST_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>All Repertoires in a SwAllocation do not support the same set of PiuTypes.
+				
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				 UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="24" ns1:name="PROGRAM_INSTANCES_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for program instance values with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:	
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="25" ns1:name="HEAP_SIZE_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for heap size values with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:	
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="26" ns1:name="POOL_SIZE_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for pool size values with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:	
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="27" ns1:name="LOADER_DATA_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for loader type and device loader name with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:	
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="28" ns1:name="DEVICE_LOADER_INFORMATION_INCONSISTENT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for device loader information with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:	
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="29" ns1:name="LOADER_TYPE_NOT_ALLOWED_FOR_PARENT_MO" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The result of combining UCF data for loader type with how repertoires are connected to an upgradeable PIU is inconsistent. 	
+					
+				Valid values for type of invoked action:
+				VERIFY_UPGRADE
+				UPGRADE</ns1:desc>
+    </ns2:member>
+    <ns2:member value="30" ns1:name="ACTION_NOT_ALLOWED_IF_MORE_THAN_ONE_UP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The action is not allowed if more than one UP exists on node.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="31" ns1:name="ACTION_ALLOWED_ONLY_IF_UP_HWSENSITIVE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The action is allowed only if the attribute actualTypeOfUP indicates that the UP type is HW_SENSITIVE and if the UP type in all referring CVs are of type HW_SENSITIVE.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="32" ns1:name="ACTION_ALLOWED_ONLY_FOR_CURRENT_UP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The action is only allowed for current (active) UP.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="33" ns1:name="REMOVED_LM_FILES" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The load module files that have been removed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="34" ns1:name="REMOVED_LM_FILES_XML_FILE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An XML file that contains information of load module files that have been removed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="35" ns1:name="REFERRING_CV_INFO" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Information about the CVs, where this UpgradePackage MO exists.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="36" ns1:name="UCF_VALIDATION_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>There is syntax or format problem detected in the UCF.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="37" ns1:name="INIT_UP_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Initialitation of the Upgrade Package Mo failed i.e. the setting of an attribute in the UpgradePackageMo with data specfied in the UCF failed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="38" ns1:name="AUE_REPORTED_FAILURE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An AUE has reported failure or has not answered within an expected time.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="39" ns1:name="AUE_REPORTED_WARNING" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An AUE has reported warning.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="40" ns1:name="LACK_OF_DISK_SPACE_ON_C_DISK" ns1:lifeCycle="NORMAL">
+        <ns1:desc>There is not enough with disk space for the required Load Module files to be installed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="41" ns1:name="NO_NODE_TYPE_LIST_FOUND_THAT_MATCHES_USED_PIUS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Not all used PIUs in the node are supported by a specific node type according to the Upgrade Control File.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="42" ns1:name="DISK_HEALTH_CHECK_FAILURE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Error(s) detected during disk health check, such as: corrupt file system, configuration version(s) and/or upgrade package(s).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="43" ns1:name="MISMATCHED_LM_PATH" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The LM file path in the UCF is not matches the one configured in the node.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="44" ns1:name="REPERTOIRE_REPLACEMENT_ERROR_DETECTED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Repertoire replacement definitions in the ExplicitReplacment UCF are not consistent i.e. depending on selected upgrade action.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="45" ns1:name="CERTIFICATE_OR_SIGNATURE_PROBLEM" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Certificate or signature problem detected for at least one load module.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="46" ns1:name="UCF_DATA_NOT_SUPPORTED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The specified data in the UCF is not supported.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="47" ns1:name="C_AUE_REPERTOIRE_CONNECTED_TO_SLOT" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A C AUE Repertoire MO is connected to a Slot MO, which is not allowed at execution of an upgrade.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="48" ns1:name="PROGRAM_AND_LOADMODULE_INCONSISTENCY" ns1:lifeCycle="NORMAL">
+        <ns1:desc>One or more Program MOs refer to a LoadModule MO that has been removed.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

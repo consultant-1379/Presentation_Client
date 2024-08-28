@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do App</title>
+    <script type="text/javascript" src="node_modules/jscore_beta/require/require.js"></script>
+</head>
+<body>
+	<div id="appContainer"></div>
+	<script type="text/javascript">
+	
+		require.config({
+			baseUrl: "src",
+			paths: {
+				"jscore_beta": "../node_modules/jscore_beta",
+			},
+			shim: {
+				"jscore_beta/0.0.1/ext/mvp": {
+					deps: [
+						"jscore_beta/0.0.1/core"
+					]
+				}
+			}
+		});
+	
+        require([
+            'ToDoApp'
+        ], function (ToDoApp) {
+            var appContainer = document.getElementById("appContainer");
+			var theApp = new ToDoApp();
+			theApp.start(appContainer);
+        });
+    </script>
+</body>
+
+</html>

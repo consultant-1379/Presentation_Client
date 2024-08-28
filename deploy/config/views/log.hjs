@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Container</title>
+    <link rel="stylesheet" href="css/default.css">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">Container</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Deployment Results</h1>
+
+    <p>Links:</p>
+    <ul>
+        <li><a href="http://150.132.76.214/Presentation_Client/deploy/web/"><i class="icon-globe"></i> Launch
+            container</a></li>
+        <li><a href="http://150.132.76.214/Presentation_Client/deploy/web.tar"><i class="icon-download-alt"></i>
+            Download container (tar)</a></li>
+    </ul>
+
+    <pre>{{results}}</pre>
+</div>
+</body>
+</html>

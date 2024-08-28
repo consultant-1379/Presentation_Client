@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="apps/appToDo/style.css"/>
+    <script type="text/javascript" src="lib/requirejs/require.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript">
+        var jscore = require.config({
+            context: "jscore-0.2",
+            baseUrl: 'apps',
+            paths: {
+                'jscore': '../lib/jscore-0.2',
+
+                'text': '../lib/requirejs/text'
+            }
+        });
+
+        jscore([
+            'appToDo/MyApp'
+        ], function (MyApp) {
+
+            MyApp();
+           //  myApp.start(document.getElementById('content'));
+
+        });
+    </script>
+</head>
+<body>
+
+<div id="appTemplate">
+    <h1>To Do List</h1>
+
+    <div id="content">
+    </div>
+</div>
+
+</body>
+</html>

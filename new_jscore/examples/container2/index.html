@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <script src="lib/require.js"></script>
+    <script src="lib/container.js"></script>
+    <script>
+        (function () {
+            var currentAppEl = null;
+            var elements = {};
+            var prevId;
+            container.callback = function (App) {
+                var container = document.getElementById('container');
+
+                if (currentAppEl !== null && prevId !== this.appId) {
+                    container.removeChild(currentAppEl);
+                }
+
+                if (elements[this.appId] === undefined) {
+
+                    var app = new App();
+                    app.start(container);
+                    currentAppEl = elements[this.appId] = app.element._getHTMLElement();
+
+                } else if (currentAppEl !== elements[this.appId]) {
+                    currentAppEl = elements[this.appId];
+                    container.appendChild(currentAppEl);
+                }
+
+                prevId = this.appId;
+
+            };
+
+            container.error = function () {
+                alert('Custom error handling')
+            };
+        }).call(this);
+
+    </script>
+</head>
+<body>
+<button onclick="container.load('MyApp');">App1</button>
+<button onclick="container.load('MyApp2');">App2</button>
+<button onclick="container.load('MyApp3');">App3</button>
+<div id="container" style="background: #eee; border: 2px solid #ddd; padding: 10px;height:200px"></div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+<suite name="DummySuite">
+	<test name="DummyTestName">
+		<classes>
+			<class name="com.ericsson.component.dummytests" />
+		</classes>
+	</test>
+</suite>

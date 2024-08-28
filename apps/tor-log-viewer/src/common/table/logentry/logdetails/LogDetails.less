@@ -1,0 +1,35 @@
+.torLogViewer-LogDetails {
+
+    border-spacing: 0;
+
+    &-logEntryDetailsHeader {
+        padding: 6px 8px;
+        text-align: left;
+        border-bottom: 1px solid #a4a4a4;
+
+        &:first-child {
+            padding-left: 30px;
+        }
+    }
+
+    &-logDetailsCell {
+        padding: 6px 8px;
+        border-bottom: 1px solid #e8e8e8;
+
+        &:first-child {
+            padding-left: 30px;
+        }
+    }
+
+    &-logDetailsRow {
+
+        &:last-child {
+
+            .torLogViewer-LogDetails-logDetailsCell {
+                border-bottom: none;
+            }
+        }
+
+    }
+
+}

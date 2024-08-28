@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ext.dom.Element - JSCORE</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="..&#x2F;index.html">JSCORE: ext.dom.Element</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+			<img src="..&#x2F;assets/images/logo.png"/>
+        </div>
+		
+    </div>
+	
+    <div class="yui3-g">
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules <span style="float:right;">0.0.1</span></h2>
+    </div>
+    <div class="bd">
+        <ul>
+            <li><a href='../modules/core.html'>core</a><ul><li><a href='../classes/core.App.html'>App</a></li><li><a href='../classes/core.AppContext.html'>AppContext</a></li><li><a href='../classes/core.Element.html'>Element</a></li><li><a href='../classes/core.EventBus.html'>EventBus</a></li><li><a href='../classes/core.Region.html'>Region</a></li><li><a href='../classes/core.View.html'>View</a></li><li><a href='../classes/core.Widget.html'>Widget</a></li></ul></li><li><a href='../modules/ext.html'>ext</a><ul><li><a href='../classes/ext.css.html'>css</a></li><li><a href='../classes/ext.dom.html'>dom</a></li><li><a href='../classes/ext.dom.Element.html'>dom.Element</a></li><li><a href='../classes/ext.mediator.EventBus.html'>mediator.EventBus</a></li><li><a href='../classes/ext.mvp.Collection.html'>mvp.Collection</a></li><li><a href='../classes/ext.mvp.Model.html'>mvp.Model</a></li><li><a href='../classes/ext.mvp.View.html'>mvp.View</a></li></ul></li><li><a href='../modules/interfaces.html'>interfaces</a><ul><li><a href='../classes/interfaces.App.html'>App</a></li><li><a href='../classes/interfaces.AppContext.html'>AppContext</a></li><li><a href='../classes/interfaces.UIComponent.html'>UIComponent</a></li></ul></li>
+        </ul>
+    </div>
+</div>
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class ext.dom.Element</h4>
+
+
+
+<!--<span class="foundat">Class defined in: <a href="../..&#x2F;files&#x2F;.._jscore_ext_dom_main.js.html#l10"><code>..\jscore\ext\dom\main.js:10</code></a></span>-->
+<div class="intro"><p>The Element is a common abstraction of the HTML DOM element.</p></div>
+
+
+
+<div id="classdocs">
+    <ul>
+        
+        <li><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+    <div>
+        
+            <div id="methods">
+            
+                <a name="methods__getHTMLElement"></a>
+<div class="method item">
+    HTMLElement <strong class="name"><code>_getHTMLElement</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Gets the native HTMLElement</p>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;HTMLElement&gt; element</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods__setHTMLElement"></a>
+<div class="method item">
+     <strong class="name"><code>_setHTMLElement</code></strong>( <code>element </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Sets the native HTMLElement</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>element</code> <strong>&lt;HTMLElement&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_append"></a>
+<div class="method item">
+     <strong class="name"><code>append</code></strong>( <code>element </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Appends child element to this element.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>element</code> <strong>&lt;Element&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_children"></a>
+<div class="method item">
+     <strong class="name"><code>children</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+    
+    
+    
+    
+</div>
+
+            
+                <a name="methods_find"></a>
+<div class="method item">
+    Element <strong class="name"><code>find</code></strong>( <code>selector </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Finds a child element and returns it.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>selector</code> <strong>&lt;String&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;Element&gt; element</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_on"></a>
+<div class="method item">
+     <strong class="name"><code>on</code></strong>( <code>event, fn, context </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Sets up a DOM event handler for the element</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>event</code> <strong>&lt;String&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>fn</code> <strong>&lt;Function&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>context</code> <strong>&lt;Object&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_parse"></a>
+<div class="method item">
+    Element <strong class="name"><code>parse</code></strong>( <code>html </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Parses a HTML String and creates an Element from it.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>html</code> <strong>&lt;String&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;Element&gt; element</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_remove"></a>
+<div class="method item">
+     <strong class="name"><code>remove</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Removes this element from the DOM.</p>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_text"></a>
+<div class="method item">
+     <strong class="name"><code>text</code></strong>( <code>value </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Sets the inner text of the element</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>value</code> <strong>&lt;String&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_val"></a>
+<div class="method item">
+    String <strong class="name"><code>val</code></strong>( <code>value </code> ) 
+    <br>
+    <span class="foundat">
+    <p>If value isn't specified, the value of the element is returned. If the value is specified, then the value is set.</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>value</code> <strong>&lt;&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;String&gt; value</div>
+    
+    
+    
+</div>
+
+            
+                <a name="methods_wrap"></a>
+<div class="method item">
+    Element <strong class="name"><code>wrap</code></strong>( <code>el </code> ) 
+    <br>
+    <span class="foundat">
+    <p>Wraps a native element and creates an Element</p>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+    
+        <li>
+        
+            <code>el</code> <strong>&lt;HTMLElement&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+    </ul>
+    
+    
+    
+    <br><div class="returns"><strong>Returns:</strong> &lt;Element&gt; element</div>
+    
+    
+    
+</div>
+
+            
+            </div>
+        
+        
+        
+        
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/js/tabs.js"></script>
+</body>
+</html>

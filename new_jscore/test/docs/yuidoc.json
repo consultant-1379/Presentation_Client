@@ -1,0 +1,19 @@
+{
+    "name": "JSCORE",
+    "description": "",
+    "version": "0.0.1",
+    "url": "",
+	"helpers": ["yuidoc_helpers.js"],
+	"themedir" : "ericsson_yui_theme",
+    "options": {
+		"paths": [
+		  "../jscore/",
+		  "../jscore/ext",
+		  "../jscore/ext/css",
+		  "../jscore/ext/dom",
+		  "../jscore/ext/mediator",
+		  "../jscore/ext/utils"
+		],
+        "outdir": "src/site/resources/api/"
+    }
+}

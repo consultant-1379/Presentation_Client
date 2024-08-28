@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <script src="lib/require.js"></script>
+    <script src="lib/container.js"></script>
+    <script>
+        var currentApp;
+
+        container.callback = function (App) {
+            currentApp = new App();
+            currentApp.start('container');
+        };
+
+        container.error = function () {
+            alert('Custom error handling')
+        };
+    </script>
+</head>
+<body>
+<button onclick="container.load('app-011');">App 001</button>
+<button onclick="container.load('app-012');">App 002</button>
+<button onclick="container.load('app-013');">App 003</button>
+<button onclick="container.load('app-014');">App 004</button>
+<div id="container" style="background: #eee; border: 2px solid #ddd; padding: 10px;"></div>
+</body>
+</html>

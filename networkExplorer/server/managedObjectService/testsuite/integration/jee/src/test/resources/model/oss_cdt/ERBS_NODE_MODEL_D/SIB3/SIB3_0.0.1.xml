@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="SIB3" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>SIB3</ns1:desc>
+    <ns2:attribute ns1:name="qHyst" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Cell reselection parameter that defines the hysteresis value for ranking criteria. 
+				
+				Corresponds to Qhyst in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="0"/>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="3" max="3"/>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="6" max="6"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="12" max="12"/>
+                <ns1:minMaxRange min="14" max="14"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="18" max="18"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="22" max="22"/>
+                <ns1:minMaxRange min="24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="tEvaluation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The duration for evaluating criteria to enter mobility states. 
+				
+				Corresponds to TCRmax in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="30" max="30"/>
+                <ns1:minMaxRange min="60" max="60"/>
+                <ns1:minMaxRange min="120" max="120"/>
+                <ns1:minMaxRange min="180" max="180"/>
+                <ns1:minMaxRange min="240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="240"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="tHystNormal" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The additional duration for evaluating criteria to enter Normal-mobility state. 
+				
+				Corresponds to TCRmaxHyst in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="30" max="30"/>
+                <ns1:minMaxRange min="60" max="60"/>
+                <ns1:minMaxRange min="120" max="120"/>
+                <ns1:minMaxRange min="180" max="180"/>
+                <ns1:minMaxRange min="240" max="240"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="240"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="nCellChangeMedium" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of cell reselections during tEvaluation to enter Medium-mobility state. 
+				
+				Corresponds to NCR_M in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="16"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="nCellChangeHigh" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of cell reselections during tEvaluation to enter High-mobility state. 
+				
+				Corresponds to NCR_H in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="16"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="16"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="qHystSfMedium" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The additional hysteresis to be added, in Medium-mobility state, to qHyst. 
+				
+				Corresponds to 'Speed dependent ScalingFactor for Qhyst' in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-6" max="0"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="qHystSfHigh" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The additional hysteresis to be added, in High-mobility state, to qHyst.
+				
+				Corresponds to 'Speed dependent ScalingFactor for Qhyst' in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-6" max="0"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sIntraSearch" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the threshold when intra-frequency measurements are required.
+				
+				Corresponds to SIntraSearchP in TS 36.304
+				
+				Value 1000 means that the parameter is not present in System Information Block 3 and the UE applies the default value of infinity for SIntraSearchP.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+                <ns1:minMaxRange min="1000" max="1000"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1000"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sNonIntraSearch" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the threshold when inter-frequency and inter RAT measurements are required.
+				
+				Corresponds to SNonIntraSearchP in TS 36.304
+				
+				Value 1000 means that the parameter is not present in System Information Block 3 and the UE applies the default value of infinity for SNonIntraSearchP.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+                <ns1:minMaxRange min="1000" max="1000"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="threshServingLow" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Specifies the threshold used by the UE on the serving cell when reselecting towards a lower priority RAT/ frequency.
+				
+				Corresponds to ThreshServingLowP in TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sIntraSearchQ" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;SIntraSearchQ&quot; in TS 36.304. If the field is not present, the UE applies the (default) value of 0 dB for SIntraSearchQ.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="31"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sIntraSearchP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;SIntraSearchP&quot; in TS 36.304. See descriptions under s-IntraSearch.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="62"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sNonIntraSearchQ" ns1:lifeCycle="NORMAL">
+        <ns1:desc>s-NonIntraSearchQ-r9
+				Parameter &quot;SnonIntraSearchQ&quot; in TS 36.304. If the field is not present, the UE applies the (default) value of 0 dB for SnonIntraSearch.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="31"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sNonIntraSearchP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;SnonIntraSearchP&quot; in TS 36.304. See descriptions under s-NonIntraSearch.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="threshServingLowQ" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;ThreshServing, LowQ&quot; in TS 36.304. 
+				
+				Value 1000 means the parameter is not included in system information.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="31"/>
+                <ns1:minMaxRange min="1000" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sIntraSearchv920Active" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Enables sending of sIntraSearch v920 parameters in SIB3</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="sNonIntraSearchv920Active" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Enables sending of sNonIntraSearch v920 parameters in SIB3</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

@@ -1,0 +1,14 @@
+.e-listWidget {
+	list-style:none;
+	padding:0;
+}
+
+.e-listWidget > li {
+	padding:7px 2px;
+}
+
+.e-listWidget > li > a {
+	color: #0066B3;
+	text-decoration: none;
+	float:right;
+}

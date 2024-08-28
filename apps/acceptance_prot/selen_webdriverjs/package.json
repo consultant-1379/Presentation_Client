@@ -1,0 +1,15 @@
+{
+    "name": "prototype_selen_webdriverjs",
+    "version": "0.0.1",
+    "dependencies": {
+        "selenium-webdriverjs": "0.1.0-r17990",
+        "jasmine-node": "1.0.28",
+        "restler": "2.0.x",
+        "mocha": "*",
+        "chai": "*"
+    },
+    "scripts": {
+        "test": "node node_modules/mocha/bin/mocha --ui bdd --reporter spec --timeout 10000 --slow 2000 --recursive test/acceptance/launcherHelp/",
+        "start": "java -jar server/selenium-server-standalone-2.28.0.jar -Dwebdriver.chrome.bin=C:/Users/edavboj/AppData/Local/Google/Chrome/Application -Dwebdriver.chrome.driver=chromedriver/chromedriver_win_26.0.1383.0/chromedriver.exe"
+    }
+}

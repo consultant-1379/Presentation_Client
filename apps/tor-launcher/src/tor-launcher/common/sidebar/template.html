@@ -1,0 +1,16 @@
+<div class="w-Sidebar">
+    <div class="w-Sidebar-content">
+        <h2 class="w-Sidebar-header">{{sortList.header}}</h2>
+        <ul class="w-Sidebar-list">
+            {{#each sortList.sideList}}
+            <li class="w-Sidebar-listItem {{extraClass}}">
+                <a class="w-Sidebar-listItemLink" data-id="{{href}}" href="#{{../sortList.namespace}}/{{href}}">
+                    <span class="w-Sidebar-listItemGroupName">{{name}}</span>
+                    <span class="w-Sidebar-listItemGroupArrow"></span>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="w-Sidebar-handle"></div>
+    </div>
+</div>

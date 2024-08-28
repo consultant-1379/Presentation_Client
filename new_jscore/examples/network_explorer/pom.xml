@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <groupId>com.ericsson.oss.uisdk.clientsdk.jscore</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>networkExplorer</artifactId>
+    <version>0.0.1</version>
+
+
+    <!--<packaging>rpm</packaging>-->
+    <name>[${project.parent.artifactId}] RPM Assembly</name>
+
+    <properties>
+        <com.ericsson.oss.rpm.architecture>noarch</com.ericsson.oss.rpm.architecture>
+        <!-- Install path = /${rpm-root}/${comp-name}/${install-path} -->
+        <rpm-root>opt</rpm-root>
+        <comp-name>ericsson</comp-name>
+        <install-path>${project.artifactId}-${project.version}</install-path>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <executions>
+                    <execution>
+                        <id>rpm</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>rpm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <configuration>
+                    <group>Applications/System</group>
+                    <mappings combine.self="override">
+                        <mapping>
+                            <directory>/${rpm-root}/${comp-name}</directory>
+                            <filemode>775</filemode>
+                            <username>root</username>
+                            <groupname>root</groupname>
+                        </mapping>
+                        <mapping>
+                            <directory>/${rpm-root}/${comp-name}/${install-path}</directory>
+                            <filemode>775</filemode>
+                            <username>root</username>
+                            <groupname>root</groupname>
+                        </mapping>
+                        <mapping>
+                            <directory>/${rpm-root}/${comp-name}/${install-path}/html</directory>
+                            <filemode>775</filemode>
+                            <username>root</username>
+                            <groupname>root</groupname>
+                            <sources>
+                                <source>
+                                    <location>target/package</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/etc/httpd/conf.d</directory>
+                            <filemode>644</filemode>
+                            <directoryIncluded>false</directoryIncluded>
+                            <sources>
+                                <source>
+                                    <location>config/httpd</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                    </mappings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,6 @@
+{
+    "name": "TOR Launcher",
+    "namespace": "tor-launcher",
+    "script": "Application",
+    "hash":  "tor-launcher/apps"
+}

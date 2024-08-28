@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="MbsfnArea" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents a MBMS Single Frequence Network (MBSFN) area and contains MBSFN area related parameters.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="MbsfnAreaId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the Relative Distinguished Name (RDN).</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mbsfnAreaIdentity" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the MBSFN area identity.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="256"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="nonMbsfnRegionLength" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies how many symbols from the beginning of the subframe constitute the non-MBSFN region. This value applies in all subframes of the MBSFN area used for PMCH transmission. The values 1 and 2 correspond to 1 and 2 symbols, respectively.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="2"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="notificationIndicator" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies which PDCCH bit is used to notify the UE about change of the MCCH applicable for this MBSFN area. Value 0 corresponds with the least significant bit as defined in TS 36.212 and so on.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mcchRepetitionPeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the interval between transmissions of MCCH information, in radio frames, Value 32 corresponds to 32 radio frames, 64 corresponds to 64 radio frames and so on.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="32"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mcchOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies, together with the mcchRepetitionPeriod, the radio frames in which MCCH is scheduled i.e. MCCH is scheduled in radio frames for which: SFN mod mcchRepetitionPeriod = mcch-Offset.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="10"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mcchModificationPeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies periodically appearing boundaries, i.e. radio frames for which SFN mod mcch-ModificationPeriod = 0, The contents of different transmissions of MCCH information can only be different if there is at least one such boundary in-between them.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="512" max="512"/>
+                <ns1:minMaxRange min="1024" max="1024"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="512"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="sfAllocInfo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the subframes of the radio frames indicated by the mcch-RepetitionPeriod and the mcch-Offset, that may carry MCCH. Value &quot;1&quot; indicates that the corresponding subframe is allocated. Value &quot;0&quot; indicates that the corresponding subframe is notallocated.The following mapping applies:
+				FDD: The first/ leftmost bit defines the allocation for subframe #1 of the radio frame indicated by mcch-RepetitionPeriod and mcch-Offset, the second bit for #2, the third bit for #3 , the fourth bit for #6, the fifth bit for #7 and the sixth bit for #8.
+				TDD: The first/leftmost bit defines the allocation for subframe #3 of the radio frame indicated by mcch-RepetitionPeriod and mcch-Offset, the second bit for #4, third bit for #7, fourth bit for #8, fifth bit for #9. Uplink subframes are not allocated. The last bit is not used.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="signallingMCS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the Modulation and Coding Scheme (MCS) applicable for the subframes indicated by the field sf-AllocInfo and for the first subframe of each MCH scheduling period (which may contain the MCH scheduling information provided by MAC). Value 2 corresponds with the value 2 for parameter I-MCS in TS 36.213, Table 7.1.7.1-1], and so on.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="7" max="7"/>
+                <ns1:minMaxRange min="13" max="13"/>
+                <ns1:minMaxRange min="19" max="19"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="commonSFAlloc" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the subframes that are reserved for MBSFN in downlink.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/SubFrameConfig/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="commonSFAllocPeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the period during which resources corresponding with field commonSFAlloc are divided between the (P)MCH that are configured for this MBSFN area. The subframe allocation patterns, as defined by commonSFAlloc, repeat continously during this period. Value 4 corresponds to 4 radio frames, 8 corresponds to 8 radio frames and so on.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="notificationConfiguration" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Notification configuration
+				Note: If several MbsfnArea are activated for a cell, the notificationConfiguration of highest notificationConfigurationPriority will be used.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/NotificationConfig/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="administrativeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The administrative state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AdminState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="LOCKED"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

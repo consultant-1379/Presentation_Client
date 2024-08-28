@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application</title>
+    <meta charset="utf-8">
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="torContainer/resources/torContainer/img/favicon.ico">
+
+    <link rel="stylesheet" href="torContainer/resources/torContainer/default.css">
+    <script src="node_modules/jscore-prod/jscore.js"></script>
+    <script src="torContainer/Application.js"></script>
+    <script>
+        require({
+            baseUrl: './',
+            resources:'./resources'
+        }, ['domReady!', 'torContainer/Application'], function (doc, Application) {
+            var app = new Application({
+                appsUrl: "apps.json",
+                topMenu: '#TopMenu',
+                container: '#Container',
+                helpFolder: 'help/'
+
+            });
+            app.start();
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div class="cont-topBar">
+        <a href="" class="cont-topBar-logo"></a>
+
+        <div id="TopMenu"></div>
+
+    </div>
+    <div id="Container"></div>
+</div>
+</body>
+</html>

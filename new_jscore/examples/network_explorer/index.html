@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Explorer</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Approved stylesheets -->
+    <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+    <!-- DEV version stylesheets -->
+    <link href="../../dev/css/breadcrumbs.css" rel="stylesheet" type="text/css"/>
+    <link href="../../dev/css/typography.css" rel="stylesheet" type="text/css"/>
+    <link href="../../dev/css/buttons.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/controls.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/form_elements.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/combobox.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/checkbox_green.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/tabs.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/table.css" rel="stylesheet" type="text/css">
+    <link href="../../dev/css/pagination.css" rel="stylesheet" type="text/css">
+
+    <!-- Should include only this and page stylesheet -->
+    <!--<link href="css/assets.css" rel="stylesheet" type="text/css">-->
+
+    <!-- Page stylesheet -->
+    <link href="css/topBar.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="node_modules/jscore/require/require.js"></script>
+    <script type="text/javascript">
+        require({
+            baseUrl: 'src',
+            paths: {
+                'jscore': '../node_modules/jscore',
+                'jscore/ext/dom': '../node_modules/jscore/core',
+                'jquery-2.0.2': '../node_modules/jscore/core',
+                'text': '../node_modules/jscore/require/text'
+
+            }
+        }, ['netwrorkExplorer/main'], function (Main) {
+            var container = document.getElementById('Container');
+            var main = new Main();
+            main.start(container);
+        });
+    </script>
+</head>
+
+<body>
+<div id="TopMenu">
+    <div class="TorMegamenu-topBar">
+        <div class="TorMegamenu-topBar-logo"></div>
+        <div class="TorMegamenu-topBar-topMenuName">OSS Radio & Core</div>
+    </div>
+</div>
+<div id="Container"></div>
+
+</body>
+</html>

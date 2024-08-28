@@ -1,0 +1,7 @@
+{
+    "name": "login",
+    "version": "@VERSION@",
+    "dependencies": {
+        "titan": "0.0.6"
+    }
+}

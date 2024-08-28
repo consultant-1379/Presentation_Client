@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="ProgressInformation" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>ProgressInformation</ns1:desc>
+    <ns2:member value="0" ns1:name="CONFIGURATION_NOT_STARTED" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Configuration not started.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="FETCHING_BASIC_IP_CONFIGURATION_VIA_DHCP" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching basic IP configuration data from DHCP server.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="ACTIVATING_BASIC_IP_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Setting up IP configuration for O&amp;M.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="FETCHING_SITE_BASIC_FILE" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching Site Basic file from SMRS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="FETCHING_SITE_EQUIPMENT_FILE" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching Site Equpiment file from SMRS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="FETCHING_LICENSING_KEY_FILE" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching License Key file from SMRS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="6" ns1:name="FETCHING_UPGRADE_PACKAGE" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching Upgrade Package from SMRS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="7" ns1:name="FETCHING_SUMMARY_FILE" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Fetching Summary File from SMRS.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="8" ns1:name="ACTIVATING_SITE_BASIC_DATA" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Configuring Site Basic Data.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="9" ns1:name="ACTIVATING_SITE_EQUIPMENT_DATA" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Configuring Site Equipment Data.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="10" ns1:name="INSTALLING_LICENSE_KEY" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Installing License Key file.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="11" ns1:name="UPGRADING" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Performing upgrade.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="12" ns1:name="NOTIFYING_OSS" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Notifying OSS to start MIB synchronization.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="13" ns1:name="INITIATING_CERTIFICATE_ENROLLMENT" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+				
+				Initiating Certificate Enrollment.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="14" ns1:name="ACTIVATING_SECURITY_LEVEL_3" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Deprecated: Since L10B. Planned to be removed.
+				
+				Activating Security Level 3.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="15" ns1:name="WAITING_FOR_OSS_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Waiting for MIB synchronization to complete.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="16" ns1:name="OSS_ACTIVATING_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Activating configuration.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="17" ns1:name="WAITING_FOR_S1" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Waiting for establishment of S1 connection to MME.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="18" ns1:name="OSS_UNLOCKING_CELLS" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Unlocking cells.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="19" ns1:name="AUTO_INTEGRATION_COMPL" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Auto-integration complete.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="21" ns1:name="DETECTING_GIGABIT_LINK" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>DETECTING_GIGABIT_LINK</ns1:desc>
+    </ns2:member>
+    <ns2:member value="23" ns1:name="INITIATING_SECURITY_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Initiating Security Configuration.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="24" ns1:name="ACTIVATING_SECURITY_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Activating Security Configuration.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="25" ns1:name="ACTIVATING_IPSEC_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Activating IPSec Configuration.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="26" ns1:name="ACTIVATING_PERMANENT_OAM_IPSEC_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Activating IPsec configuration for the permanent IPsec tunnel for OAM.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="27" ns1:name="ACTIVATING_INITIAL_OAM_IPSEC_CONFIGURATION" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>Activating IPsec configuration for the initial IPsec tunnel for OAM.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

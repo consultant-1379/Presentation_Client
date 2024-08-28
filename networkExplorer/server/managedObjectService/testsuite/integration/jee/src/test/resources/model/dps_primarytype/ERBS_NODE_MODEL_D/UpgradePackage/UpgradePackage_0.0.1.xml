@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="UpgradePackage" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Upgrade Package (UP)
+			
+			This MO represents an upgrade package stored in the file system on the node. It also represents the UP stored on the FTP server that it is, or will be, fetched from.
+			
+			There can be more than one UP at the same time on the disk. One UP represents the software executing on the node. This UP is specified by the MO, ConfigurationVersion.
+			
+			The actions in this MO execute a specific upgrade on the node.
+			
+			The UP is deleted from the disk when the associated UpgradePackage MO is deleted. The following are also deleted:
+			- the MOs and files that are unique for the UP
+			- the CVs specifed by the attribute, otherReferringCVs.
+			
+			This MO refers to all the load modules used in the UP. One load module can be used in more than one UP.
+			
+			When the node is restarted, instances of this MO are created automatically and these represent UPs that are stored on the disk, but which do not have an MO instance in the current CV. These instances are in the state, onlyDeletable. In this state, the MO throws ActionNotAllowedException on all its actions.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="UpgradePackageId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				
+				It is set automatically during system upgrade.
+				
+				If this is empty, the attribute, upgradePackageDocumentId is copied.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="loadModuleList" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the references to load modules that belong to this upgrade package.
+				
+				This list is null until a successful install has been performed.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/LoadModule/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="upgradeControlFilePath" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the path to the UCF on the node once it has been fetched from the FTP server.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="state" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the state of this upgrade package.
+				
+				This attribute is used to accept, reject or modify behavior of actions. For example, the action, upgrade, is not allowed in the state NOT_INSTALLED.
+				
+				The action, confirmUpgrade, is called to continue and conclude the upgrade sequence when state = AWITING_CONFIRMATION. Then the attribute, confirmationDeadline, is used to check the time left before automatic rollback is done.
+				
+				Upgrade Package MOs that are stored on disk but do not have an MO in the current CV, are in the state ONLY_DELETEABLE. An MO in this state only accepts action, updateFTPServerData. If any other type of action is invoked, the ActionNotAllowedException is thrown.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/UpgradePackageState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="NOT_INSTALLED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="progressHeader" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the current upgrade progress information.
+				
+				Changes in the progress header do not require any particular action.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/UpgradeProgressInformation/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="IDLE"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="progressTotal" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies one of the following:
+				
+				- the total number of load module files to be downloaded during installation of an UpgradePackage MO
+				- the total number of load module files to be downloaded during installation of an PiuType MO
+				- the total number of steps in the used sequence, defined in the UCF, when an upgrade is executed.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="progressCount" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows the progress of:
+				- an installation of an UpgradePackage MO
+				- installation of a PiuType MO or
+				- execution of an upgrade.
+				
+				This attribute specifies the current number of downloaded load module files during installation of an upgrade package. A load module may contain one or several files.
+				
+				It also specifies the current number of executed steps in the used sequence, defined in the UCF, when an upgrade is executed.
+				
+				This value is incremented in steps of 1, from 0 to progressTotal.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="administrativeData" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains product data for this upgrade package. This information is extracted from the UCF.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/AdminProductData/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="confirmationDeadline" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the deadline, date and time, for confirmation.
+				
+				If the deadline is not met, an automatic rollback to a previous configuration is started.
+				The format is UTC time.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="ftpServerIpAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The IP address or domain name of the FTP Server.
+				
+				The input format for an IPv4 address is four fields of digits, separated by a dot. Each field consists of one to three digits.
+				
+				The input format for an IPv6 address is as defined in specification RFC 4291, chapter 2.2, bullet 1 and 2.
+				
+				The input format for a domain name is as defined in specification RFC 952.
+				When address resolution is requested and the DNS server responds with a list of resolved addresses, the first address presented by the DNS server is used by this attribute. Note that you need to configure a name-to-IP-address association in the DNS server, with an address that belongs to the correct address family. This means that a host name defininition in the DNS server should not mix IPv4 and IPv6 addresses. Instead, use two separate host names: one that resolves to the IPv4 address and one that resolves to IPv6 address.
+				
+				Example:
+				110.112.111.102
+				2001:db8:0::1
+				wnaw107</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="256"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="upFilePathOnFtpServer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the file path on the FTP server to the UCF.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="user" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The user identity to the FTP server.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="anonymous"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="password" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Password to the FTP server.
+				
+				This attribute is only supplied when the UP MO is created, and it is not displayed.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="anonymous"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="upgradePackageDocumentId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the document number and revision of the upgrade package. White spaces are removed, and an underscore is inserted between the document number and the revision.
+				
+				Example: 19089-CSX10901/1_A
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="40"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="deletePreventingCVs" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the configuration version(s) that prevents delete of the UP.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="otherReferringCVs" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the configuration versions that refer to this MO, but do not affect the deletable status of the MO UpgradePackage. The deletable status is specified in the attribute, isDeletable.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="isDeletable" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if the UpgradePackage MO can be deleted.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="basedOnUpgradePackages" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute is only valid for UPs of type Delta. It contains the merge history of this upgrade package.
+				
+				Examples:
+				
+				- Product Data for normal UP (non Delta UP)
+				- Product Data for Delta UP1
+				- Product Data for Delta UP2.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/AdminProductData/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="upCompatibilityIndex" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies a compatibility index.
+				
+				If this is specified, it may be used when verifying that an upgrade from-state is valid for this UP.
+				
+				It is only used when the UCF element upgrade window contains this type of information.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="cppUpVersion" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the CPP upgrade package version of this UP.
+				
+				This information is extracted from the UCF.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/AdminProductData/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="actionResult" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains the result from the latest four invoked actions.
+				
+				This attribute is only applicable for the actions:
+				- install (all variants)
+				- cancelInstall
+				- readReferringCvInformation
+				- verifyUpgrade
+				- update
+				- upgrade
+				
+				For the actions, update, upgrade, and rebootNodeUpgrade, this attribute is only valid when the verification phase has discovered that upgrade or update is not possible.
+				
+				Any problems detected after the verification phase is not reported in this attribute.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/ActionResultData/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="stepLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains the name of the currently executing step in the used sequence, defined in the UCF. This value is specified in the attribute label in the element Step or UpdateStep in the UCF.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxTimeBetweenUpgradeEvents" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States the maximum time allowed to elapse before the next upgrade event (FM event) is sent.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="60"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="sendEvents" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines whether upgrade events (FM events) shall be sent or not during execution of an upgrade.
+				
+				The default maximum time between FM events is 60 seconds. This means that if no new progress indication is available within that time, the last FM event is sent again.
+				
+				The first created UpgradePackage MO has the default value, false. For the subsequent new UpgradePackage MOs that are created, the value of this attribute is not set to the default value, but is instead copied from the currently active UpgradePackage MO.
+				The currently active UpgradePackage MO is specified by the attribute, currentUpgradePackage in the ConfigurationVersion MO.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="deletePreventingUPs" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the upgrade package(s) that prevents delete of the UP.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/AdminProductData/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="typeOfUP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States the type of UP specified in the UCF.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/UpgradePackageType/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="progressHeaderAddInfo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Additional information to the attribute, progressHeader.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="actualTypeOfUP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States the actual type of the UP.
+				
+				Its value is set by copying the value of the attribute, requestedTypeOfUP.
+				
+				Its initial value is set when the UP is created.
+				
+				This value is then updated in the following cases:
+				
+				- the UP is not active, that is, state is not UPGRADE_COMPLETED, and a successful install action has been executed.
+				
+				- the UP is installed, that is, state is INSTALL_COMPLETED, and a successful upgrade action has been executed. When the last install action has been executed, the value of requestedTypeOfUP is saved and copied.
+				
+				- the UP is active, that is, state is UPGRADE_COMPLETED, and a successful upgrade action has been executed. When the last install action has been executed, the value of requestedTypeOfUP is saved and copied.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/UpgradePackageType/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="requestedTypeOfUP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>States the type of UP to be used when an install action is executed. It is not used when load modules for a specific MO PiuType are installed. When an upgrade action is executed, the type used at the last install is valid.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/UpgradePackageType/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="preUpgradeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the pre-upgrade state during an upgrade procedure.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/SuPreUpgradeState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="hsiVariant" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the type of HwSensitive that is used i.e. load module files for configured boards will be/are installed (HSI), or that all load module files for matching node type will be/are installed.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/HsiVariant/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

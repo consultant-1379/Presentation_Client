@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="RATFreqPrio" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Contains data that overrides information in the IdleModeMobilityControlInfo and RedirectedCarrierInfo (sent to UE at RRCConnectionRelease) that is configured for the cell. Only UEs that has a SPID value matching the list in this MOC is affected.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="RATFreqPrioId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="spidList" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A list that includes all UEs that are affected by the RAT priorities specified in this MOC.
+				Note: When value is configured to -1000, the parameter is ignored.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="20"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="-1000" max="-1000"/>
+                    <ns1:minMaxRange min="1" max="256"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:collectionValue">
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+            <ns1:value xsi:type="ns1:stringValue" value="-1000"/>
+        </ns1:default>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="t320" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Validity time for cell reselection priority information provided by dedicated signalling. Used by the UE. This parameter is only used in the optional feature 'subscriber triggered mobility' when setting new cell reselection priorities based on SPID value for a specific UE.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="30" max="30"/>
+                <ns1:minMaxRange min="60" max="60"/>
+                <ns1:minMaxRange min="120" max="120"/>
+                <ns1:minMaxRange min="180" max="180"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="freqPrioListEUTRA" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes EUTRAN frequencies among all frequencies related to the cell for UE cell reselection procedure and for UEs in connected mode.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="24"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/FreqPrioEUTRA/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="freqGroupPrioListGERAN" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes GERAN frequencies among all frequencies related to the cell for UE cell reselection procedure and for UEs in connected mode.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="16"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/FreqGroupPrioGERAN/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="freqPrioListUTRA" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes UTRAN frequencies among all frequencies related to the cell for UE cell reselection procedure and for Ues in connected mode.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="64"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/FreqPrioUTRAN/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="bandClassPrioListCDMA2000" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes CDMA2000 frequencies among all frequencies related to the cell for UE cell reselection procedure and for Ues in connected mode. It is not possible to create every possible frequency and band relation since that would require to many instances using this representation.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="128"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/BandClassPrioCDMA2000/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="bandClassPrioListCDMA1xRtt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT frequency prioritization
+				This attribute prioritizes CDMA2000 1xRTT frequencies among all frequencies related to the cell for UE cell reselection procedure and for UE in connected mode. It is not possible to create every possible frequency and band relation since that would require to many instances using this representation.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="128"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/BandClassPrioCdma1xRtt/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

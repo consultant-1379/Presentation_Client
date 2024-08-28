@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="CsfbRegParams1xRtt" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>CsfbRegParams1xRtt</ns1:desc>
+    <ns2:attribute ns1:name="multipleSid" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Multiple SID storage indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="multipleNid" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Multiple NID storage indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="homeReg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Home registration indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="foreignSidReg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT SID roamer registration indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="foreignNidReg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT NID roamer registration indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="parameterReg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Parameter-change registration indicator</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="powerUpReg" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Power-up registration indicator
+				 2^(REG_PRD/4) * 0.08 seconds</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="registrationPeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Registration period</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="0"/>
+                <ns1:minMaxRange min="29" max="85"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="80"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="registrationZone" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Registration zone
+				The range for zones is only 0-255.  Unique zones are identified by REG_ZONE, plus the SID/NID of the zone.  When a mobile moves into a new registration zone (uniquely identified by REG_ZONE + SID + NID with its own timer) not on its internally stored list (up to TOTAL_ZONES entries) of visited registration zones, zone registration causes the mobile to register.  Zones in the mobile are deleted upon expiration of a timer stored on mobile.  After system access, timers (ZONE_TIMER value) are enabled for every zone except the one where the registration attempt was successful.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="4095"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="totalZone" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT number of registration zones to be retained 
+				The maximum number of zones in which the MS may be considered registered. 0 disables zone registration. Value of at least 2 should be used for hysteresis when zone registration is enabled.  For MTX border sites, parameter registrations should always be disabled and zone registration should be enabled.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="zoneTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT zone timer length 
+				Range 0 - 7 (equates to 1, 2, 5, 10, 20, 30, 45, 60 minutes respectively).  The higher the value, the less frequent the registrations.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="30" max="30"/>
+                <ns1:minMaxRange min="45" max="45"/>
+                <ns1:minMaxRange min="60" max="60"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="powerDownRegR9" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CDMA2000 1xRTT Power-down registration indicator 
+				If set to TRUE, the UE that has a valid / current CDMA2000 1xRTT pre-registration performs a CDMA2000 1xRTT power down registration when it is switched off.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

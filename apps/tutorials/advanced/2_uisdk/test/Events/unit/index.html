@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Events: Test Cases</title>
+    <meta charset="utf-8">
+    <!-- hack for  express js to pickup _tools path -->
+    <script src="/_tools/jasmine/test-prepare.js"></script>
+    <script src="../../../node_modules/jscore/jscore.js"></script>
+</head>
+<body>
+<script>
+    var isPhantom = navigator.userAgent === 'phantom';
+
+    function isReportReady() {
+        return false;
+    }
+
+    if (loadTestDependencies) {
+
+        loadTestDependencies(isPhantom, function () {
+            require(['Titan'],function(Titan){
+                Titan.extension(function(env){
+                    env._private.isTest = true;
+                });
+            });
+
+            require({
+                baseUrl: '../../../src/Events',
+                paths: {
+                    test: '../../test/Events/unit'
+                }
+            }, [
+                'test/Application',
+                'test/pages/start/StartPresenter'
+        //        'test/unit/pages/launcher/LauncherView'
+
+
+            ], function () {
+                jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+                jasmine.getEnv().addReporter(new jasmine.ConsoleReporter());
+                jasmine.getEnv().execute();
+            });
+        });
+    }
+    else {
+        console.log('Tools for test preparation are not loaded');
+    }
+</script>
+</body>
+</html>

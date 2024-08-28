@@ -1,0 +1,466 @@
+<div class="eaNetwork">
+    <div class="eaNetwork-Header">
+        <div class="eaNetwork-Header-block">
+            <div class="ebBreadcrumbs">
+                <a href="#OSS" class="ebBreadcrumbs-Link">OSS</a>
+                <a href="#NetworkExplorer" class="ebBreadcrumbs-Link">Network Explorer</a>
+            </div>
+
+            <h1>Network Explorer</h1>
+        </div>
+    </div>
+    <div class="eaNetwork-Holder">
+        <div class="eaNetwork-SearchBlock">
+            <input type="text" class="ebInput ebInput-labeled ebInput-default ebInput_xLongW eaNetwork-SearchBlock-searchInput" placeholder="Search for an Network Cell"/>
+            <button class="ebBtn ebBtn_color_darkBlue ebBtn_colored eaNetwork-SearchBlock-searchBtn"><!--<i class="ebIcon ebIcon-left eaNetwork-SearchBlock-searchIcon"></i>--><span>Search</span></button>
+
+            <div class="eaNetwork-SearchBlock-separator"></div>
+
+            <div class="ebCombobox eaNetwork-SearchBlock-typeCombo">
+                <input type="text" class="ebCombobox-Input" placeholder="Change style" value="Style 1" />
+                <button class="ebCombobox-Helper"></button>
+                <ul class="ebComponent-List">
+                    <li class="ebComponent-List-item" title="Style 1" data-id="1">Style 1</li>
+                    <li class="ebComponent-List-item" title="Style 2" data-id="2">Style 2</li>
+                    <li class="ebComponent-List-item" title="Style 3" data-id="3">Style 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="eaNetwork-FiltersBlock">
+            <h2>Filters</h2>
+            <div class="eaNetwork-AppliedFilters">
+                <div class="eaNetwork-AppliedFilters-header">
+                    <h3>Applied Filters</h3>
+                    <div class="eaNetwork-AppliedFilters-actions">
+                        <a href="#ClearAll" class="eaNetwork-AppliedFilters-actionLink">Clear All</a>
+                    </div>
+                </div>
+                <div class="eaNetwork-AppliedFilters-filters">
+                    <div class="eaNetwork-AppliedFilters-filter">
+                        <div class="eaNetwork-AppliedFilters-filterName">Search: UtranCell</div>
+                        <span class="eaNetwork-AppliedFilters-filterClear">x</span>
+                    </div>
+                    <div class="eaNetwork-AppliedFilters-filter">
+                        <div class="eaNetwork-AppliedFilters-filterName">Location: New York</div>
+                        <span class="eaNetwork-AppliedFilters-filterClear">x</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Available Filters</h3>
+            <div class="eaNetwork-AvailableFilters">
+                <div class="eaNetwork-Filter">
+                    <div class="eaNetwork-Filter-block">
+                        <button class="ebIconBtn ebIcon-upArrow"></button>
+                        <div class="eaNetwork-Filter-name">Node Type</div>
+                    </div>
+                    <div class="eaNetwork-Filter-items">
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="1" checked/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">RNC</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="2"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">Utrancell</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="3"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">RBS</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="4"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">RXI</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="5"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">MSC</span>
+                        </label>
+
+                        <div class="eaNetwork-Filter-link">
+                            <a href="#More" class="eaNetwork-Filter-itemsMore">Show more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="eaNetwork-Filter">
+                    <div class="eaNetwork-Filter-block">
+                        <button class="ebIconBtn ebIcon-downArrow"></button>
+                        <div class="eaNetwork-Filter-name">Software Version</div>
+                    </div>
+                    <div class="eaNetwork-Filter-items" style="display: none">
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="1"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">1.0.5</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="2"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">1.0.4</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="3"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">1.0.3</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="4"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">1.0.2</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="5"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">1.0.1</span>
+                        </label>
+
+                        <div class="eaNetwork-Filter-link">
+                            <a href="#More" class="eaNetwork-Filter-itemsMore">Show more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="eaNetwork-Filter">
+                    <div class="eaNetwork-Filter-block">
+                        <button class="ebIconBtn ebIcon-downArrow"></button>
+                        <div class="eaNetwork-Filter-name">Severity</div>
+                    </div>
+                    <div class="eaNetwork-Filter-items" style="display: none">
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="1"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">Critical</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="2"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">Major</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="3"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">Minor</span>
+                        </label>
+
+                        <label class="eaNetwork-Filter-item">
+                            <input class="ebCheckbox" type="checkbox" value="4"/>
+                            <span class="ebCheckbox-inputStatus"></span>
+                            <span class="ebCheckbox-label">Warning</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="eaNetwork-ResultsBlock">
+            <div class="eaNetwork-ResultsBlock-header">
+                <h2>Results <span class="eaNetwork-ResultsBlock-resultsCount">(93)</span></h2>
+                <div class="eaNetwork-ResultsBlock-actions">
+                    <a href="#Export" class="eaNetwork-ResultsBlock-actionLink">Export</a>
+                    <div class="eaNetwork-ResultsBlock-separator"></div>
+                    <div class="ebDropdown eaNetwork-ResultsBlock-actionsDropdown">
+                        <button class="ebBtn ebBtn_default">
+                            <span>Actions</span>
+                            <i class="ebIcon ebIcon-right ebIcon-downArrow"></i>
+                        </button>
+                        <ul class="ebComponent-List ebComponent-List-rightAlign">
+                            <li class="ebComponent-List-item">Add to a Collection</li>
+                            <li class="ebComponent-List-item">Analyze Selected Nodes</li>
+                            <li class="ebComponent-List-separator"></li>
+                            <li class="ebComponent-List-item">Troubleshoot</li>
+                            <li class="ebComponent-List-item">Open in Data Diagnostic Presentation</li>
+                            <li class="ebComponent-List-item">Perform Parameter Check</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ebRadioTabs">
+                <input type="radio" id="tab-1" name="tab-group-1" class="ebRadioTabs-input" checked>
+                <label for="tab-1" class="ebRadioTabs-label">List</label>
+
+                <input type="radio" id="tab-2" name="tab-group-1" class="ebRadioTabs-input">
+                <label for="tab-2" class="ebRadioTabs-label">Table</label>
+
+                <input type="radio" id="tab-3" name="tab-group-1" class="ebRadioTabs-input">
+                <label for="tab-3" class="ebRadioTabs-label">Map</label>
+
+                <div class="ebRadioTabs-contents">
+                    <div class="ebRadioTabs-content">
+                        <table class="ebTable" style="width: 100%">
+                            <thead>
+                            <tr>
+                                <th class="eaNetwork-ResultsBlock-checkboxCell">
+                                    <input class="ebCheckbox" type="checkbox" name="selectAll" value="1" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>IP Address</th>
+                                <th>Location</th>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="1" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 1</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="2" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 2</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="3" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 3</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="4" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 4</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="5" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 5</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="6" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 6</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="7" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 7</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="8" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 8</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="9" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 9</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="10" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 10</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                        </table>
+
+                        <ul class="ebPaginationUl ebPaginationUl_wMargin">
+                            <li class="ebPaginationUl-entry_current"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">10</a></li>
+                            <li class="ebPaginationUl-next"><a href="#"></a></li>
+                            <li class="ebPaginationUl-last"><a href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="ebRadioTabs-content">
+                        <table class="ebTable ebTable-striped" style="width: 100%">
+                            <thead>
+                            <tr>
+                                <th class="eaNetwork-ResultsBlock-checkboxCell">
+                                    <input class="ebCheckbox" type="checkbox" name="selectAll" value="1" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>IP Address</th>
+                                <th>Location</th>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="1" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 1</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="2" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 2</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="3" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 3</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="4" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 4</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="5" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 5</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="6" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 6</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="7" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 7</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="8" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 8</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="9" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 9</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="ebCheckbox" name="selectCell" type="checkbox" value="10" />
+                                    <span class="ebCheckbox-inputStatus"></span>
+                                </td>
+                                <td>UtranCell</td>
+                                <td>UtranCell 10</td>
+                                <td>192.168.202.454</td>
+                                <td>NewYork West</td>
+                            </tr>
+                        </table>
+
+                        <ul class="ebPaginationUl ebPaginationUl_wMargin">
+                            <li class="ebPaginationUl-entry_current"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">10</a></li>
+                            <li class="ebPaginationUl-next"><a href="#"></a></li>
+                            <li class="ebPaginationUl-last"><a href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="ebRadioTabs-content">
+                        <img src="resources/network/map.png" alt="Map" class="eaNetwork-ResultsBlock-mapImage"/>
+                    </div>
+                </div>
+                <div class="eaNetwork-ClearAll"></div>
+            </div>
+        </div>
+        <div class="eaNetwork-ClearAll"></div>
+    </div>
+</div>

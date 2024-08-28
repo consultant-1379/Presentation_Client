@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="AntennaSubunit" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO groups the antenna elements that, because of being controlled by the same RET radiate with the same tilt angle.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="AntennaSubunitId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="totalTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Total antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET). Total tilt is defined as the inclination of the maximum of the antenna main beam with respect to the horizontal plane.
+				
+				Tilt is a signed value. Positive indicates downtilt, and negative indicates uptilt, found by the following equation:
+				
+				totalTilt = AntennaUnit.MechanicaAntennalTilt+RetSubunit.electricalTilt
+				
+				NOTE:  If the antenna has no RET installed, this value does not account for the inclination that the antenna beam may have by default, with respect to the direction orthogonal to the antenna element axis.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="minTotalTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The minimum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET) described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. The limitation on total tilt is found by the following equation:
+				
+				TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt
+				
+				NOTE: If the antenna has no RET installed, the total tilt value does not necessarily account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-900"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="maxTotalTilt" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET), described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. It sets a limitation on total tilt which is given by:
+				
+				TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt
+				
+				NOTE: If the antenna has no RET installed, this value does not account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-900" max="900"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="900"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="retSubunitRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Reference to the RetSubunit controlling the tilt of this AntennaSubunit.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="azimuthHalfPowerBeamwidth" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the azimuth half power beamwidth for the antenna.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="65" max="65"/>
+                <ns1:minMaxRange min="90" max="90"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="65"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="customComChBeamfrmWtsAmp" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>This parameter shall contain an array of eight amplitudes for custom common channel beamforming weights. At least one of the eight amplitudes have to be non-zero for the custom beamforming weights to take effect. NOTE: Actual value = Set value / 100</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="0" max="200"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:collectionValue">
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+        </ns1:default>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="customComChBeamfrmWtsPhase" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This parameter shall contain an array of eight phases for custom common channel beamforming weights.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="0" max="359"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:collectionValue">
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+        </ns1:default>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="commonChBeamfrmPortMap" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This parameter selects between co-polarized and cross-polarized beamforming antenna port mapping. This parameter has no effect if azimuthHalfPowerBeamwidth is set to 65. In that case, &quot;cross-polarized&quot; antenna port mapping will be used.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/BeamformingPortMapping/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="CROSS_POLARIZED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="customComChBeamfrmWtsAmplitude" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This parameter shall contain an array of eight amplitudes for custom common channel beamforming weights. At least one of the eight amplitudes have to be non-zero for the custom beamforming weights to take effect. NOTE: Actual value = Set value / 100</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="8"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType">
+                <ns1:valueRangeConstraint>
+                    <ns1:minMaxRange min="0" max="100"/>
+                </ns1:valueRangeConstraint>
+            </ns1:collectionValuesType>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:collectionValue">
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+            <ns1:value xsi:type="ns1:stringValue" value="0"/>
+        </ns1:default>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

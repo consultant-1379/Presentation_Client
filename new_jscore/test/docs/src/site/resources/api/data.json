@@ -1,0 +1,2558 @@
+{
+    "project": {
+        "name": "JSCORE",
+        "description": "",
+        "version": "0.0.1",
+        "url": "",
+        "helpers": [
+            "yuidoc_helpers.js"
+        ],
+        "themedir": "ericsson_yui_theme"
+    },
+    "files": {
+        "..\\jscore\\base\\jquery-2.js": {
+            "name": "..\\jscore\\base\\jquery-2.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\base\\jquery.js": {
+            "name": "..\\jscore\\base\\jquery.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\css\\main.js": {
+            "name": "..\\jscore\\ext\\css\\main.js",
+            "modules": {},
+            "classes": {
+                "ext.css": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\dom\\main.js": {
+            "name": "..\\jscore\\ext\\dom\\main.js",
+            "modules": {},
+            "classes": {
+                "ext.dom.Element": 1,
+                "ext.dom": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\extend\\main.js": {
+            "name": "..\\jscore\\ext\\extend\\main.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\mediator\\main.js": {
+            "name": "..\\jscore\\ext\\mediator\\main.js",
+            "modules": {},
+            "classes": {
+                "ext.mediator.EventBus": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\mvp\\main.js": {
+            "name": "..\\jscore\\ext\\mvp\\main.js",
+            "modules": {},
+            "classes": {
+                "ext.mvp.View": 1,
+                "ext.mvp.Model": 1,
+                "ext.mvp.Collection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\ext\\ext.js": {
+            "name": "..\\jscore\\ext\\ext.js",
+            "modules": {
+                "ext": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\core.js": {
+            "name": "..\\jscore\\core.js",
+            "modules": {
+                "core": 1
+            },
+            "classes": {
+                "core.Element": 1,
+                "core.EventBus": 1,
+                "core.AppContext": 1,
+                "core.App": 1,
+                "core.View": 1,
+                "core.Region": 1,
+                "core.Widget": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\interfaces.js": {
+            "name": "..\\jscore\\interfaces.js",
+            "modules": {
+                "interfaces": 1
+            },
+            "classes": {
+                "interfaces.App": 1,
+                "interfaces.UIComponent": 1,
+                "interfaces.AppContext": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\require.js": {
+            "name": "..\\jscore\\require.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "..\\jscore\\text.js": {
+            "name": "..\\jscore\\text.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ext": {
+            "name": "ext",
+            "submodules": {},
+            "classes": {
+                "ext.css": 1,
+                "ext.dom.Element": 1,
+                "ext.dom": 1,
+                "ext.mediator.EventBus": 1,
+                "ext.mvp.View": 1,
+                "ext.mvp.Model": 1,
+                "ext.mvp.Collection": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 220,
+            "description": "ext is a set of application extensions that may be accessed by the core classes. A standard set of extensions are provided by the framework and additional extensions may be added by applications. Only extensions may access the base layer."
+        },
+        "core": {
+            "name": "core",
+            "submodules": {},
+            "classes": {
+                "core.Element": 1,
+                "core.EventBus": 1,
+                "core.AppContext": 1,
+                "core.App": 1,
+                "core.View": 1,
+                "core.Region": 1,
+                "core.Widget": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "..\\jscore\\core.js",
+            "line": 246,
+            "description": "The core contains a set of base classes that can be extended by developers to create scalable client apps."
+        },
+        "interfaces": {
+            "name": "interfaces",
+            "submodules": {},
+            "classes": {
+                "interfaces.App": 1,
+                "interfaces.UIComponent": 1,
+                "interfaces.AppContext": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "..\\jscore\\interfaces.js",
+            "line": 282,
+            "description": "The interfaces package contains a set of abstract interface classes that are extended by the core base classes."
+        }
+    },
+    "classes": {
+        "ext.css": {
+            "name": "ext.css",
+            "shortname": "ext.css",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\css\\main.js",
+            "line": 4,
+            "description": "The css class is a utility for style manipulation."
+        },
+        "ext.dom.Element": {
+            "name": "ext.dom.Element",
+            "shortname": "ext.dom.Element",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 10,
+            "description": "The Element is a common abstraction of the HTML DOM element."
+        },
+        "ext.dom": {
+            "name": "ext.dom",
+            "shortname": "ext.dom",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 141,
+            "description": "The ext.dom package provides an abstract API for DOM manipulation."
+        },
+        "ext.mediator.EventBus": {
+            "name": "ext.mediator.EventBus",
+            "shortname": "ext.mediator.EventBus",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\mediator\\main.js",
+            "line": 3,
+            "description": "The EventBus allows objects to subscribe and publish events that other components may react to."
+        },
+        "ext.mvp.View": {
+            "name": "ext.mvp.View",
+            "shortname": "ext.mvp.View",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 36,
+            "description": "The View is responsible for manipulating the DOM to display the correct visuals. It extends core.View.",
+            "extends": "core.View"
+        },
+        "ext.mvp.Model": {
+            "name": "ext.mvp.Model",
+            "shortname": "ext.mvp.Model",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 86,
+            "description": "The Model is the client side data store. It may store data originated in the client or no the server and facilitates pushing data changes to the server."
+        },
+        "ext.mvp.Collection": {
+            "name": "ext.mvp.Collection",
+            "shortname": "ext.mvp.Collection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ext",
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 220,
+            "description": "Used for managing multiple Model instances"
+        },
+        "core.Element": {
+            "name": "core.Element",
+            "shortname": "core.Element",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 32,
+            "description": "The Element is a common abstraction of the HTML DOM element.",
+            "extends": "ext.dom.Element"
+        },
+        "core.EventBus": {
+            "name": "core.EventBus",
+            "shortname": "core.EventBus",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 40,
+            "description": "The EventBus allows objects to subscribe and publish events that other components may react to.",
+            "extends": "ext.mediator.EventBus"
+        },
+        "core.AppContext": {
+            "name": "core.AppContext",
+            "shortname": "core.AppContext",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 50,
+            "description": "The AppContext interface represents a utility that the App uses to share a common context between Regions using the sandbox pattern.",
+            "extends": "interfaces.AppContext"
+        },
+        "core.App": {
+            "name": "core.App",
+            "shortname": "core.App",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 59,
+            "description": "The App class is the main controller of the client application. It is responsible for overall UI layout, co-ordination of the different component parts of the UI and URL management.",
+            "extends": "interfaces.App"
+        },
+        "core.View": {
+            "name": "core.View",
+            "shortname": "core.View",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 98,
+            "description": "The View class is responsible for template management. It may be used by any visible client component (App, Region, Widget) to load a HTML template."
+        },
+        "core.Region": {
+            "name": "core.Region",
+            "shortname": "core.Region",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 185,
+            "description": "The App may create Region instances to manage specific areas of the screen with a well defined responsibility. Regions are completely independent and communicate with each other via event passing using the EventBus. In this way any Region may be removed without affecting other regions. Likewise Regions may be independently restarted should they get into an error scenario. For these reasons, regions may not be nested.",
+            "extends": "interfaces.UIComponent"
+        },
+        "core.Widget": {
+            "name": "core.Widget",
+            "shortname": "core.Widget",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "core",
+            "namespace": "",
+            "file": "..\\jscore\\core.js",
+            "line": 246,
+            "description": "The Widget class is a piece of reusable generic UI code. It does not have any knowldge of its context or how it is being used. Widgets can be simple like buttons or text input fields or comlpex like data-grids or maps. Widgets are composable and may be nested as required to construct composite widgets. Widgets may be reused in multiple apps. A common set of widgets is provided as a common UI component.\n\nThe use of widgets for purely layout purposes should be avoided as the parent (App, Place or Region) template may be used for this purpose along with appropriate CSS. Widgets may be used where some user interaction is required. Even in this scenario widgets are not mandatory and the functionality may be handled directly in the parent JavaScript. Widgets should be considered for encapsulating complex interaction logic and where code reuse is possible.",
+            "extends": "interfaces.UIComponent"
+        },
+        "interfaces.App": {
+            "name": "interfaces.App",
+            "shortname": "interfaces.App",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "interfaces",
+            "namespace": "",
+            "file": "..\\jscore\\interfaces.js",
+            "line": 86,
+            "description": "The App interface represents the main controller of the client application."
+        },
+        "interfaces.UIComponent": {
+            "name": "interfaces.UIComponent",
+            "shortname": "interfaces.UIComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "interfaces",
+            "namespace": "",
+            "file": "..\\jscore\\interfaces.js",
+            "line": 183,
+            "description": "The UIComponent interface is implemented by UIComponents that are managed by the App."
+        },
+        "interfaces.AppContext": {
+            "name": "interfaces.AppContext",
+            "shortname": "interfaces.AppContext",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "interfaces",
+            "namespace": "",
+            "file": "..\\jscore\\interfaces.js",
+            "line": 282,
+            "description": "The AppContext interface represents a utility that the App uses to share a common context between Regions using the sandbox pattern."
+        }
+    },
+    "classitems": [
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3270,
+            "description": "For feature detection",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to test for native support",
+                    "type": "Function"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3278,
+            "description": "Create key-value caches of limited size",
+            "return": {
+                "description": "Returns the Object data after storing it on itself with\n\tproperty name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)\n\tdeleting the oldest entry",
+                "type": "Function(string, Object)"
+            },
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3298,
+            "description": "Mark a function for special use by Sizzle",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to mark",
+                    "type": "Function"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3307,
+            "description": "Support testing using an element",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Passed the created div and expects a boolean result",
+                    "type": "Function"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3434,
+            "description": "Detect xml",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "An element or a document",
+                    "type": "Element|Object"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3445,
+            "description": "Sets document-related variables once based on the current document",
+            "params": [
+                {
+                    "name": "doc",
+                    "description": "An element or document object to use to set the document",
+                    "type": "Element|Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Returns the current document",
+                "type": "Object"
+            },
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3902,
+            "description": "Checks document order of two siblings",
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "Returns -1 if a precedes b, 1 if a follows b"
+            },
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery-2.js",
+            "line": 3964,
+            "description": "Utility function for retrieving the text value of an array of DOM nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Array|Element"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\base\\jquery.js",
+            "line": 4453,
+            "description": "Utility function for retrieving the text value of an array of DOM nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Array|Element"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\ext\\css\\main.js",
+            "line": 10,
+            "description": "Sets style specified in CSS as a string on an Element.",
+            "itemtype": "method",
+            "name": "addStyle",
+            "params": [
+                {
+                    "name": "styles",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.css"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 20,
+            "description": "Finds a child element and returns it.",
+            "itemtype": "method",
+            "name": "find",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "element",
+                "type": "Element"
+            },
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 31,
+            "description": "If value isn't specified, the value of the element is returned. If the value is specified, then the value is set.",
+            "itemtype": "method",
+            "name": "val",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "value",
+                "type": "String"
+            },
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 42,
+            "description": "Appends child element to this element.",
+            "itemtype": "method",
+            "name": "append",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 52,
+            "description": "Removes this element from the DOM.",
+            "itemtype": "method",
+            "name": "remove",
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 60,
+            "itemtype": "method",
+            "name": "children",
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 68,
+            "description": "Sets up a DOM event handler for the element",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 80,
+            "description": "Sets the inner text of the element",
+            "itemtype": "method",
+            "name": "text",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 90,
+            "description": "Gets the native HTMLElement",
+            "itemtype": "method",
+            "name": "_getHTMLElement",
+            "return": {
+                "description": "element",
+                "type": "HTMLElement"
+            },
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 100,
+            "description": "Sets the native HTMLElement",
+            "itemtype": "method",
+            "name": "_setHTMLElement",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "HTMLElement"
+                }
+            ],
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 111,
+            "description": "Parses a HTML String and creates an Element from it.",
+            "itemtype": "method",
+            "name": "parse",
+            "static": 1,
+            "params": [
+                {
+                    "name": "html",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "element",
+                "type": "Element"
+            },
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 126,
+            "description": "Wraps a native element and creates an Element",
+            "itemtype": "method",
+            "name": "wrap",
+            "static": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": "",
+                    "type": "HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "element",
+                "type": "Element"
+            },
+            "class": "ext.dom.Element"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 147,
+            "description": "Access the ext.dom.Element object",
+            "itemtype": "property",
+            "name": "Element",
+            "type": "Element",
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 155,
+            "description": "Finds a child element in the passed element and returns it.",
+            "itemtype": "method",
+            "name": "find",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "element",
+                "type": "Element"
+            },
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 183,
+            "description": "If value isn't specified, the value of the element is returned. If the value is specified, then the value is set.",
+            "itemtype": "method",
+            "name": "val",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "value",
+                "type": "String"
+            },
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 200,
+            "description": "Appends child element to the target element.",
+            "itemtype": "method",
+            "name": "append",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 211,
+            "description": "Removes the element from the DOM.",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 220,
+            "itemtype": "method",
+            "name": "children",
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 231,
+            "description": "Sets the inner text of the element",
+            "itemtype": "method",
+            "name": "text",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\dom\\main.js",
+            "line": 242,
+            "description": "Sets up a DOM event handler for the element",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.dom"
+        },
+        {
+            "file": "..\\jscore\\ext\\extend\\main.js",
+            "line": 2,
+            "description": "Underscore each helper",
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\extend\\main.js",
+            "line": 14,
+            "description": "Underscore extend helper",
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\extend\\main.js",
+            "line": 28,
+            "description": "__extend",
+            "params": [
+                {
+                    "name": "protoProps",
+                    "description": ""
+                },
+                {
+                    "name": "staticProps",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\mediator\\main.js",
+            "line": 15,
+            "description": "Subscribe to events on a channel. Provide a callback function to handle the event. Returns a Subscription handle that can be used to cancel the Subscription.",
+            "itemtype": "method",
+            "name": "subscribe",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "subscription",
+                "type": "Object"
+            },
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\mediator\\main.js",
+            "line": 37,
+            "description": "Publish data on a channel on the EventBus. If the channel does not exist it is created.",
+            "itemtype": "method",
+            "name": "publish",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\mediator\\main.js",
+            "line": 49,
+            "description": "Removes a subscription from the EventBus so that subscription will no longer receive any events.",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "identifier",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mediator.EventBus"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 9,
+            "description": "CreateModel",
+            "params": [
+                {
+                    "name": "attributes",
+                    "description": ""
+                },
+                {
+                    "name": "options",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Backbone.Model"
+            },
+            "is_constructor": 1,
+            "class": "ext.mvp.View"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 20,
+            "description": "CreateCollection",
+            "params": [
+                {
+                    "name": "models",
+                    "description": ""
+                },
+                {
+                    "name": "options",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Backbone.Collection"
+            },
+            "is_constructor": 1,
+            "class": "ext.mvp.View"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 43,
+            "description": "Key value contains the event type with the selector for the DOM element. Value contains the method to call on the presenter object (Widget, Region, App)",
+            "itemtype": "property",
+            "name": "events",
+            "type": "{Object}",
+            "class": "ext.mvp.View"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 101,
+            "description": "Client Identity. A page wide unique identifier for the model root.",
+            "itemtype": "property",
+            "name": "cid",
+            "type": "{String}",
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 107,
+            "description": "url of resource, represented by Model",
+            "itemtype": "property",
+            "name": "url",
+            "type": "{String}",
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 114,
+            "description": "Constructor",
+            "itemtype": "method",
+            "name": "init",
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 121,
+            "description": "Gets the value of the model at the path specified.",
+            "itemtype": "method",
+            "name": "getAttribute",
+            "params": [
+                {
+                    "name": "attribute",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "value",
+                "type": "*"
+            },
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 135,
+            "description": "Add property (one or many) to the model",
+            "itemtype": "method",
+            "name": "setAttributes",
+            "params": [
+                {
+                    "name": "attributes",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 147,
+            "description": "Remove property from the model",
+            "itemtype": "method",
+            "name": "removeAttribute",
+            "params": [
+                {
+                    "name": "attribute",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 159,
+            "description": "Updates the model with the current server side resource state.",
+            "itemtype": "method",
+            "name": "fetch",
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 170,
+            "description": "Pushes the model contents to the server side resource.",
+            "itemtype": "method",
+            "name": "save",
+            "params": [
+                {
+                    "name": "attributes",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 183,
+            "description": "Subscribe to model events. Supported methods change, add, destroy, error, change:[attribute], remove.",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": ""
+                },
+                {
+                    "name": "callBack",
+                    "description": ""
+                },
+                {
+                    "name": "context",
+                    "description": ""
+                }
+            ],
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 197,
+            "description": "Unsubscribe model event or events",
+            "itemtype": "method",
+            "name": "off",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": ""
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                },
+                {
+                    "name": "context",
+                    "description": ""
+                }
+            ],
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 211,
+            "description": "To create a Model child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "model",
+                "type": "Model"
+            },
+            "class": "ext.mvp.Model"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 246,
+            "description": "Constructor",
+            "itemtype": "method",
+            "name": "init",
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 255,
+            "description": "Fetches a model with the same cid from the collection.",
+            "itemtype": "method",
+            "name": "getModel",
+            "params": [
+                {
+                    "name": "cid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "model",
+                "type": "Model"
+            },
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 271,
+            "description": "Sets the collection to only contain the specified models",
+            "itemtype": "method",
+            "name": "setModels",
+            "params": [
+                {
+                    "name": "models",
+                    "description": "",
+                    "type": "Model/Array"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 293,
+            "description": "Adds a model, or an array of models to the collection.",
+            "itemtype": "method",
+            "name": "addModel",
+            "params": [
+                {
+                    "name": "models",
+                    "description": "",
+                    "type": "Model/Array"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 313,
+            "description": "Removes a model, or an array of models from the collection.",
+            "itemtype": "method",
+            "name": "removeModels",
+            "params": [
+                {
+                    "name": "models",
+                    "description": "",
+                    "type": "Model/Array"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 333,
+            "description": "Iterates over the collection, passing model instances into the callback.",
+            "itemtype": "method",
+            "name": "each",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 348,
+            "description": "Subscribe to collection events.",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": ""
+                },
+                {
+                    "name": "callBack",
+                    "description": ""
+                },
+                {
+                    "name": "context",
+                    "description": ""
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 362,
+            "description": "Unsubscribe collection event or events",
+            "itemtype": "method",
+            "name": "off",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": ""
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                },
+                {
+                    "name": "context",
+                    "description": ""
+                }
+            ],
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\ext\\mvp\\main.js",
+            "line": 378,
+            "description": "To create a Collection child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "collection",
+                "type": "Collection"
+            },
+            "class": "ext.mvp.Collection"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 13,
+            "description": "setRootElement",
+            "class": "core.Element",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 67,
+            "description": "Creates an AppContext with an EventBus instance. May be overriden by developer to add additional context.",
+            "itemtype": "method",
+            "name": "createContext",
+            "return": {
+                "description": "context",
+                "type": "AppContext"
+            },
+            "class": "core.App",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 114,
+            "description": "The Element to which the template will be rendered.",
+            "itemtype": "property",
+            "name": "element",
+            "type": "{Element}",
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 123,
+            "description": "Adding methods in to constructor",
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 128,
+            "description": "Get the HTML template as a string. The developer must implement this method.",
+            "itemtype": "method",
+            "name": "getTemplate",
+            "return": {
+                "description": "template",
+                "type": "String"
+            },
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 137,
+            "description": "Get the template CSS as a string. The developer must implement this method if CSS is needed for the template.",
+            "itemtype": "method",
+            "name": "getStyle",
+            "return": {
+                "description": "css",
+                "type": "String"
+            },
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 146,
+            "description": "Render the template to the DOM.",
+            "itemtype": "method",
+            "name": "render",
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 159,
+            "description": "Private Function for initialisation",
+            "access": "private",
+            "tagname": "",
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 174,
+            "description": "To create a View child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "view",
+                "type": "View"
+            },
+            "class": "core.View",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 193,
+            "description": "Call this method to start the region.",
+            "itemtype": "method",
+            "name": "start",
+            "params": [
+                {
+                    "name": "parent",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "core.Region",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 205,
+            "description": "Implement this method to define how to start the Region.",
+            "itemtype": "method",
+            "name": "onStart",
+            "class": "core.Region",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 213,
+            "description": "Call this method to stop the region.",
+            "itemtype": "method",
+            "name": "stop",
+            "class": "core.Region",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 223,
+            "description": "Implement this method to define how to stop the Region.",
+            "itemtype": "method",
+            "name": "onStop",
+            "class": "core.Region",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 231,
+            "description": "Create the Region root Element.",
+            "itemtype": "method",
+            "name": "createElement",
+            "class": "core.Region",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 255,
+            "description": "Adds the Widget's element to the parents DOM.",
+            "itemtype": "method",
+            "name": "attachTo",
+            "params": [
+                {
+                    "name": "parent",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "core.Widget",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 264,
+            "description": "Bind an event handling function to the Widget event.",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "core.Widget",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\core.js",
+            "line": 275,
+            "description": "Trigger a Widget event.",
+            "itemtype": "method",
+            "name": "trigger",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "",
+                    "type": "*"
+                }
+            ],
+            "class": "core.Widget",
+            "module": "core"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 7,
+            "description": "Underscore each helper",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 19,
+            "description": "Underscore extend helper",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 33,
+            "description": "__extend",
+            "params": [
+                {
+                    "name": "protoProps",
+                    "description": ""
+                },
+                {
+                    "name": "staticProps",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 70,
+            "description": "Create",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 101,
+            "description": "This is the Context object of the App that may be used to share common context (e.g. the EventBus) between UIComponents.",
+            "itemtype": "property",
+            "name": "context",
+            "type": "{AppContext}",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 108,
+            "description": "The init method is automatically called when the object is instantiated.",
+            "itemtype": "method",
+            "name": "init",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 115,
+            "description": "Call this method to start the app.",
+            "itemtype": "method",
+            "name": "start",
+            "params": [
+                {
+                    "name": "container",
+                    "description": "",
+                    "type": "HTMLElement/Element"
+                }
+            ],
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 127,
+            "description": "Implement this method to define how to start the app.",
+            "itemtype": "method",
+            "name": "onStart",
+            "params": [
+                {
+                    "name": "container",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 136,
+            "description": "Call this method stop the App.",
+            "itemtype": "method",
+            "name": "stop",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 146,
+            "description": "Implement this method to define how to stop the app.",
+            "itemtype": "method",
+            "name": "onStop",
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 154,
+            "description": "Implement this method to create an AppContext instance.",
+            "itemtype": "method",
+            "name": "createContext",
+            "return": {
+                "description": "context",
+                "type": "AppContext"
+            },
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 174,
+            "description": "To create an App child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "app",
+                "type": "App"
+            },
+            "class": "interfaces.App",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 198,
+            "description": "The init method is automatically called when the object is instantiated.",
+            "itemtype": "method",
+            "name": "init",
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 207,
+            "description": "Set the AppContext of the UIComponent.",
+            "itemtype": "method",
+            "name": "setContext",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "AppContext"
+                }
+            ],
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 221,
+            "description": "Removes the UIComponent root Element from the DOM.",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 231,
+            "description": "Override this method to create a your own Element for a UIComponent child class.",
+            "itemtype": "method",
+            "name": "createElement",
+            "return": {
+                "description": "element",
+                "type": "HTMLElement"
+            },
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 242,
+            "description": "Sets the root element of the UIComponent.",
+            "itemtype": "method",
+            "name": "setElement",
+            "return": {
+                "description": "element",
+                "type": "Element"
+            },
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 252,
+            "description": "Get the root HTMLElement of the UIComponent.",
+            "itemtype": "method",
+            "name": "getElement",
+            "return": {
+                "description": "element",
+                "type": "HTMLElement"
+            },
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 263,
+            "description": "To create an UIComponent child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "component",
+                "type": "UIComponent"
+            },
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 272,
+            "description": "Initialises the UIComponent with an AppContext and returns an instance.",
+            "itemtype": "method",
+            "name": "Create",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "AppContext"
+                }
+            ],
+            "return": {
+                "description": "component",
+                "type": "UIComponent"
+            },
+            "class": "interfaces.UIComponent",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 294,
+            "description": "The init method is automatically called when the object is instantiated.",
+            "itemtype": "method",
+            "name": "init",
+            "class": "interfaces.AppContext",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 302,
+            "description": "Destroy all registered components.",
+            "itemtype": "method",
+            "name": "destroyAll",
+            "class": "interfaces.AppContext",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\interfaces.js",
+            "line": 314,
+            "description": "To create an AppContext child class call extend providing the class definition.",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "definition",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "context",
+                "type": "AppContext"
+            },
+            "class": "interfaces.AppContext",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1,
+            "license": "RequireJS 2.1.5 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.\nAvailable via the MIT or new BSD license.\nsee: http://github.com/jrburke/requirejs for details",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 49,
+            "description": "Helper function for iterating over an array. If the func returns\na true value, it will break out of the loop.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 64,
+            "description": "Helper function for iterating over an array backwards. If the func\nreturns a true value, it will break out of the loop.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 87,
+            "description": "Cycles over properties in an object and calls a function for each\nproperty value. If the function returns a truthy value, then the\niteration is stopped.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 103,
+            "description": "Simple function to mix in properties from source into target,\nbut only if target does not already have a property of the same name.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 150,
+            "description": "Constructs an error with a pointer to an URL with more information.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "the error ID that maps to an ID on a web page.",
+                    "type": "String"
+                },
+                {
+                    "name": "message",
+                    "description": "human readable error.",
+                    "type": "String"
+                },
+                {
+                    "name": "err",
+                    "description": "the original error, if there is one.",
+                    "type": "Error",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Error"
+            },
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 216,
+            "description": "Trims the . and .. from an array of path segments.\nIt will keep a leading path segment if a .. will become\nthe first path segment, to help with module name lookups,\nwhich act like paths, but can be remapped. But the end result,\nall paths that use this function should look normalized.\nNOTE: this method MODIFIES the input array.",
+            "params": [
+                {
+                    "name": "ary",
+                    "description": "the array of path segments.",
+                    "type": "Array"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 249,
+            "description": "Given a relative module name, like ./something, normalize it to\na real name that can be mapped to a path.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "the relative name",
+                    "type": "String"
+                },
+                {
+                    "name": "baseName",
+                    "description": "a real name that the name arg is relative\nto.",
+                    "type": "String"
+                },
+                {
+                    "name": "applyMap",
+                    "description": "apply the map config to the value. Should\nonly be done if this normalization is for a dependency ID.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "normalized name",
+                "type": "String"
+            },
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 395,
+            "description": "Creates a module mapping that includes plugin prefix, module\nname, and path. If parentModuleMap is provided it will\nalso normalize the name via require.normalize()",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "the module name",
+                    "type": "String"
+                },
+                {
+                    "name": "parentModuleMap",
+                    "description": "parent module map\nfor the module name, used to resolve relative names.",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "isNormalized:",
+                    "description": "is the ID already normalized.\nThis is true if this call is done for a define() module ID.",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "applyMap:",
+                    "description": "apply the map config to the ID.\nShould only be true if this map is for a dependency.",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 532,
+            "description": "Internal method to transfer globalQueue items to this context's\ndefQueue.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 814,
+            "description": "Checks if the module is ready to define itself, and if so,\ndefine it.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1168,
+            "description": "Given an event from a script node, get the requirejs info from it,\nand then removes the event listeners on the node.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "",
+                    "type": "Event"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1221,
+            "description": "Set a configuration for the context.",
+            "params": [
+                {
+                    "name": "cfg",
+                    "description": "config object to integrate.",
+                    "type": "Object"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1405,
+            "description": "Converts a module name + .extension into an URL path.\n*Requires* the use of a module name. It does not support using\nplain URLs like nameToUrl.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1467,
+            "description": "Called to enable a module if it is still in the registry\nawaiting enablement. A second arg, parent, the parent module,\nis passed in for context, when this method is overriden by\nthe optimizer. Not shown here to keep code compact.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1480,
+            "description": "Internal method used by environment adapters to complete a load event.\nA load event could be a script load or just a load pass from a synchronous\nload call.",
+            "params": [
+                {
+                    "name": "moduleName",
+                    "description": "the name of the module to potentially complete.",
+                    "type": "String"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1536,
+            "description": "Converts a module name to a file path. Supports cases where\nmoduleName may actually be just an URL.\nNote that it **does not** call normalize on the moduleName,\nit is assumed to have already been normalized. This is an\ninternal API, not a public one. Use toUrl for the public API.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1607,
+            "description": "Executes a module callack function. Broken out as a separate function\nsolely to allow the build system to sequence the files in the built\nlayer in the right sequence.",
+            "access": "private",
+            "tagname": "",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1618,
+            "description": "callback for script loads, used to check status of loading.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "the event from the browser for the script\nthat was loaded.",
+                    "type": "Event"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1640,
+            "description": "Callback for script errors.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1655,
+            "description": "Main entry point.\n\nIf the only argument to require is a string, then the module that\nis represented by that string is fetched for the appropriate context.\n\nIf the first argument is an array, then it will be treated as an array\nof dependency string names to fetch. An optional function callback can\nbe specified to execute when all of those dependencies are available.\n\nMake a local req variable to help Caja compliance (it assumes things\non a require that are not standardized), and to give a short\nname for minification/local scope use.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1705,
+            "description": "Support require.config() to make it easier to cooperate with other\nAMD loaders on globally agreed names.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1713,
+            "description": "Execute something after the current tick\nof the event loop. Override for other envs\nthat have a better solution than setTimeout.",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "function to execute later.",
+                    "type": "Function"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1723,
+            "description": "Export require as a global, but only if it does not already exist.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1770,
+            "description": "Any errors that require explicitly generates will be passed to this\nfunction. Intercept/override it if you want custom error handling.",
+            "params": [
+                {
+                    "name": "err",
+                    "description": "the error object.",
+                    "type": "Error"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1779,
+            "description": "Does the request to load a module for the browser case.\nMake this a separate function to allow other environments\nto override it.",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "the require context to find state.",
+                    "type": "Object"
+                },
+                {
+                    "name": "moduleName",
+                    "description": "the name of the module.",
+                    "type": "String"
+                },
+                {
+                    "name": "url",
+                    "description": "the URL to the module.",
+                    "type": "Object"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 1933,
+            "description": "The function that handles definitions of modules. Differs from\nrequire() in that a string for the module should be the first argument,\nand the function to execute after dependencies are loaded should\nreturn a value to define the module corresponding to the first argument's\nname.",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\require.js",
+            "line": 2006,
+            "description": "Executes the text. Normally just uses eval, but can be modified\nto use a better, environment-specific call. Only used for transpiling\nloader plugins, not for plain JS modules.",
+            "params": [
+                {
+                    "name": "text",
+                    "description": "the text to execute/evaluate.",
+                    "type": "String"
+                }
+            ],
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\text.js",
+            "line": 1,
+            "license": "RequireJS text 2.0.1 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.\nAvailable via the MIT or new BSD license.\nsee: http://github.com/requirejs/text for details",
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\text.js",
+            "line": 77,
+            "description": "Parses a resource name into its component parts. Resource names\nlook like: module/name.ext!strip, where the !strip part is\noptional.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "the resource name",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "with properties \"moduleName\", \"ext\" and \"strip\"\nwhere strip is a boolean.",
+                "type": "Object"
+            },
+            "class": "",
+            "module": "interfaces"
+        },
+        {
+            "file": "..\\jscore\\text.js",
+            "line": 107,
+            "description": "Is an URL on another domain. Only works for browser use, returns\nfalse in non-browser environments. Only used to know if an\noptimized .js version of a text resource should be loaded\ninstead.",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Boolean"
+            },
+            "class": "",
+            "module": "interfaces"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\base\\jquery-2.js:3278"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\base\\jquery-2.js:3445"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\base\\jquery-2.js:3902"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\ext\\extend\\main.js:28"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:9"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:20"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:121"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:255"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\interfaces.js:33"
+        },
+        {
+            "message": "unknown tag: license",
+            "line": " ..\\jscore\\require.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\require.js:150"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\require.js:249"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\require.js:395"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\require.js:1168"
+        },
+        {
+            "message": "unknown tag: license",
+            "line": " ..\\jscore\\text.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\text.js:77"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ..\\jscore\\text.js:107"
+        },
+        {
+            "message": "Missing item type\nFor feature detection",
+            "line": " ..\\jscore\\base\\jquery-2.js:3270"
+        },
+        {
+            "message": "Missing item type\nCreate key-value caches of limited size",
+            "line": " ..\\jscore\\base\\jquery-2.js:3278"
+        },
+        {
+            "message": "Missing item type\nMark a function for special use by Sizzle",
+            "line": " ..\\jscore\\base\\jquery-2.js:3298"
+        },
+        {
+            "message": "Missing item type\nSupport testing using an element",
+            "line": " ..\\jscore\\base\\jquery-2.js:3307"
+        },
+        {
+            "message": "Missing item type\nDetect xml",
+            "line": " ..\\jscore\\base\\jquery-2.js:3434"
+        },
+        {
+            "message": "Missing item type\nSets document-related variables once based on the current document",
+            "line": " ..\\jscore\\base\\jquery-2.js:3445"
+        },
+        {
+            "message": "Missing item type\nChecks document order of two siblings",
+            "line": " ..\\jscore\\base\\jquery-2.js:3902"
+        },
+        {
+            "message": "Missing item type\nUtility function for retrieving the text value of an array of DOM nodes",
+            "line": " ..\\jscore\\base\\jquery-2.js:3964"
+        },
+        {
+            "message": "Missing item type\nUtility function for retrieving the text value of an array of DOM nodes",
+            "line": " ..\\jscore\\base\\jquery.js:4453"
+        },
+        {
+            "message": "Missing item type\nUnderscore each helper",
+            "line": " ..\\jscore\\ext\\extend\\main.js:2"
+        },
+        {
+            "message": "Missing item type\nUnderscore extend helper",
+            "line": " ..\\jscore\\ext\\extend\\main.js:14"
+        },
+        {
+            "message": "Missing item type\n__extend",
+            "line": " ..\\jscore\\ext\\extend\\main.js:28"
+        },
+        {
+            "message": "Missing item type\nCreateModel",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:9"
+        },
+        {
+            "message": "Missing item type\nCreateCollection",
+            "line": " ..\\jscore\\ext\\mvp\\main.js:20"
+        },
+        {
+            "message": "Missing item type\nsetRootElement",
+            "line": " ..\\jscore\\core.js:13"
+        },
+        {
+            "message": "Missing item type\nAdding methods in to constructor",
+            "line": " ..\\jscore\\core.js:123"
+        },
+        {
+            "message": "Missing item type\nPrivate Function for initialisation",
+            "line": " ..\\jscore\\core.js:159"
+        },
+        {
+            "message": "Missing item type\nUnderscore each helper",
+            "line": " ..\\jscore\\interfaces.js:7"
+        },
+        {
+            "message": "Missing item type\nUnderscore extend helper",
+            "line": " ..\\jscore\\interfaces.js:19"
+        },
+        {
+            "message": "Missing item type\n__extend",
+            "line": " ..\\jscore\\interfaces.js:33"
+        },
+        {
+            "message": "Missing item type\nCreate",
+            "line": " ..\\jscore\\interfaces.js:70"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ..\\jscore\\require.js:1"
+        },
+        {
+            "message": "Missing item type\nHelper function for iterating over an array. If the func returns\na true value, it will break out of the loop.",
+            "line": " ..\\jscore\\require.js:49"
+        },
+        {
+            "message": "Missing item type\nHelper function for iterating over an array backwards. If the func\nreturns a true value, it will break out of the loop.",
+            "line": " ..\\jscore\\require.js:64"
+        },
+        {
+            "message": "Missing item type\nCycles over properties in an object and calls a function for each\nproperty value. If the function returns a truthy value, then the\niteration is stopped.",
+            "line": " ..\\jscore\\require.js:87"
+        },
+        {
+            "message": "Missing item type\nSimple function to mix in properties from source into target,\nbut only if target does not already have a property of the same name.",
+            "line": " ..\\jscore\\require.js:103"
+        },
+        {
+            "message": "Missing item type\nConstructs an error with a pointer to an URL with more information.",
+            "line": " ..\\jscore\\require.js:150"
+        },
+        {
+            "message": "Missing item type\nTrims the . and .. from an array of path segments.\nIt will keep a leading path segment if a .. will become\nthe first path segment, to help with module name lookups,\nwhich act like paths, but can be remapped. But the end result,\nall paths that use this function should look normalized.\nNOTE: this method MODIFIES the input array.",
+            "line": " ..\\jscore\\require.js:216"
+        },
+        {
+            "message": "Missing item type\nGiven a relative module name, like ./something, normalize it to\na real name that can be mapped to a path.",
+            "line": " ..\\jscore\\require.js:249"
+        },
+        {
+            "message": "Missing item type\nCreates a module mapping that includes plugin prefix, module\nname, and path. If parentModuleMap is provided it will\nalso normalize the name via require.normalize()",
+            "line": " ..\\jscore\\require.js:395"
+        },
+        {
+            "message": "Missing item type\nInternal method to transfer globalQueue items to this context's\ndefQueue.",
+            "line": " ..\\jscore\\require.js:532"
+        },
+        {
+            "message": "Missing item type\nChecks if the module is ready to define itself, and if so,\ndefine it.",
+            "line": " ..\\jscore\\require.js:814"
+        },
+        {
+            "message": "Missing item type\nGiven an event from a script node, get the requirejs info from it,\nand then removes the event listeners on the node.",
+            "line": " ..\\jscore\\require.js:1168"
+        },
+        {
+            "message": "Missing item type\nSet a configuration for the context.",
+            "line": " ..\\jscore\\require.js:1221"
+        },
+        {
+            "message": "Missing item type\nConverts a module name + .extension into an URL path.\n*Requires* the use of a module name. It does not support using\nplain URLs like nameToUrl.",
+            "line": " ..\\jscore\\require.js:1405"
+        },
+        {
+            "message": "Missing item type\nCalled to enable a module if it is still in the registry\nawaiting enablement. A second arg, parent, the parent module,\nis passed in for context, when this method is overriden by\nthe optimizer. Not shown here to keep code compact.",
+            "line": " ..\\jscore\\require.js:1467"
+        },
+        {
+            "message": "Missing item type\nInternal method used by environment adapters to complete a load event.\nA load event could be a script load or just a load pass from a synchronous\nload call.",
+            "line": " ..\\jscore\\require.js:1480"
+        },
+        {
+            "message": "Missing item type\nConverts a module name to a file path. Supports cases where\nmoduleName may actually be just an URL.\nNote that it **does not** call normalize on the moduleName,\nit is assumed to have already been normalized. This is an\ninternal API, not a public one. Use toUrl for the public API.",
+            "line": " ..\\jscore\\require.js:1536"
+        },
+        {
+            "message": "Missing item type\nExecutes a module callack function. Broken out as a separate function\nsolely to allow the build system to sequence the files in the built\nlayer in the right sequence.",
+            "line": " ..\\jscore\\require.js:1607"
+        },
+        {
+            "message": "Missing item type\ncallback for script loads, used to check status of loading.",
+            "line": " ..\\jscore\\require.js:1618"
+        },
+        {
+            "message": "Missing item type\nCallback for script errors.",
+            "line": " ..\\jscore\\require.js:1640"
+        },
+        {
+            "message": "Missing item type\nMain entry point.\n\nIf the only argument to require is a string, then the module that\nis represented by that string is fetched for the appropriate context.\n\nIf the first argument is an array, then it will be treated as an array\nof dependency string names to fetch. An optional function callback can\nbe specified to execute when all of those dependencies are available.\n\nMake a local req variable to help Caja compliance (it assumes things\non a require that are not standardized), and to give a short\nname for minification/local scope use.",
+            "line": " ..\\jscore\\require.js:1655"
+        },
+        {
+            "message": "Missing item type\nSupport require.config() to make it easier to cooperate with other\nAMD loaders on globally agreed names.",
+            "line": " ..\\jscore\\require.js:1705"
+        },
+        {
+            "message": "Missing item type\nExecute something after the current tick\nof the event loop. Override for other envs\nthat have a better solution than setTimeout.",
+            "line": " ..\\jscore\\require.js:1713"
+        },
+        {
+            "message": "Missing item type\nExport require as a global, but only if it does not already exist.",
+            "line": " ..\\jscore\\require.js:1723"
+        },
+        {
+            "message": "Missing item type\nAny errors that require explicitly generates will be passed to this\nfunction. Intercept/override it if you want custom error handling.",
+            "line": " ..\\jscore\\require.js:1770"
+        },
+        {
+            "message": "Missing item type\nDoes the request to load a module for the browser case.\nMake this a separate function to allow other environments\nto override it.",
+            "line": " ..\\jscore\\require.js:1779"
+        },
+        {
+            "message": "Missing item type\nThe function that handles definitions of modules. Differs from\nrequire() in that a string for the module should be the first argument,\nand the function to execute after dependencies are loaded should\nreturn a value to define the module corresponding to the first argument's\nname.",
+            "line": " ..\\jscore\\require.js:1933"
+        },
+        {
+            "message": "Missing item type\nExecutes the text. Normally just uses eval, but can be modified\nto use a better, environment-specific call. Only used for transpiling\nloader plugins, not for plain JS modules.",
+            "line": " ..\\jscore\\require.js:2006"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ..\\jscore\\text.js:1"
+        },
+        {
+            "message": "Missing item type\nParses a resource name into its component parts. Resource names\nlook like: module/name.ext!strip, where the !strip part is\noptional.",
+            "line": " ..\\jscore\\text.js:77"
+        },
+        {
+            "message": "Missing item type\nIs an URL on another domain. Only works for browser use, returns\nfalse in non-browser environments. Only used to know if an\noptimized .js version of a text resource should be loaded\ninstead.",
+            "line": " ..\\jscore\\text.js:107"
+        }
+    ]
+}

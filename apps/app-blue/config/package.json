@@ -1,0 +1,7 @@
+{
+    "name": "app-blue",
+    "version": "@VERSION@",
+    "dependencies": {
+        "jscore": "0.1.8"
+    }
+}

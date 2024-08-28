@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="StaticRoute" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>An unique identifier for the static route.</ns1:desc>
+    <ns2:attribute ns1:name="indexOfStaticRoute" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The index of the static route. It can differ from the index of the route in the routing table.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="ipAddress" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The destination IP address.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="networkMask" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The destination IP network mask or network prefix length.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="nextHopIpAddr" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The next hop IP address.
+				
+				IPv6 Link Local Addresses are not supported. This refers to addresses in the address block fe80::/10.
+				
+				Specification: RFC 4291</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="redistribute" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if the route should be redistributed.
+				
+				This struct member is not applicable for IPv6.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="routeMetric" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The route metric.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

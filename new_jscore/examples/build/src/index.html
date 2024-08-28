@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <script src="../../lib/require.js"></script>
+    <script>
+        var currentApp;
+
+        function load(appId) {
+
+            require(['./app.nocache'], function (config) {
+
+                console.log(config[appId].entryPoint + ' loading...');
+                require([config[appId].entryPoint], function (app) {
+                    console.log(config[appId].entryPoint + ' ok');
+                    app.start('container');
+                });
+
+            }, function (err) {
+                console.log(err);
+                alert("Can't load application " + appId);
+            });
+
+        }
+    </script>
+</head>
+<body>
+<button onclick="load('apps/first');">First</button>
+<button onclick="load('apps/second');">Second</button>
+<div id="container" style="background: #eee; border: 2px solid #ddd; padding: 10px;"></div>
+</body>
+</html>

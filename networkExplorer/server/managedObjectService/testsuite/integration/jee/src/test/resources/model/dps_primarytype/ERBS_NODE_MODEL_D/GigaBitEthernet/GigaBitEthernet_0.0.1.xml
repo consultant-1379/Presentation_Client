@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="GigaBitEthernet" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO type models a GigaBit Ethernet interface on an ET board for IP.
+			
+			The MO can handle two physical interfaces on boards that support configurable link redundancy.
+			
+			For boards that do not support configurable link redundancy, only attributes and pm counters for link1 are applicable.
+			
+			For details on links and portNo, see the description of the relevant board.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="GigaBitEthernetId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value componenet of the RDN.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="operationalState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The operational state.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="availabilityStatus" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The availability status.
+				
+				It contains details about operationalState.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AvailabilityStatus/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="administrativeState" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The administrative state.
+				
+				Traffic is not stopped if administrativeState is set to LOCKED.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/AdmState/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="LOCKED"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="link1State" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Operational state of the link 1.
+				
+				Is not relevant if the availabilityStatus is DEPENDENCY_FAILED or DEPENDENCY_LOCKED.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="link2State" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Operational state of the link 2.
+				
+				This attribute is applicable only if the board supports configurable link redundancy.
+				
+				Is not relevant if the availabilityStatus is DEPENDENCY_FAILED or DEPENDENCY_LOCKED.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/OperState/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="dscpPbitMap" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the value of the DSCP and corresponding pbit (priority).
+				
+				The number of members in this sequence is 64.
+				
+				All the 64 possible DscpPbit structs must be defined when setting this attribute. If no values are submitted, the default values from struct DscpPbit are used.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/DscpPbit/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="macAddressLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The MAC address of link 1.
+				
+				Note that on some boards, macAddressLink1 will always be used for the active link.
+				
+				If the board is not available, the attribute has the value &quot;00:00:00:00:00:00&quot;.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="00:00:00:00:00:00"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="macAddressLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The MAC address of link 2.
+				
+				Note that on some boards, macAddressLink2 will always be used for the passive link.
+				
+				If the board is not available, the attribute has the value &quot;00:00:00:00:00:00&quot;.
+				
+				This attribute is applicable only if the board supports configurable link redundancy.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="00:00:00:00:00:00"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="frameFormat" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Ethernet outgoing frame format.
+				
+				Before changing the value from ETHERNET_2_DIX to IEEE_802_3_LLC_SNAP, ensure that the attribute mtu of the related IpInterface MO or Ipv6Interface MO is not higher than 1492. If this is the case, reduce the mtu to 1492 before changing this attribute.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/EthFrameFormat/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="ETHERNET_2_DIX"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="primaryLink" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies which link is primary and which is secondary.
+				
+				This attribute is applicable only on boards where link redundancy is supported. This also includes boards where link redundancy does not need to be configured.
+				
+				If linkType = FRONT_PORTS then link 1 is the lower port and link 2 is the upper port. 
+				For details regarding port numbering, see the description of the relevant board.
+				
+				If linkType = BACKPLANE_PORTS then link1 is connected to the EthernetSwitchModule with the lowest slot number in the subrack, and link2 is connected to the EthernetSwitchModule with the highest slot number in the subrack.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LinkPrimary/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="LINK_ONE_PRIMARY_LINK_TWO_SECONDARY"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="activeLink" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the active link.
+				
+				This attribute is only applicable for boards supporting configurable link redundancy.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LinkActive/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="PRIMARY_ACTIVE"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="autoNegotiation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether auto-negotiation is performed.
+				
+				In normal traffic situations this attribute is set to true.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="protectiveMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether a switchover to the secondary link is allowed.
+				
+				If configurable link redundancy is supported and this attribute is set to false, it means that a board with two Ethernet connectors works as if it had one connector.
+				
+				This attribute is applicable only if the board supports configurable link redundancy.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="switchBackTimer" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The switch-back timer, after the primary link has returned to state ENABLED (working).
+				
+				This attribute is applicable only on boards where configurable link redundancy is supported.
+				
+				The value 0 (zero) means that the system does not switch back from the secondary link to the primary link. Traffic continues to run on the secondary link until
+				- a manual switch is performed, or
+				- an automatic switch is performed by the Link Switch Supervision Function (in case of link failure on the secondary link, while the primary link is up).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="3600"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="30"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInOctetsLink1Lo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets received on the link 1, including framing characters.
+				The high-capacity counter for received octets an interface has been split into two parts.
+				This counter represents the lower part of the 62 least significant bits of the high-capacity counter for received octets.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutOctetsLink1Lo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets transmitted out on link 1, including framing characters.
+				The high capacity counter for octets transmitted out on an interface has been split into two parts.
+				This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInOctetsLink1Hi" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets received on the link 1, including framing characters.
+				The high-capacity counter for received octets on an interface has been split into two parts.
+				This counter represents the higher part of the 62 least significant bits of the high-capacity counter for received octets.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutOctetsLink1Hi" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets transmitted out on link 1, including framing characters.
+				The high capacity counter for octets transmitted out on an interface has been split into two parts.
+				This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInUnknownProtosLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link 1, which had a protocol not supported or unknown.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInErrorsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link 1, which were discarded due to errors found in the packets.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutErrorsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets requested to be transmitted on link 1, but which were discarded due to errors found in the packets.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInUcastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of incoming unicast ethernet frames on link 1.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInDiscardsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of received packets discarded on link 1, due to lack of resources (for example, buffer space).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutUcastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing unicast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutDiscardsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets requested to be transmitted on link 1, but which were discarded due to lack of resources (for example, buffer space).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInMulticastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets on link 1, delivered by this sub-layer to a higher (sub-)layer, which were addressed to a multicast address at this sub-layer.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInBroadcastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link1, with a broadcast address delivered to a higher sub-layer.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutMulticastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing multicast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutBroadcastPktsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing broadcast ethernet frames requested to be transmitted on link 1 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmDot1qTpVlanPortInDiscardsLink1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of valid frames discarded on link 1, due to reasons related to VLAN (for example, the VLAN ID is not configured).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInOctetsLink2Lo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets received on link 2, including framing characters.
+				The high-capacity counter for received octets an interface has been split into two parts.
+				This counter represents the lower part of the 62 least significant bits of the high-capacity counter for received octets.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutOctetsLink2Lo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets transmitted out on link 2, including framing characters.
+				The high capacity counter for octets transmitted out on an interface has been split into two parts.
+				This counter represents the lower part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInOctetsLink2Hi" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets received on link 2, including framing characters.
+				The high-capacity counter for received octets on an interface has been split into two parts.
+				This counter represents the higher part of the 62 least significant bits of the high-capacity counter for received octets.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfInOctetsLinkxHi (bit 62-31) and pmIfInOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutOctetsLink2Hi" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of octets transmitted out on link 2, including framing characters.
+				The high capacity counter for octets transmitted out on an interface has been split into two parts.
+				This counter represents the higher part of the 62 least significant bits of the high capacity counter for octets transmitted out on the interface.
+				The two most significant bit of this 64 bit counter is discarded.
+				This 64-bit counter is presented as 2*31 bits: pmIfOutOctetsLinkxHi (bit 62-31) and pmIfOutOctetsLinkxLo (bit 30-0) in the MOM.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInUnknownProtosLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link 2, which had a protocol not supported or unknown.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInErrorsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link 2, which were discarded due to errors found in the packets.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutErrorsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets requested to be transmitted on link 2, but which were discarded due to errors found in the packets.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInDiscardsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of received packets discarded on link 2, due to lack of resources (for example, buffer space).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutUcastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing unicast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutDiscardsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets requested to be transmitted on link 2, but which were discarded due to lack of resources (for example, buffer space).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInMulticastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets on link 2, delivered by this sub-layer to a higher (sub-)layer, which were addressed to a multicast address at this sub-layer.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInBroadcastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of packets received on link 2, with a broadcast address delivered to a higher sub-layer.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutMulticastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing multicast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfOutBroadcastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of outgoing broadcast ethernet frames requested to be transmitted on link 2 (including those that were  discarded or not sent).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmDot1qTpVlanPortInDiscardsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The number of valid frames discarded on link 2, due to reasons related to VLAN (for example, the VLAN ID is not configured).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="shutDownTimeout" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The shutting-down timer. It is used when administrativeState is set to SHUTTING_DOWN.
+				
+				This value must be positive.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1800"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="statePropagationDelay" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This attribute is used to delay the propagation of fault on both links.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="25"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="currentPmRegister" ns1:lifeCycle="OBSOLETE">
+        <ns1:desc>Returns the current values of all PM counters.
+				
+				To activate the writing of statistical values in a PM counter, start a performance monitoring (scanner) on that counter. Otherwise, the value of the PM counter is set to -1.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="linkType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if the GigaBitEthernet link for external traffic is using the front ports or the backplane ports.
+				
+				For IP ET boards that have only backplane ports, this attribute must be set to BACKPLANE_PORTS.
+				
+				For IP ET boards that have only front ports, this attribute must be set to FRONT_PORTS.
+				
+				If the backplane ports are used, the link is a 10G link.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LinkType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="FRONT_PORTS"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmIfInUcastPktsLink2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The total number of incoming unicast ethernet frames on link 2.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="sfpInformation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Information about the SFP port. Valid only if the attribute sfpPort is set to true.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/SfpInformation/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="sfpPort" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies if the port is an SFP port. Autonegotiation must be configured to true for an SFP port. Otherwise, the port may be disabled.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="portNo" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Port number associated with this MO instance.
+				
+				This attribute is applicable only on boards where link redundancy is not supported.
+				
+				For details regarding port numbering, see the description of the relevant board.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="3"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="actualSpeedDuplex" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The mode, in which the port is actually operating.
+				
+				The value NO_LINK means that the link is disabled or that autonegotiation is in progress.
+				
+				The following values are possible for this attribute, for electrical interfaces:
+				- ETH_100_MB_FULL
+				- ETH_1000_MB_FULL
+				
+				The following values are possible for this attribute, for optical interfaces:
+				- ETH_1000_MB_FULL
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/ActualEthernetSpeedDuplex/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="reservedBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Contains a list of MO instances that reserve this MO instance. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionValuesType xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/ManagedObject/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="configuredSpeedDuplex" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies the wanted fixed speed for the port.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/EthernetSpeedFullDuplex/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="ETH_1000_MB_FULL"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="masterMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies master/slave mode.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="defRoutersLinkSwitch" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether link switch, triggered by default router supervision, is enabled or not.
+				
+				This attribute is only applicable for boards supporting configurable link redundancy.
+				
+				A switch to the secondary link is triggered, if the following conditions are fulfilled:
+				 - the primary link is active, 
+				 - all default routers are down on the primary link for all IpInterface MOs (with default router supervision), 
+				 - at least one default router is up on the secondary link
+				
+				When at least one of the default routers is up on the primary link, a switch-back is triggered after the predefined switch-back timer has elapsed.
+				
+				After the link switch triggered by the default router supervision is performed, at least one of the alarms emitted prior to the switch on IpInterface MOs using this GigaBitEthernet MO will be ceased, as at least one default router is now reachable on the new active link.
+				Example of emitted alarm: Contact to Default Router 1 Lost.
+				
+				There will be no link switch due to default router supervision if any of the links on the GigaBitEthernet MO is faulty. </ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="configPbitArp" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Specifies pbit to use for ARP and GratARP.
+				
+				Priorities according to IEEE 802.1Q. Pbit refers to the PCP (Priority Code Point) field in the Ethernet header.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="6"/>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

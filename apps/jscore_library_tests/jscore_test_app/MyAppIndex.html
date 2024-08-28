@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do App</title>
+    <script type="text/javascript" src="node_modules/jscore_beta/require/require.js"></script>
+</head>
+<body>
+	<div id="appContainer"></div>
+	<script type="text/javascript">
+	
+		require.config({
+			baseUrl: "src",
+			paths: {
+				"jscore_beta": "../node_modules/jscore_beta",
+				"common": "common"
+			}
+		});
+	
+        require([
+            'MyApp/MyApp'
+        ], function (MyApp) {
+            var appContainer = document.getElementById("appContainer");
+			var theApp = new MyApp();
+			theApp.start(appContainer);
+        });
+    </script>
+</body>
+
+</html>

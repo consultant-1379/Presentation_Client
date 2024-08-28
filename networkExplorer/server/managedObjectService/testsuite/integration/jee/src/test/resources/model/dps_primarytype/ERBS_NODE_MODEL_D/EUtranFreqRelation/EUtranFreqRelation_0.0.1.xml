@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="EUtranFreqRelation" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This MO represents a mobility relation between a EUtranCellFDD and a EUtranFrequency. It contains parameters that are specific for this relation.
+			To include SIB3 in System Information, one instance of this MO must be created which refers to a EUtranFrequency MO with the parameter arfcnValueEUtranDl set to the same value as the parent EUtranCellFDD/EUtranCellTDDs parameter earfcndl.
+			
+			 It is only allowed to remove the EUtranFreqRelation, refering to the same frequency as the parent MO EUtranCellFDD/EUtranCellTDD has, when the EUtranCellFDD/EUtranCellTDD is locked.
+			
+			Deleting this MO while the parent EUtranCellFDD/EUtranCellTDD has operationalState set to ENABLED is not recommended as it may affect traffic.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="EUtranFreqRelationId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the Relative Distinguished Name (RDN).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="userLabel" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Label for free use.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="128"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="&quot;&quot;"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="eutranFrequencyRef" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Refers to the EUTRAN frequency MO, EUtranFrequency.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:moRefType" modelUrn="/dps_primarytype/ERBS_NODE_MODEL_D/EUtranFrequency/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="qRxLevMin" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The required minimum received Reference Symbol Received Power 
+				(RSRP) level in the (E-UTRA) frequency for cell reselection. Corresponds to parameter Qrxlevmin in 3GPP TS 36.304. This attribute is broadcast in SIB3 or SIB5, depending on whether the related frequency is intra- or inter-frequency.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-140" max="-44"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="-140"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="pMax" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Calculates the parameter Pcompensation (defined in 3GPP TS 36.304), at cell reselection to an E-UTRAN Cell. Corresponds to parameter PEMAX in 3GPP TS 36.101.
+				Value 1000 means the parameter is not sent in the system information block.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-30" max="33"/>
+                <ns1:minMaxRange min="1000" max="1000"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="1000"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="tReselectionEutra" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The cell reselection timer TreselectionRAT for E-UTRA. Value in seconds.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="2"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="tReselectionEutraSfHigh" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute t-ReselectionEUTRA is multiplied with this factor if the UE is in high mobility state. Corresponds to the parameter Speed dependent ScalingFactor for TreselectionEUTRAN for medium high state in 3GPP TS 36.304. 
+				Value mapping:
+				25 = 0.25
+				50 = 0.5
+				75 = 0.75
+				100 = 1.0</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="25" max="100"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="25"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="tReselectionEutraSfMedium" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The attribute t-ReselectionEUTRA is multiplied with this factor if the UE is in medium mobility state. Corresponds to the parameter Speed dependent ScalingFactor for TreselectionEUTRAN for medium mobility state in 3GPP TS 36.304. 
+				Value mapping:
+				25 = 0.25
+				50 = 0.5
+				75 = 0.75
+				100 = 1.0</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="25" max="100"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="25"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="100"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="cellReselectionPriority" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The absolute priority of the carrier frequency used by the cell reselection procedure. Corresponds to the parameter priority in 3GPP TS 36.304.
+				
+				Value 0 means: lowest priority. The UE behavior when no value is entered is specified in 3GPP TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="7"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="threshXHigh" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The threshold used by the UE when reselecting towards the higher priority frequency X from the current serving frequency. Each frequency of E-UTRAN can have a specific threshold. Refer to the parameter Thresx,high in 3GPP TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="4"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="threshXLow" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The threshold used in reselection towards frequency X priority from a higher priority frequency. Each frequency of E-UTRAN can have a specific threshold. Corresponds to parameter Thresx,low in 3GPP TS 36.304.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="62"/>
+            </ns1:valueRangeConstraint>
+            <ns1:valueResolutionConstraint value="2"/>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="allowedMeasBandwidth" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum allowed measurement bandwidth on a carrier frequency.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="6" max="6"/>
+                <ns1:minMaxRange min="15" max="15"/>
+                <ns1:minMaxRange min="25" max="25"/>
+                <ns1:minMaxRange min="50" max="50"/>
+                <ns1:minMaxRange min="75" max="75"/>
+                <ns1:minMaxRange min="100" max="100"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="6"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="qOffsetFreq" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Frequency specific offset for E-UTRAN frequencies used in idle and connected mode. See 36.331.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-24" max="-24"/>
+                <ns1:minMaxRange min="-22" max="-22"/>
+                <ns1:minMaxRange min="-20" max="-20"/>
+                <ns1:minMaxRange min="-18" max="-18"/>
+                <ns1:minMaxRange min="-16" max="-16"/>
+                <ns1:minMaxRange min="-14" max="-14"/>
+                <ns1:minMaxRange min="-12" max="-12"/>
+                <ns1:minMaxRange min="-10" max="-10"/>
+                <ns1:minMaxRange min="-8" max="-8"/>
+                <ns1:minMaxRange min="-6" max="-6"/>
+                <ns1:minMaxRange min="-5" max="-5"/>
+                <ns1:minMaxRange min="-4" max="-4"/>
+                <ns1:minMaxRange min="-3" max="-3"/>
+                <ns1:minMaxRange min="-2" max="-2"/>
+                <ns1:minMaxRange min="-1" max="-1"/>
+                <ns1:minMaxRange min="0" max="0"/>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="3" max="3"/>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="5" max="5"/>
+                <ns1:minMaxRange min="6" max="6"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="10" max="10"/>
+                <ns1:minMaxRange min="12" max="12"/>
+                <ns1:minMaxRange min="14" max="14"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="18" max="18"/>
+                <ns1:minMaxRange min="20" max="20"/>
+                <ns1:minMaxRange min="22" max="22"/>
+                <ns1:minMaxRange min="24" max="24"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="presenceAntennaPort1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates if all the neighboring cells use Antenna Port 1.  When set to TRUE, the UE expects that at least two cell-specific antenna ports are used in all neighboring cells.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="false"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="allowedPlmnList" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Lists all Public Land Mobile Network (PLMN) IDs allowed for this frequency relation.
+				
+				A UE that does not support a PLMN included in allowedPlmnList does not measure on this frequency according to the UE Handover Restriction List.
+				
+				No values in allowedPlmnList imply that the frequency has no restrictions for PLMN.
+				
+				The PLMN identity consists of the following parts: 
+				1. MobileCountryCode, MCC, 3 digits
+				2. MobileNetworkCode, MNC, 2 or 3 digits (the correct number of digits is set in the mncLength member of this Struct)
+				
+				For example, if MCC=125 and MNC=46, then plmnId=12546.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="15"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/PlmnIdentity/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="includeInSystemInformation" ns1:lifeCycle="DEPRECATED">
+        <ns1:desc>States if the referred frequency is included in System Information.
+				
+				When the includeInSystemInformation is set to false for a EUtranFreqRelation that points at an inter-frequency EUtranFrequency MO, the frequency is not included in SIB5. The maximum number of frequencies that can be included in SIB5 is 8.
+				
+				For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanType"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:booleanValue" value="true"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="connectedModeMobilityPrio" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes EUTRAN frequencies among all frequencies related to the cell for UEs in connected mode.
+				(0 means the lowest priority. -1 means the frequency is excluded.)</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="7"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="mobilityAction" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The preferred way to transfer a UE in connected mode to this EUTRA frequency.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/MobilityActionEUtran/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="HANDOVER"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="createdBy" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether the MO has been created by the Automated Neighbor Relations (ANR) function or operator or X2</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/CreatedByEutran/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="timeOfCreation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the time and date when the MO was created. 
+				Format: YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="lastModification" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates whether the MO was last modified by the Automated Neighbor Relations (ANR) function or operator or X2 and if the MO is to be deleted who triggered the deletion</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/LastModificationEutran/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="PERSISTENT_STORAGE" behaviorOnWrite="DONT" restricted="false" ns1:name="timeOfLastModification" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Indicates the time and date when the MO was last modified. 
+				Format: YYYY-MM-DD HH:MM:SS</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType">
+            <ns1:stringLengthConstraint>
+                <ns1:minMaxRange min="0" max="19"/>
+            </ns1:stringLengthConstraint>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="threshXHighQ" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;ThreshX, HighQ&quot; in TS 36.304.
+				
+				For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="31"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="2"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="threshXLowQ" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;ThreshX, LowQ&quot; in TS 36.304.
+				
+				For the EUtranFreqRelation that points to the intra frequency EUtranFrequency MO, the attribute is invalid, that is, this attribute does not affect SIB3.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="31"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="qQualMin" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Parameter &quot;Qqualmin&quot; in TS 36.304. 
+				
+				Value 0 means that it is not sent and UE applies in such case the (default) value of negative infinity for Qqualmin. Sent in SIB3 or SIB5.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-34" max="-3"/>
+                <ns1:minMaxRange min="0" max="0"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="neighCellConfig" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Provides to the UE information related to MBSFN and TDD UL/DL configuration of neighbour cells.
+				
+				For TDD, the values DIFF_MBSFN_SUBFRAMES, SAME_MBSFN_SUBFRAMES and NO_MBSFN_SUBFRAMES indicates same UL/DL allocation in neighbouring cells compared to the serving cell 
+				
+				The value is included in SIB3, SIB5 and MeasObjectEUTRA</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/NeighCellConfig/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="SAME_MBSFN_SUBFRAMES"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmLbMeasuredUe" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Records the number of UEs selected for measurements qualifying for load balancing action towards cells on the related frequency. Those values are accumulated each ROP. Used to calculate the LB measurement success rate for the related cells.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="voicePrio" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Prioritizes EUTRAN frequencies among all frequencies related to the cell for UEs in connected mode. Sets the priority to which frequency to perform mobility to for a voice session. 
+				The value -1 means the the frequency is excluded.
+				The value 0 means the lowest priority.
+				The value 7 means the highest priority.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="-1" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="0"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="blackListEntry" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This parameter specifies a list of PCI that are blacklisted in EUTRAN measurements as described in 3GPP TS 36.331.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="32"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/BlackListEntry/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="interFreqMeasType" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The type of event based measurements on other LTE frequencies.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:enumRefType" modelUrn="/oss_edt/ERBS_NODE_MODEL_D/InterFreqMeasType/0.0.1"/>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringValue" value="EVENT_A5"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="eutranFreqToQciProfileRelation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Encapsulates parameters for service specific load management for a certain QCI profile.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="19"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/EUtranFreqToQciProfileRelation/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="blackListEntryIdleMode" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This parameter specifies blacklisted cells in SIB4 and SIB5.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="16"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/BlackListEntry/0.0.1"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

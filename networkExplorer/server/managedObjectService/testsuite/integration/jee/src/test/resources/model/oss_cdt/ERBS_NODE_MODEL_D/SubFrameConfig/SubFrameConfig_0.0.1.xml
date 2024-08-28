@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="SubFrameConfig" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>SubFrameConfig</ns1:desc>
+    <ns2:attribute ns1:name="radioframeAllocationPeriod" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Radio-frames that contain MBSFN subframes occur when equation SFN mod radioFrameAllocationPeriod = radioFrameAllocationOffset is satisfied. When fourFrames is used for subframeAllocation, the equation defines the first radio frame referred to in the description below. Values 1 and 2 are not applicable when fourFrames is used for subframeAllocation.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="2" max="2"/>
+                <ns1:minMaxRange min="4" max="4"/>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="radioframeAllocationOffset" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Radio-frames that contain MBSFN subframes occur when equation SFN mod radioFrameAllocationPeriod = radioFrameAllocationOffset is satisfied.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="0" max="7"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="subframeAllocation" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Defines the subframes that are allocated for MBSFN within the radio frame allocation period defined by the radioFrameAllocationPeriod and the radioFrameAllocationOffset. Two options are possible, i.e. if set to 1 the subframe allocation is set by the subframeAllocationOneFrame attribute, and if set to 4 the subframe allocation is set by the subframeAllocationFourFrame attribute.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="1" max="1"/>
+                <ns1:minMaxRange min="4" max="4"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="subframeAllocationOneFrame" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A bit-map indicating MBSFN subframe allocation in one radio frame.
+				&quot;1&quot; denotes that the corresponding subframe is allocated for MBSFN. &quot;0&quot; denotes that the corresponding subframe is not allocated for MBSFN.The following mapping applies:
+				FDD: The first/leftmost bit defines the MBSFN allocation for subframe #1, the second bit for #2, third bit for #3 , fourth bit for #6, fifth bit for #7, sixth bit for #8.
+				TDD: The first/leftmost bit defines the allocation for subframe #3, the second bit for #4, third bit for #7, fourth bit for #8, fifth bit for #9. Uplink subframes are not allocated. The last bit is not used.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="subframeAllocationFourFrame" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A bit-map indicating MBSFN subframe allocation in four consecutive radio frames, &quot;1&quot; denotes that the corresponding subframe is allocated for MBSFN. &quot;0&quot; denotes that the corresponding subframe is not allocated for MBSFN. The bitmap is interpreted as follows:
+				FDD: Starting from the first radioframe and from the first/leftmost bit in the bitmap, the allocation applies to subframes #1, #2, #3 , #6, #7, and #8 in the sequence of the four radio-frames.
+				TDD: Starting from the first radioframe and from the first/leftmost bit in the bitmap, the allocation applies to subframes #3, #4, #7, #8, and #9 in the sequence of the four radio-frames. The last four bits are not used. Uplink subframes are not allocated.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

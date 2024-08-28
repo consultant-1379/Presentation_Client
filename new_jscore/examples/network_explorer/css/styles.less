@@ -1,0 +1,376 @@
+@import "../../../css/common/mixins";
+
+.eaNetwork {
+    &-ClearAll {
+        zoom: 1;
+        &:before, &:after {
+            content: "\0020";
+            display: block;
+            height: 0;
+            overflow: hidden;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+
+    &-Header {
+        margin: 0 auto;
+        max-width: 1300px;
+
+        &-block {}
+    }
+    &-Holder {
+        margin: 0 auto;
+        max-width: 1300px;
+    }
+    &-SearchBlock {
+        padding: 1.2rem 0;
+        font-size: 0;
+
+        &-searchInput {
+            width: 450px;
+        }
+        &-searchBtn, &-typeCombo {
+            margin-left: 0.6rem;
+            margin-right: 0.6rem;
+        }
+        &-searchIcon {
+//            background: url('../resources/network/white_search.svg') no-repeat center center transparent;
+        }
+        &-separator {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.6rem;
+            border-left: 1px solid #DCDCDC;
+            height: 2.4rem;
+        }
+    }
+
+    &-FiltersBlock {
+        position: relative;
+        float: left;
+        width: 240px;
+    }
+    &-AppliedFilters {
+        &-header {
+            position: relative;
+        }
+        &-actions {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        &-actionLink {
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 0.6rem 0;
+            line-height: 1.4rem;
+        }
+
+        &-filters {
+            margin-bottom: 1.8rem;
+        }
+        &-filter {
+            position: relative;
+            background-color: #A0C944;
+            padding: 6px 10px;
+            margin: 5px 0;
+
+            .applyBorderRadius(5px);
+
+            &Name {
+                font-size: 1.2rem;
+                color: #FFFFFF;
+            }
+            &Clear {
+                position: absolute;
+                top: 5px; bottom: 5px;
+                right: 5px;
+                width: 14px;
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: bold;
+                cursor: pointer;
+
+                background-color: rgba(255, 255, 255, 0.5);
+                color: #A0C944;
+
+                .applyBorderRadius(100%);
+            }
+        }
+    }
+
+    &-AvailableFilters {
+        border-bottom: 1px solid #E5E5E5;
+    }
+    &-Filter {
+        &-block {
+            border-top: 1px solid #E5E5E5;
+            line-height: 30px;
+            height: 30px;
+        }
+
+        &-name {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 1.2rem;
+        }
+
+        &-item {
+            margin-left: 50px;
+            display: block;
+            line-height: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        &-link {
+            margin-left: 50px;
+            display: block;
+            line-height: 30px;
+            height: 30px;
+        }
+
+    }
+
+    &-ResultsBlock {
+        margin-left: 282px;
+
+        &-checkboxCell {
+            width: 20px;
+            padding-right: 1.2rem;
+            white-space: nowrap;
+        }
+        &-header {
+            position: relative;
+        }
+        &-actions {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        &-actionLink {
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 1.2rem 0;
+            line-height: 2.4rem;
+            margin: 0 0.6rem;
+        }
+        &-actionsDropdown {
+            margin-left: 0.6rem;
+        }
+
+        &-separator {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.6rem;
+            border-left: 1px solid #DCDCDC;
+            height: 2.4rem;
+        }
+
+        &-resultsCount {
+            color: #CCCCCC;
+            font-weight: normal;
+        }
+
+        &-mapImage {
+            width: 100%;
+        }
+    }
+}
+
+
+.style2 {
+    background-color: #F7F7F7;
+
+    .eaNetwork {
+        h2 {
+            border-top: none;
+        }
+        &-FiltersBlock {
+            padding: 0 1.2rem 1.2rem;
+            background-color: white;
+
+            .applyBorderRadius(3px);
+        }
+        &-ResultsBlock {
+            padding: 0 1.2rem 1.2rem;
+            background-color: white;
+
+            .applyBorderRadius(3px);
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .eaNetwork {
+            &-FiltersBlock {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+            &-ResultsBlock {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+        }
+    }
+}
+
+/*.style2 {
+    background-color: white;
+
+    .eaNetwork {
+        h2 {
+            border-top: none;
+        }
+        &-SearchBlock {
+            background-color: #F7F7F7;
+            padding: 1.2rem;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .eaNetwork {
+            &-SearchBlock {
+                padding-bottom: 0.6rem;
+            }
+        }
+    }
+}*/
+
+.style3 {
+    background-color: #F7F7F7;
+
+    .eaNetwork {
+        h1 {
+
+        }
+
+        &-Header {
+            background-color: white;
+            margin: 0;
+            max-width: inherit;
+
+            &-block {
+                margin: 0 auto;
+                max-width: 1300px;
+            }
+        }
+
+        h2 {
+            border-top: none;
+        }
+        &-FiltersBlock {
+            padding: 0 1.2rem 1.2rem;
+            background-color: white;
+        }
+        &-ResultsBlock {
+            padding: 0 1.2rem 1.2rem;
+            background-color: white;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .eaNetwork {
+            &-FiltersBlock {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+            &-ResultsBlock {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .eaNetwork {
+        &-Header {
+            padding: 0 1.2rem;
+        }
+        &-Holder {
+            padding: 0 1.2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .eaNetwork {
+        &-SearchBlock {
+            &-searchInput {
+                width: 380px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .eaNetwork {
+        &-Header {
+            padding: 0;
+        }
+        &-Holder {
+            padding: 0;
+        }
+        &-Header-block {
+            padding: 0 1.2rem;
+        }
+        &-SearchBlock {
+            padding-bottom: 0.6rem;
+            padding-right: 0.6rem;
+            padding-left: 0.6rem;
+
+            &-searchInput {
+                margin-left: 0.6rem;
+                margin-bottom: 0.6rem;
+                width: 230px;
+            }
+            &-searchBtn {
+                margin-bottom: 0.6rem;
+            }
+            &-separator {
+                display: none;
+            }
+            &-typeCombo {
+                margin-bottom: 0.6rem;
+            }
+        }
+
+        &-FiltersBlock {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            float: none;
+            width: auto;
+        }
+        &-ResultsBlock {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            margin-left: 0;
+            margin-top: 1.8rem;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .eaNetwork {
+        &-SearchBlock {
+            &-searchInput {
+                width: 210px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .eaNetwork {
+        &-SearchBlock {
+            &-searchInput {
+                width: 190px;
+            }
+        }
+    }
+}

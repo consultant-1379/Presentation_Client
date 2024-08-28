@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do App</title>
+    <script type="text/javascript" src="../jscore/require.js"></script>
+</head>
+<body>
+
+<div id="appContainer"></div>
+
+</body>
+<script type="text/javascript">
+        require.config({
+            'baseUrl': 'src',
+            paths: {
+                'jscore': '../../jscore',
+                'text': '../../jscore/text'
+            }
+        });
+
+        require([
+            'jscore/ext/dom/main',
+            'ToDoApp'
+        ], function (dom, ToDoApp) {
+            var appContainer = document.getElementById("appContainer");
+			var theApp = new ToDoApp();
+			theApp.start(appContainer);
+
+        })
+    </script>
+</html>

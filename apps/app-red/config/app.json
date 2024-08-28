@@ -1,0 +1,7 @@
+{
+    "name": "Red Application",
+    "namespace": "app-red",
+    "script": "Application",
+    "defaultPlace": "mainPlace",
+    "places":["mainPlace", "anotherPlace"]
+}

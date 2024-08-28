@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data binding: JSCore</title>
+    <script type="text/javascript" src="lib/require/require.js"></script>
+    <script type="text/javascript" src="config/require.config.js"></script>
+    <style type="text/css">
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 20px;
+      }
+    </style>
+</head>
+<body>
+  <div id="appContainer"></div>
+</body>
+<script type="text/javascript">
+        require([
+            'MyApp/MyApp'
+        ], function (App) {
+            var appContainer = document.getElementById("appContainer");
+      var theApp = new App();
+      theApp.start(appContainer);
+        });
+    </script>
+</html>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns7="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns11="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns12="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_annotation" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="PeriodicitySI" ns1:version="0.0.1" ns1:lifeCycle="NORMAL" ns1:lifeCycleDesc="">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_cdt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>PeriodicitySI</ns1:desc>
+    <ns2:attribute ns1:name="siPeriodicitySI9" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 9. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI8" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 8. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI10" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 10. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 2. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI3" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 3. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI4" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 4. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI5" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 5. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI6" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 6. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI7" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message 7. If no SIB is mapped to the SI message, the SI message will not be transmitted.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="64"/>
+    </ns2:attribute>
+    <ns2:attribute ns1:name="siPeriodicitySI1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The periodicity of SI message. If no SIB is mapped to this SI message, the SI message will not be transmitted. Note: SIB2 is always mapped to SI message 1 according to TS 36.331.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longType">
+            <ns1:valueRangeConstraint>
+                <ns1:minMaxRange min="8" max="8"/>
+                <ns1:minMaxRange min="16" max="16"/>
+                <ns1:minMaxRange min="32" max="32"/>
+                <ns1:minMaxRange min="64" max="64"/>
+                <ns1:minMaxRange min="128" max="128"/>
+                <ns1:minMaxRange min="256" max="256"/>
+                <ns1:minMaxRange min="512" max="512"/>
+            </ns1:valueRangeConstraint>
+        </ns1:type>
+        <ns1:default xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:longValue" value="8"/>
+    </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

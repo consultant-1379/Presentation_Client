@@ -1,0 +1,7 @@
+{
+    "name": "torContainer",
+    "version": "@VERSION@",
+    "dependencies": {
+        "jscore-prod": "0.1.8"
+    }
+}

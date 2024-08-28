@@ -1,0 +1,48 @@
+html, body {
+    font-family: Arial;
+    font-size: 100%;
+}
+
+.tor-Launcher {
+    display: block;
+    position: absolute;
+    top: 34px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #F8F8F8;
+
+    &-sidebar {
+        position:  absolute;
+        top:  0;
+        left:  0;
+        bottom: 0;
+        width: 240px;
+        z-index: 10;
+    }
+
+    &-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 240px;
+    }
+
+    &-search {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 76px;
+        z-index: 9;
+    }
+
+    &-appList {
+        position: absolute;
+        top: 76px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 8;
+    }
+}

@@ -1,0 +1,12 @@
+<table data-namespace="torLogViewer" data-name="LogDetails">
+    <tr data-name="logEntryDetailsHeaderRow">
+        <th class="torLogViewer-LogDetails-logEntryDetailsHeader">Field</th>
+        <th class="torLogViewer-LogDetails-logEntryDetailsHeader">Value</th>
+    </tr>
+    {{#each collection.models}}
+        <tr class="torLogViewer-LogDetails-logDetailsRow">
+            <td class="torLogViewer-LogDetails-logDetailsCell">{{modelHelper this get="key"}}</td>
+            <td class="torLogViewer-LogDetails-logDetailsCell">{{modelHelper this get="val"}}</td>
+        </tr>
+    {{/each}}
+</table>

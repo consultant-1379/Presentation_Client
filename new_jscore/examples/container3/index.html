@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <script src="lib/require.js"></script>
+    <script src="lib/container.js"></script>
+    <script>
+        var currentApp;
+
+        container.callback = function (App) {
+            currentApp = new App();
+            var container = document.getElementById('container');
+            container.innerHTML='';
+            currentApp.start(container);
+        };
+
+        container.error = function () {
+            alert('Custom error handling')
+        };
+    </script>
+</head>
+<body>
+<button onclick="container.load('MyApp');">MyApp</button>
+<button onclick="container.load('MyApp2');">MyApp2</button>
+<div id="container" style="background: #eee; border: 2px solid #ddd; padding: 10px;"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Container</title>
+    <link rel="stylesheet" href="css/default.css">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">Container</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Applications</h1>
+
+    <p>List of available applications
+        from <a href="http://150.132.76.214:5900/_utils/database.html?registry/_all_docs">NPM registry</a>
+    </p>
+
+    <form action="action" method="post" class="form-horizontal">
+        <div class="control-group">
+            <div class="controls">
+                {{#apps}}
+                <div>
+                    <label for="{{namespace}}" class="checkbox">
+                        <input type="checkbox" id="{{namespace}}" name="apps[{{namespace}}]" value="{{versions.0}}"/>
+                        {{name}}
+                    </label>
+                </div>
+                {{/apps}}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="REMOTE_HOST">REMOTE_HOST</label>
+
+            <div class="controls">
+                <input type="text" id="REMOTE_HOST" name="params[REMOTE_HOST]" value="150.132.76.215">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="REMOTE_PATH">REMOTE_PATH</label>
+
+            <div class="controls">
+                <input type="text" id="REMOTE_PATH" name="params[REMOTE_PATH]" value="/var/www/app">
+            </div>
+        </div>
+        <input type="hidden" name="apps[jscore-prod]" value="0.1.8"/>
+        <input type="hidden" name="apps[torContainer]" value="0.0.4"/>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Deploy</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+.w-Item {
+    position: relative;
+    display: block;
+    margin: 5px 0 0 0;
+    z-index: 1;
+
+    &-link {
+        display: block;
+        width: 276px;
+        padding: 7px 32px;
+    }
+
+    &-favIcon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 32px;
+        background: url('@{current-url}/black_star.svg') center center no-repeat;
+        background-size: 16px 16px;
+        opacity: 0.4;
+        display: none;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &_favorited {
+            display: block;
+            background-image: url('@{current-url}/yellow_star.svg');
+            opacity: 1;
+        }
+    }
+
+    &-label {
+        color: #4F4C4D;
+        font-size: 0.9em;
+        padding: 10px 0;
+        text-decoration: none;
+    }
+
+    &-infoIcon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 32px;
+        background: url('@{current-url}/black_info.svg') center center no-repeat;
+        background-size: 16px 16px;
+        opacity: 0.4;
+        display: none;
+
+        &:hover {
+            opacity: 1;
+        }
+
+    }
+
+    &:hover {
+        background: #F0EFF0;
+
+        .w-Item-favIcon {
+            display: block;
+        }
+
+        .w-Item-infoIcon {
+            display: block;
+        }
+
+    }
+
+    &-selected {
+        background: #F0EFF0;
+        z-index: 2;
+
+        .w-Item-favIcon {
+            display: block;
+        }
+
+        .w-Item-infoIcon {
+            display: block;
+        }
+
+    }
+
+    &-highlight {
+        color: #0066B3;
+        font-weight: bold;
+    }
+}

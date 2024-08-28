@@ -1,0 +1,254 @@
+.applyBorderRadius(@params) {
+    -webkit-border-radius: @params;
+    -moz-border-radius: @params;
+    -ms-border-radius: @params;
+    border-radius: @params;
+}
+.applyBoxShadow(@params) {
+    -webkit-box-shadow: @params;
+    -moz-box-shadow: @params;
+    -ms-box-shadow: @params;
+    box-shadow: @params;
+}
+.applyBoxSizing(@param) {
+    -webkit-box-sizing: @param;
+    -moz-box-sizing: @param;
+    box-sizing: @param;
+}
+.applyGradientTopBottom(@color: #F5F5F5, @startColor: #EEE, @stopColor: #FFF) {
+    background: @color;
+    background: -webkit-gradient(linear,
+    left top,
+    left bottom,
+    color-stop(0, @startColor),
+    color-stop(1, @stopColor));
+    background: -ms-linear-gradient(top, @startColor, @stopColor);
+    background: -o-linear-gradient(center top, @startColor 0%, @stopColor 100%);
+    background: -webkit-linear-gradient(center top, @startColor 0%, @stopColor 100%);
+    background: -moz-linear-gradient(center top, @startColor 0%, @stopColor 100%);
+    background: linear-gradient(center top, @startColor 0%, @stopColor 100%);
+}
+.applyTransition(@transitionParams) {
+    -webkit-transition: @transitionParams;
+    -moz-transition: @transitionParams;
+    -ms-transition: @transitionParams;
+    -o-transition: @transitionParams;
+    transition: @transitionParams;
+}
+
+
+.app-Login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 450px;
+    padding: 20px;
+    background-color: #E9E9E9;
+
+    .applyBoxShadow(~"#999 0 1px 3px");
+    .applyBorderRadius(10px);
+
+    &-inner {
+        position: relative;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+    }
+    &-ericssonLogo {
+        background: url('@{current-url}/ericssonLogo_blue.svg') 30px 40px no-repeat;
+        height: 100px;
+        width: 100%;
+    }
+    &-nameWrap {
+        position: relative;
+        display: table;
+        width: 100%;
+        height: 140px;
+        padding: 20px 0 0;
+
+        &-name {
+            padding: 0 50px;
+            display: table-cell;
+            vertical-align: middle;
+            font-family: EricssonCapitalTT;
+            font-weight: normal;
+            font-size: 2em;
+            line-height: 1em;
+            color: #333;
+
+            // Works only with Chrome and Safari
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: -webkit-linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(0.1, #A2C517), color-stop(0.3, #009046), color-stop(0.5, #0082B6), color-stop(0.7, #151F77), color-stop(1, #DB0050));
+            background-image: linear-gradient(left, #A2C517 10%, #009046 30%, #0082B6 50%, #151F77 70%, #DB0050 100%);
+        }
+    }
+    &-form {
+        position: relative;
+        padding: 0 50px;
+
+        &Input {
+            .applyBorderRadius(4px);
+            .applyBoxShadow(~"#CCC 0 1px 2px inset;");
+
+            width: 160px;
+            height: 28px;
+            vertical-align: top;
+            border: 1px solid #999;
+            padding: 0 5px;
+            margin: 0 2px 5px 0;
+            color: #333;
+
+            &:focus {
+                outline: none;
+            }
+        }
+        &Button {
+            .applyGradientTopBottom(#d9dada, rgba(0,0,0,0), rgba(0,0,0,0.2));
+            .applyBorderRadius(4px);
+            .applyBoxSizing(content-box);
+
+            width: 36px;
+            height: 28px;
+            border: 1px solid #999;
+            padding: 0;
+            margin: 0 0 5px 5px;
+            cursor: pointer;
+
+            &:hover {
+                background: #d9dada;
+            }
+
+            &Image {
+                display: inline-block;
+                background: url('@{current-url}/aro_right_big_dark.svg') no-repeat center center transparent;
+                background-size: 9px 15px;
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+            }
+        }
+    }
+    &-messagesBox {
+        height: 30px;
+        line-height: 30px;
+    }
+    &-passRemind {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    &-inputWrap {
+        height: 70px;
+    }
+    &-inputComposition {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    &-copy {
+        padding: 30px 50px 10px;
+        margin: 0;
+        font-size: 0.90em;
+        color: #D2D2D2;
+    }
+}
+
+// Responsive design
+@media screen and (max-width:549px), screen and (max-height:499px) {
+    .app-Login {
+        position: relative;
+        .applyBoxShadow(none);
+        .applyBorderRadius(0);
+        background-color: white;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+
+        &-inner {
+            overflow-y: auto;
+        }
+        &-nameWrap {
+            margin: 20px 0 0;
+            padding: 0;
+            height: 34%;
+            min-height: 140px;
+
+            &-name {
+                padding: 0 30px;
+            }
+        }
+        &-form {
+            padding: 0 30px;
+            height: 26%;
+            min-height: 106px;
+
+            &Input {
+                width: 120px;
+                height: 24px;
+            }
+            &Button {
+                width: 30px;
+                height: 24px;
+            }
+        }
+        &-messagesBox {
+            height: 26px;
+            line-height: 26px;
+        }
+        &-inputWrap {
+            height: 60px;
+        }
+        &-passRemind {
+            height: 26px;
+            line-height: 26px;
+        }
+        &-ericssonLogo {
+            height: 20%;
+            min-height: 80px;
+            background-size: 50px;
+            background-position: 20px 30px;
+        }
+        &-copy {
+            padding: 35px 30px 0;
+        }
+    }
+}
+
+@media screen and (max-width:549px) and (min-height:500px) {
+    .app-Login {
+        background-color: white;
+
+        &-inner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 470px;
+
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (min-width:550px) and (max-height:499px) {
+    .app-Login {
+        background-color: white;
+
+        &-inner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 520px;
+        }
+    }
+}

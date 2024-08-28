@@ -1,0 +1,205 @@
+{
+    "properties": {
+        "buildDir": "target",
+        "sdkTools": "$(pathToSdk)/tools",
+        "testRunner": "$(sdkTools)/test/test-runner.js",
+        "node": "node",
+        "npm": {
+            "?os.platform=windows": "npm.cmd",
+            "?os.platform=unix": "npm"
+        },
+        "jscoverage": {
+            "?os.platform=windows": "$(sdkTools)/jscoverage/jscoverage.exe",
+            "?os.platform=unix": "$(sdkTools)/jscoverage/jscoverage"
+        },
+        "phantomjs": {
+            "?os.platform=windows": "$(sdkTools)/phantomjs/bin/phantomjs.exe",
+            "?os.platform=unix": "$(sdkTools)/phantomjs/bin/phantomjs"
+        },
+        "uglifyjs": "$(node) $(pathToSdk)/node_modules/uglify-js/bin/uglifyjs",
+        "rjs": "$(node) $(pathToSdk)/node_modules/requirejs/bin/r.js",
+        "jshint": "$(node) $(pathToSdk)/node_modules/jshint/bin/jshint",
+        "cssverify": "$(node) $(sdkTools)/cssverify/cssverify.js",
+		"rootname": "$(name)/$(version)",
+		
+		"name": "MyApp",
+        "version": "0.0.1-SNAPSHOT"
+    },
+    "defaultPhase": "compile",
+    "phases": {
+        "clean": {
+            "delete": {
+                "target": "$(buildDir)"
+            }
+        },
+		"jshint": {
+            "execute": {
+                "command": "$(jshint)",
+                "attributes": [
+                    "src"
+                ]
+            }
+        },
+        
+        "cssverify": {
+            "execute": {
+                "command": "$(cssverify)",
+                "attributes": [
+                    "src"
+                ]
+            }
+        },
+		
+		"copy-test-files": {
+            "copy": {
+                "from": [
+					"test",
+					"config",
+                    "node_modules",
+                    "resources"
+				],
+                "to": "$(buildDir)/"
+            }
+        },
+		
+		"instrument-code": {
+            "execute": {
+                "command": "$(jscoverage)",
+                "attributes": [
+                    "src",
+                    "$(buildDir)/src"
+                ]
+            }
+        },
+		
+		"test-unit": {
+            "copy": {
+                "from": "$(sdkTools)/*",
+                "to": "$(buildDir)/_tools/"
+            },
+            "execute": {
+                "command": "$(phantomjs)",
+                "attributes": [
+                    "$(testRunner)",
+                    "--root $(buildDir)",
+                    "--reports $(buildDir)/reports/unit",
+                    "--type unit",
+                    "--title \"$(name)\""
+                ]
+            }
+        },
+		
+		"test-bit": {
+            "execute": {
+                "command": "$(phantomjs)",
+                "attributes": [
+                    "$(testRunner)",
+                    "--root $(buildDir)",
+                    "--reports $(buildDir)/reports/bit",
+                    "--type bit",
+                    "--title \"$(name)\""
+                ]
+            }
+        },
+		
+        "optimize": {
+            "rjs": {
+                "name":"$(name)",
+                "config": {
+                    "baseUrl": "src",
+                    "dir": "$(buildDir)/temp",
+                    "optimize": "uglify2",
+					"resources": "$(name)/resources",
+                    "paths": {
+                        "jscore": "empty:",
+						"text":"../node_modules/jscore/require/text",
+						"template": "../node_modules/jscore/require/template",
+						"styles": "../node_modules/jscore/require/styles",
+						"handlebars-1.0.0.beta.6": "empty:",
+						"less-1.4.0": "empty:"
+                    },
+					"stubModules": [
+						"text",
+						"template",
+						"styles"
+					],
+                    "modules": [
+                        {
+                            "name": "$(name)/$(name)"
+                        }
+                    ]
+                }
+            }
+
+        },
+
+		 "copy-resource": {
+            "copy": {
+                "from": [
+                    "resources/$(name)/*"
+                ],
+                "to":"$(buildDir)/package/$(name)/resources/$(name)/"
+            }
+        },
+        "copy-appNoCache": {
+            "copy": {
+                "from":"$(buildDir)/temp/app.nocache.js",
+                "to":"$(buildDir)/package/$(name)/"
+            }
+        },
+		"compile": {
+			"depends": [
+				"clean", 
+				"jshint",
+				"copy-test-files",
+				"instrument-code", 
+				"test-unit", 
+				"test-bit", 
+				"optimize", 
+				"copy-resource",
+                "copy-appNoCache"
+
+			],
+			"copy": {
+                "fileFilter":"^([a-zA-Z0-9]{32,32}).js$",
+                "from":"$(buildDir)/temp/*",
+				"to":"$(buildDir)/package/$(name)/"
+			}
+		},
+		
+		"prepare-package": {
+            "copy": {
+                "from": [
+                    "package.json"
+                ],
+                "to": "$(buildDir)/package/"
+            },
+            "mergeJson": {
+                "file": "$(buildDir)/package/package.json",
+                "json": {
+                    "name": "$(name)",
+                    "version": "$(version)"
+                }
+            }
+        },
+		
+		"package": {
+            "depends": ["compile", "prepare-package"],
+            "execute": {
+                "command": "$(npm)",
+                "attributes": [
+                    "pack",
+                    "$(buildDir)/package"
+                ]
+            },
+            "copy": {
+                "from": "$(name)-$(version).tgz",
+                "to": "$(buildDir)/$(name)-$(version).tar.gz"
+            },
+            "delete": {
+                "target": "$(name)-$(version).tgz"
+            }
+        }
+		
+    }
+}

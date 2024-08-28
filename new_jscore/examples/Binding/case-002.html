@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case 2</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cases.css"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/require.js"></script>
+    <script src="lib/console.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+    <div style="padding: 6px 0">
+        <label for="Source">Text <input type="text" id="Source" value="Hello"/></label>
+        <button type="button" id="AddModel">Push Model</button>
+        <button type="button" id="SetModel">Set Models</button>
+    </div>
+
+    <div style="padding: 6px 0">
+        <button type="button" id="LoadCollection">Load Collection</button>
+        <button type="button" id="PrintCollection">Print Collection</button>
+    </div>
+
+    <table>
+        <tr style="vertical-align: top;">
+            <td>
+                <div class="panel">
+                    List1:
+                    <div id="List1"></div>
+                </div>
+            </td>
+            <td>
+                <div class="panel">
+                    List2:
+                    <div id="List2"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        Console:
+        <pre id="Console"></pre>
+    </div>
+</form>
+<script>
+    console.init('Console');
+
+    var collection = new Backbone.Collection(false, {
+        url: 'data.json'
+    });
+
+    require({baseUrl: 'src'}, [
+        'ListWidget',
+        'BindingBuilder'
+    ], function (ListWidget, BindingBuilder) {
+        var widget1 = new ListWidget({el: '#List1'});
+        var widget2 = new ListWidget({el: '#List2'});
+
+        var binding = BindingBuilder.forCollection(collection);
+        binding.bind(widget1);
+        binding.bind(widget2);
+    });
+
+    function getText() {
+        return $('#Source').val();
+    }
+
+    _.each({
+        AddModel: function () {
+            collection.push({
+                text: getText()
+            });
+        },
+        SetModel: function () {
+            collection.set({
+                text: getText()
+            });
+        },
+        LoadCollection: function () {
+            collection.fetch();
+        },
+        PrintCollection: function () {
+            console.log(JSON.stringify(collection.toJSON()));
+        }
+    }, function (value, key) {
+        $('#' + key).click(value);
+    });
+
+</script>
+</body>
+</html>

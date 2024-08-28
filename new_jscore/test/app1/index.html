@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../require/require.js"></script>
+    <script type="text/javascript">
+        require.config({
+            'baseUrl': 'src',
+            paths: {
+                'jscore': '../../jscore',
+                'text': '../../require/text'
+
+            }
+        });
+        require([
+            'MyApp'
+        ], function (MyApp) {
+
+            var myApp = new MyApp();
+            myApp.start(document.getElementById('AppContainer'));
+
+        });
+    </script>
+</head>
+<body>
+
+<div id="AppContainer"></div>
+
+</body>
+</html>

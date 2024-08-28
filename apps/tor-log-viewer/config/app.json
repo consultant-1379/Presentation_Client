@@ -1,0 +1,6 @@
+{
+    "name": "Log Viewer",
+    "namespace": "tor-log-viewer",
+    "script": "Application",
+    "hash": "tor-log-viewer"
+}

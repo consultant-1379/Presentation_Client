@@ -1,0 +1,15 @@
+{{#if model.attributes.name}}
+<div class="w-Item" data-group-id="{{ model.attributes.id }}">
+    <span class="w-Item-link">
+        {{#if model.attributes.favorite}}
+        <a href="#" class="w-Item-favIcon w-Item-favIcon_favorited" title="Toggle favorite"></a>
+        {{else}}
+        <a href="#" class="w-Item-favIcon" title="Toggle favorite"></a>
+        {{/if}}
+        <a href="{{model.attributes.uri}}" target="_blank" class="w-Item-label" title="Launch {{ model.attributes.name }}">{{{ model.attributes.name }}}</a>
+        {{#if model.attributes.shortInfo}}
+        <a href="#" class="w-Item-infoIcon" data-title="{{ model.attributes.shortInfo }}" ></a>
+        {{/if}}
+    </span>
+</div>
+{{/if}}

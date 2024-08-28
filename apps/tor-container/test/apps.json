@@ -1,0 +1,19 @@
+{
+    "apps": [
+        {
+            "name": "Test 1",
+            "namespace": "appTest1",
+            "script": "main",
+            "defaultPlace":"home",
+            "places":[ "home", "somewhere" ]
+        },
+        {
+            "name": "Test 2",
+            "namespace": "appTest2",
+            "script": "main",
+            "defaultPlace":"home",
+            "places": ["home"]
+
+        }
+    ]
+}

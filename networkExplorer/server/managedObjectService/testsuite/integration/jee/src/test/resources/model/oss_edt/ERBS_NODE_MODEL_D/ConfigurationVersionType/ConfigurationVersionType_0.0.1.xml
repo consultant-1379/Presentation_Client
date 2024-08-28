@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="ConfigurationVersionType" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Configuration version type</ns1:desc>
+    <ns2:member value="0" ns1:name="STANDARD" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value normally used for manually created CVs.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="UPGRADE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A CV created during system upgrade, after reconfigurations are completed and before the new SW is taken into operation.
+				
+				UPGRADE_TOLERATE_ERROR is used if the Upgrade Control File states that the function Tolerate Error is to be used in the upgrade path. The name of the CV starts with SU_.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="MINIMAL" ns1:lifeCycle="NORMAL">
+        <ns1:desc>MINIMAL</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="TEST" ns1:lifeCycle="NORMAL">
+        <ns1:desc>TEST</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="AUTOCREATE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A daily CV created automatically by the periodical CV function activated by setting autoCreatedCVIsTurnedOn to true. 
+				
+				The name of the CV starts with Au_.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="OTHER" ns1:lifeCycle="NORMAL">
+        <ns1:desc>CVs of this type are created in many situations:
+				- After a successful installation of an Upgrade package. The name of the CV starts with Si_.
+				- A rollback CV created in the beginning of an upgrade after the prechecks are done and before any reconfiguration is started. The name of the CV starts with Rb_.
+				- The final CV created after a successful upgrade. The name of the CV starts with Fi_.
+				- A rollback CV created in the beginning of a restoration of an external CV. The name of the CV starts with RR_.
+				- A CV created when the Autoconfiguration is switched off in order to save the configuration created during a PIU replacement. The name of the CV starts with CA_.
+				- CVs created by the Robust Reconfiguration function. The name of the CV created when the function is activated starts with CB_. The name of the CV created when the function is confirmed starts with CC_.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="6" ns1:name="UPGRADE_TOLERATE_ERROR" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A CV created during system upgrade, after reconfigurations are completed and before the new SW is taken into operation.
+				
+				UPGRADE_TOLERATE_ERROR is used if the Upgrade Control File states that the function Tolerate Error is to be used in the upgrade path. The name of the CV starts with SU_.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="7" ns1:name="DOWNLOADED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A backup CV downloaded to the node from an FTP server. 
+				
+				The CV has previously been created by the external CV function. This type of CV can not be set as startable. The CV can have any name.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="8" ns1:name="RESTORED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A CV created after a successful restoration of a CV. 
+				
+				It is created by the external CV function. Depending on the method used, the name of the CV starts with RR_ or RF_.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="9" ns1:name="STANDALONE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A CV that may be created when only one configured instance of a PlugInUnit MO exists on the node.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="../require/require.js"></script>
+
+    <script type="text/javascript">
+        require.config({
+            'baseUrl': 'src',
+            paths: {
+                'jscore': '../../jscore/0.1',
+                'text': '../../require/text'
+            }
+
+        });
+
+        require([
+            'jscore/ext/dom/main',
+            'MyApp'
+        ], function (dom, MyApp) {
+            var myApp;
+            var start = dom.find('#buttonStart');
+            dom.on('click', start, function () {
+                if (!myApp) {
+                    myApp = new MyApp();
+                    myApp.start(document.getElementById('content'));
+                }
+            });
+
+            var stop = dom.find('#buttonStop');
+            dom.on('click', stop, function () {
+                if (myApp) {
+                    myApp.stop();
+                    myApp = null;
+                }
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div id="appTemplate">
+<button id="buttonStart">Start</button>
+    <button id="buttonStop">Stop</button>
+    <div id="content"></div>
+</div>
+
+</body>
+</html>

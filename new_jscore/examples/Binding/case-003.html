@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case 3</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cases.css"/>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/backbone-relational.js"></script>
+    <script src="lib/require.js"></script>
+    <script src="lib/console.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+    <div style="padding: 6px 0">
+        <div><label for="Title">Title <input type="text" id="Title"/></label></div>
+        <div><label for="Name">Name <input type="text" id="Name"/></label></div>
+        <div><label for="Email">Email <input type="text" id="Email"/></label></div>
+    </div>
+
+    <div class="panel">
+        <button type="button" id="AddRow">Add Row</button>
+        <div id="List"></div>
+    </div>
+
+    <div style="padding: 6px 0">
+        <button type="button" id="LoadData">Load Data</button>
+        <button type="button" id="PrintData">Print Data</button>
+    </div>
+
+    <div>
+        Console:
+        <pre id="Console"></pre>
+    </div>
+</form>
+<script>
+    console.init('Console');
+
+    var MForm = Backbone.RelationalModel.extend({
+        defaults: {
+            Name: 'Unnamed',
+            Email: ''
+        }
+    });
+    var MItem = Backbone.RelationalModel.extend();
+    var CList = Backbone.Collection.extend({
+        Model: MItem,
+        url: 'data.json'
+    });
+
+    var Model = Backbone.RelationalModel.extend({
+        relations: [
+            {
+                type: Backbone.HasOne,
+                key: 'Form',
+                relatedModel: MForm
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'List',
+                relatedModel: MItem,
+                collectionType: CList
+            }
+        ],
+        defaults: function () {
+            this.set('Form', new MForm);
+            this.set('List', new CList);
+            this.set('Title', 'Untitled');
+        },
+        url: 'data2.json'
+    });
+
+    var model = new Model();
+
+    require({baseUrl: 'src'}, [
+        'TextBox',
+        'ListWidget',
+        'BindingBuilder'
+    ], function (TextBox, ListWidget, BindingBuilder) {
+        var Title = new TextBox({el: '#Title'});
+        var Name = new TextBox({el: '#Name'});
+        var Email = new TextBox({el: '#Email'});
+        var List = new ListWidget({el: '#List'});
+
+        var binding = BindingBuilder.forRelational(model);
+        binding.bind(Title).to('Title');
+        binding.bind(Name).to('Form.Name');
+        binding.bind(Email).to('Form.Email');
+        binding.bind(List).to('List');
+    });
+
+    function getText() {
+        return $('#Source').val();
+    }
+
+    _.each({
+        AddRow: function () {
+            model.get('List').push({});
+        },
+        LoadData: function () {
+            model.fetch();
+        },
+        PrintData: function () {
+            console.log('JSON: ' + JSON.stringify(model.toJSON()));
+        }
+    }, function (value, key) {
+        $('#' + key).click(value);
+    });
+
+</script>
+</body>
+</html>

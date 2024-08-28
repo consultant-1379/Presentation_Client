@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" hierarchyType="HIERARCHICAL" root="false" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="PmUeMeasControl" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/dps_primarytype/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>This managed object contains the settings for PM Initiated UE Measurements.</ns1:desc>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ueMeasIntraFreq1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The specification of the UE measurement initiated by activating the PM event UE_MEAS_INTRAFREQ1 in a Cell Trace scanner.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/PmUeMeasIntraFreq/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="false" ns1:name="ueMeasIntraFreq2" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The specification of the UE measurement initiated by activating the PM event UE_MEAS_INTRAFREQ2 in a Cell Trace or UE Trace scanner.
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:complexRefType" modelUrn="/oss_cdt/ERBS_NODE_MODEL_D/PmUeMeasIntraFreq/0.0.1"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmUeMeasRsrpServIntraFreq1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows a histogram of the reported values for the reference signal received power (RSRP) measurements for the serving cell. A description of RSRP can be found in 3GPP specification 36.133.
+				
+				PDF ranges:
+				[0]: 0 &lt;= RSRP_xx &lt;= 15
+				[1]: 16 &lt;= RSRP_xx &lt;= 18
+				[2]: 19 &lt;= RSRP_xx &lt;= 21
+				[3]: 22 &lt;= RSRP_xx &lt;= 24
+				[4]: 25 &lt;= RSRP_xx &lt;= 27
+				[5]: 28 &lt;= RSRP_xx &lt;= 30
+				[6]: 31 &lt;= RSRP_xx &lt;= 33
+				[7]: 34 &lt;= RSRP_xx &lt;= 36
+				[8]: 37 &lt;= RSRP_xx &lt;= 39
+				[9]: 40 &lt;= RSRP_xx &lt;= 42
+				[10]: 43 &lt;= RSRP_xx &lt;= 45
+				[11]: 46 &lt;= RSRP_xx &lt;= 48
+				[12]: 49 &lt;= RSRP_xx &lt;= 51
+				[13]: 52 &lt;= RSRP_xx &lt;= 54
+				[14]: 55 &lt;= RSRP_xx &lt;= 57
+				[15]: 58 &lt;= RSRP_xx &lt;= 60
+				[16]: 61 &lt;= RSRP_xx &lt;= 97
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="17"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmUeMeasRsrqServIntraFreq1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows a histogram of the reported values for the reference signal received quality (RSRQ) measurements for the serving cell. A description of RSRQ can be found in 3GPP specification 36.133.
+				
+				PDF ranges:
+				[0]: 0 &lt;= RSRQ_xx &lt;= 1
+				[1]: 2 &lt;= RSRQ_xx &lt;= 3
+				[2]: 4 &lt;= RSRQ_xx &lt;= 5
+				[3]: 6 &lt;= RSRQ_xx &lt;= 7
+				[4]: 8 &lt;= RSRQ_xx &lt;= 9
+				[5]: 10 &lt;= RSRQ_xx &lt;= 11
+				[6]: 12 &lt;= RSRQ_xx &lt;= 13
+				[7]: 14 &lt;= RSRQ_xx &lt;= 15
+				[8]: 16 &lt;= RSRQ_xx &lt;= 17
+				[9]: 18 &lt;= RSRQ_xx &lt;= 19
+				[10]: 20 &lt;= RSRQ_xx &lt;= 21
+				[11]: 22 &lt;= RSRQ_xx &lt;= 23
+				[12]: 24 &lt;= RSRQ_xx &lt;= 25
+				[13]: 26 &lt;= RSRQ_xx &lt;= 27
+				[14]: 28 &lt;= RSRQ_xx &lt;= 29
+				[15]: 30 &lt;= RSRQ_xx &lt;= 31
+				[16]: 32 &lt;= RSRQ_xx &lt;= 34
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="17"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmUeMeasRsrpDeltaIntraFreq1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows a histogram of the delta values between reported serving and best target cell reference signal received power measurements (i.e. Delta = RSRP_SERVING - RSRP_BEST_TARGET). A description of RSRP can be found in 3GPP specification 36.133.
+				
+				PDF ranges:
+				[0]:  delta RSRP_xx &lt;= - 6
+				[1]:  - 5 &lt;= delta RSRP_xx &lt;= - 4
+				[2]:  - 3 &lt;= delta RSRP_xx &lt;= - 2
+				[3]:  - 1 &lt;= delta RSRP_xx &lt;= - 1
+				[4]:  0 &lt;= delta RSRP_xx &lt;= 0
+				[5]:  1 &lt;= delta RSRP_xx &lt;= 1
+				[6]:  2 &lt;= delta RSRP_xx &lt;= 2
+				[7]:  3 &lt;= delta RSRP_xx &lt;= 3
+				[8]:  4 &lt;= delta RSRP_xx &lt;= 4
+				[9]:  5 &lt;= delta RSRP_xx &lt;= 6
+				[10]:  7 &lt;= delta RSRP_xx &lt;= 8
+				[11]:  9 &lt;= delta RSRP_xx
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="12"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmUeMeasRsrqDeltaIntraFreq1" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Shows a histogram of the delta values between reported serving and best target cell reference signal received quality measurements (i.e. Delta = RSRQ_SERVING - RSRQ_BEST_TARGET). A description of RSRQ can be found in 3GPP specification 36.133.
+				
+				PDF ranges:
+				[0]:  delta RSRQ_xx &lt;= - 12
+				[1]:  - 11 &lt;= delta RSRQ_xx &lt;= - 8
+				[2]:  - 7 &lt;= delta RSRQ_xx &lt;= - 4
+				[3]:  - 3 &lt;= delta RSRQ_xx &lt;= - 2
+				[4]:  - 1 &lt;= delta RSRQ_xx &lt;= 0
+				[5]:  1 &lt;= delta RSRQ_xx &lt;= 2
+				[6]:  3 &lt;= delta RSRQ_xx &lt;= 4
+				[7]:  5 &lt;= delta RSRQ_xx &lt;= 6
+				[8]:  7 &lt;= delta RSRQ_xx &lt;= 8
+				[9]:  9 &lt;= delta RSRQ_xx &lt;= 12
+				[10]:  13 &lt;= delta RSRQ_xx &lt;= 16
+				[11]:  17 &lt;= delta RSRQ_xx
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="12"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="INHERITED" behaviorOnWrite="INHERITED" restricted="true" ns1:name="PmUeMeasControlId" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The value component of the Relative Distinguished Name (RDN).
+				</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:stringType"/>
+    </ns2:primaryTypeAttribute>
+    <ns2:primaryTypeAttribute behaviorOnRead="MEDIATION" behaviorOnWrite="DONT" restricted="false" ns1:name="pmZtemporary44" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Normally this counter is not used, it can however sometimes be temporarily used for very late additions in a release. If so, for description see Network Impact Report in the CPI.</ns1:desc>
+        <ns1:type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:listType">
+            <ns1:collectionSizeConstraint>
+                <ns1:maxValue value="17"/>
+            </ns1:collectionSizeConstraint>
+            <ns1:collectionValuesType xsi:type="ns1:longType"/>
+        </ns1:type>
+    </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

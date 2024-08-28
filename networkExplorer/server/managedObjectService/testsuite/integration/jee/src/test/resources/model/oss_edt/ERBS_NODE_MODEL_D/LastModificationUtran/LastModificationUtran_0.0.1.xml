@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="LastModificationUtran" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>LastModificationUtran</ns1:desc>
+    <ns2:member value="0" ns1:name="ANR_MODIFICATION" ns1:lifeCycle="NORMAL">
+        <ns1:desc>ANR has modified the object.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="OPERATOR_MODIFICATION" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Operator has modified the object.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="NOT_MODIFIED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Object has not been modified since creation of object.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="ANR_DELETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>ANR has deleted the object.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="OPERATOR_DELETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Operator has deleted the object.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>

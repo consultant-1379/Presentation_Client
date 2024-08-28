@@ -1,0 +1,80 @@
+.w-AppList {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-container {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow-y: hidden;
+        overflow-x: auto;
+        padding: 0 50px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &-scrollLeft {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: url('@{current-url}/arrow_scroll_left_black.svg') center center no-repeat rgba(0, 0, 0, 0.2);
+        width: 40px;
+        opacity: 0.5;
+        cursor: pointer;
+        z-index: 3;
+
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &-scrollRight {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: url('@{current-url}/arrow_scroll_right_black.svg') center center no-repeat rgba(0, 0, 0, 0.2);
+        width: 40px;
+        opacity: 0.5;
+        cursor: pointer;
+        z-index: 3;
+
+        -webkit-transition: all 0.3s linear;
+        -moz-transition: all 0.3s linear;
+        transition: all 0.3s linear;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    &-listColumn {
+        margin-right: 5px;
+        float:left;
+    }
+
+    &-listHeader {
+        display: block;
+        width: 300px;
+        padding: 5px 30px 5px 30px;
+        margin-top: 5px;
+        background: #00A9D4;
+        font-size: 1em;
+        color: #F0F0F0;
+        text-transform: uppercase;
+    }
+}

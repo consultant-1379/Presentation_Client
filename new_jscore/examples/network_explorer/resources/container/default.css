@@ -1,0 +1,37 @@
+@font-face {
+    font-family: EricssonCapitalTT;
+    src: url('EricssonCapitalTT.ttf') format('truetype');
+}
+html, body {
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+html, body, button, input, textarea, select {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a, a:hover {
+    color: #0066B3;
+    text-decoration: none;
+}
+
+
+#TopMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+}
+#Container {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+}

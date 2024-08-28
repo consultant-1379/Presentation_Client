@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Test Cases</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../node_modules/titan/tools/jasmine/jasmine-1.2.0/jasmine.css">
+    <script src="../node_modules/titan/tools/jasmine/jasmine-1.2.0/jasmine.js"></script>
+    <script src="../node_modules/titan/tools/jasmine/jasmine-1.2.0/jasmine-html.js"></script>
+    <script src="../node_modules/titan/tools/jasmine/console-reporter.js"></script>
+    <link rel="stylesheet" href="../resources/torContainer/default.css">
+    <script src="../node_modules/jscore/jscore.js"></script>
+
+    <style>
+        #HTMLReporter {
+            position: relative;
+            background: #eee;
+            z-index: 200;
+            margin-top: -10px;
+        }
+    </style>
+    <script>
+        require({
+            baseUrl: '../src',
+            resources: '../resources',
+            paths: {
+                test: '../test'
+            }
+        }, [
+            'test/torContainer/Application'
+        ], function () {
+            jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+            jasmine.getEnv().addReporter(new jasmine.ConsoleReporter());
+            jasmine.getEnv().execute();
+        });
+    </script>
+</head>
+<body>
+
+<div id="TopMenu"></div>
+<div id="Container"></div>
+</body>
+</html>

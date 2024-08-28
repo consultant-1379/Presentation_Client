@@ -1,0 +1,8 @@
+<suite name="Rest tool example">
+        <!-- This is a comment in the suite.xml file -->
+        <test name="Rest tool example">
+                <classes>
+                        <class name="com.ericsson.nms.pres.testWare.test.cases.RestToolExample" />
+                </classes>
+        </test>
+</suite>

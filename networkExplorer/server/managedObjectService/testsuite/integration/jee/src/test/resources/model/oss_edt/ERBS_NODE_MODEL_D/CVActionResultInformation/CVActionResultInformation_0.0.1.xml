@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EnumDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_edt" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns4="urn:com:ericsson:schema:xml:oss:cbp_engine" xmlns:ns5="urn:com:ericsson:schema:xml:oss:cbp_common" xmlns:ns6="urn:com:ericsson:schema:xml:oss:cbp_component" xmlns:ns7="urn:com:ericsson:schema:xml:oss:dps_relationship" xmlns:ns8="urn:com:ericsson:schema:xml:oss:oss_cache" xmlns:ns9="urn:com:ericsson:schema:xml:oss:oss_channel" xmlns:ns10="urn:com:ericsson:schema:xml:oss:oss_confparam" xmlns:ns11="urn:com:ericsson:schema:xml:oss:cbp_flow" xmlns:ns12="urn:com:ericsson:schema:xml:oss:oss_event" xmlns:ns13="urn:com:ericsson:schema:xml:oss:oss_annotation" xmlns:ns14="urn:com:ericsson:schema:xml:oss:oss_cdt" ns1:ns="ERBS_NODE_MODEL_D" ns1:name="CVActionResultInformation" ns1:version="0.0.1" ns1:lifeCycle="NORMAL">
+    <ns1:modelCreationInfo creationDate="2013-06-26 11:06:21.849" author="mom-xml-transformer-tool">
+        <ns1:derivedModel urn="/oss_edt/ERBS_NODE_MODEL_D/ERBS_NODE_MODEL_D/0.0.1"/>
+    </ns1:modelCreationInfo>
+    <ns1:desc>Configuration version action result information</ns1:desc>
+    <ns2:member value="0" ns1:name="CORE_CENTRAL_MP_POSITION_NOT_MATCHING" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The node core central MP position(s) is/are not the same as in the downloaded backup CV.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="1" ns1:name="CV_BACKUP_NOT_FOUND" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV backup was not found on the FTP server.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="2" ns1:name="CV_IS_DAMAGED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV is damaged (not useable).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="3" ns1:name="CV_IS_INCOMPLETE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Some CV files are missing.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="4" ns1:name="CV_IS_INVALID_FOR_BACKUP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV type is invalid for creation of a remote backup.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="5" ns1:name="CV_NAME_ALREADY_EXISTS" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The downloaded backup CV contains a CV with a name that is identical to a CV already existing on the node.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="6" ns1:name="CV_IS_NOT_FOUND" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV does not exist.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="7" ns1:name="FORMAT_OF_IP_ADDRESS_IS_FAULTY" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Erroneous IP Address Format.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="8" ns1:name="FTP_ACCESS_OR_TRANSFER_FAILED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An error was encountered during FTP file access or transfer.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="9" ns1:name="FTP_SERVER_IS_NOT_ACCESSIBLE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>FTP server is not accessible.This reason may be one or several of the following:
+				- Erroneous IP address, username or password
+				- IP communication with the FTP server is down
+				- The FTP server itself is malfunctioning.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="10" ns1:name="HARDWARE_IS_INCOMPATIBLE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Mismatch detected in the node board/slot configuration compared to the downloaded backup CV.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="11" ns1:name="HARDWARE_SOFTWARE_IS_INCOMPATIBLE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Boards in the node are not supported by the UCF(s).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="12" ns1:name="INSUFFICIENT_DISKSPACE_ON_NODE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>There are not enough with disk space on node.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="13" ns1:name="MAX_NUMBER_OF_CVS_WILL_BE_EXCEEDED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The maximum number of allowed CVs will be exceeded if the required action is executed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="14" ns1:name="NETWORK_CONFIGURATION_MISMATCH_FOR_IP_ATM" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Mismatch detected when comparing the node network configuration for IP/ATM with corresponding data in the downloaded backup CV.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="15" ns1:name="UNKNOWN_NODE_IDENTITY" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The node identity/site in the downloaded backup CV doesn't match the existing node identity/site.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="16" ns1:name="UNSPECIFIED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>A not specified error/ warning has been detected (see additional info for further details).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="17" ns1:name="UPGRADE_PACKAGE_IS_CORRUPTED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Software integrity problems detected, that is, one or more of the load modules related to the downloaded backup CV have checksum errors. The found checksum errors are corrected by requesting forced install on any upgrade package that contains the faulty load modules.
+				See further attribute corruptedUpgradePackages.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="18" ns1:name="UPGRADE_PACKAGE_IS_MISSING" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Upgrade package(s) referenced in the downloaded backup CV are not present on the node. See further attribute missingUpgradePackages.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="19" ns1:name="ILLEGAL_VALUE_RECEIVED_IN_INPUT_PARAMETER" ns1:lifeCycle="NORMAL">
+        <ns1:desc>An input parameter has been assigned an illegal value.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="20" ns1:name="CV_BACKUP_NAME" ns1:lifeCycle="NORMAL">
+        <ns1:desc>This is the name with which a CV is saved in the FTP server after having executed the putToFtpServer action. Notice that the name will have the form *.zip</ns1:desc>
+    </ns2:member>
+    <ns2:member value="21" ns1:name="INSUFFICIENT_DISKSPACE_ON_FTP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>There are not enough with disk space on the FTP server.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="22" ns1:name="CV_IS_INVALID_FOR_RESTORE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV type is invalid for restore (only CV of type downloaded is valid for restore/forcedRestore).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="23" ns1:name="CV_IS_NOT_CONNECTED_TO_AN_UPGRADE_PACKAGE" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The CV is not connected to an Upgrade Package.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="24" ns1:name="RESTORE_MANUALLY_CANCELLED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The execution of restore/forcedRestore has been cancelled (during the verify phase of restore, that is when action cancelRestore has been invoked).</ns1:desc>
+    </ns2:member>
+    <ns2:member value="25" ns1:name="ACTION_RESTORE_IS_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The verify restore action has determined that action restore is allowed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="26" ns1:name="ACTION_RESTORE_IS_NOT_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The verify restore action has determined that action restore is not allowed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="27" ns1:name="ACTION_FORCED_RESTORE_IS_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The verify restore action has determined that action forced restore is allowed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="28" ns1:name="ACTION_FORCED_RESTORE_IS_NOT_ALLOWED" ns1:lifeCycle="NORMAL">
+        <ns1:desc>The verify restore action has determined that action forced restore is not allowed.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="29" ns1:name="CORE_CENTRAL_MP_POSITION_PARTLY_MATCHING" ns1:lifeCycle="NORMAL">
+        <ns1:desc>One node core central MP position is not the same as in the downloaded backup CV.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="30" ns1:name="NETWORK_CONFIGURATION_MISMATCH_FOR_IP" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Mismatch detected when comparing the node network configuration for IP with corresponding data in the downloaded backup CV.</ns1:desc>
+    </ns2:member>
+    <ns2:member value="31" ns1:name="CERTIFICATE_OR_SIGNATURE_PROBLEM" ns1:lifeCycle="NORMAL">
+        <ns1:desc>Certificate or signature problem detected for at least one load module.</ns1:desc>
+    </ns2:member>
+</ns2:EnumDataTypeDefinition>
